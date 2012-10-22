@@ -444,7 +444,7 @@ li:before {
 
 /* Table of contents block */
 section.toc {
-  font-size: 60%;
+  font-size: 80%;
 }
 section.toc h3 {
   font-size: 19px;
