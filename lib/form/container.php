@@ -257,4 +257,16 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 		return $all_errors;
 	}
 
+	/**
+	 * Return a string based on error condition
+	 * @param string $return
+	 * @param string $error_code
+	 * @return string
+	 *
+	 * Useful as <input <?php echo $form->field->if_error('class="error"') ?> ...>
+	 */
+	public function if_error($return, $error_code = null) {
+		return $this->has_error($error_code)? $return: '';
+	}
+
 }

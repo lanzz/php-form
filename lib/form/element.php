@@ -103,7 +103,7 @@ class Form_Element extends Form_Container {
 	 * @return string
 	 */
 	public function as_url() {
-		return htmlspecialchars($this->as_string());
+		return rawurlencode($this->as_string());
 	}
 
 	/**
@@ -134,23 +134,23 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Return a checked attribute if value matches a target
-	 * @param string $target
+	 * @param string $value
 	 * @return string
 	 */
-	public function checked($target) {
-		$value = $this->get_value();
-		$checked = is_array($value)? in_array($target, $value): ($target == $value);
+	public function checked($value) {
+		$current_value = $this->get_value();
+		$checked = is_array($current_value)? in_array($value, $current_value): ($value == $current_value);
 		return $checked? ' checked ': '';
 	}
 
 	/**
 	 * Return a selected attribute if value matches a target
-	 * @param string $target
+	 * @param string $value
 	 * @return string
 	 */
-	public function selected($target) {
-		$value = $this->get_value();
-		$checked = is_array($value)? in_array($target, $value): ($target == $value);
+	public function selected($value) {
+		$current_value = $this->get_value();
+		$checked = is_array($current_value)? in_array($value, $current_value): ($value == $current_value);
 		return $checked? ' selected ': '';
 	}
 
@@ -250,18 +250,6 @@ class Form_Element extends Form_Container {
 	 */
 	public function submit($label, $attributes = null) {
 		return '<input type="submit" '.$this->id().$this->name().' value="'.htmlspecialchars($label).'" '.$attributes.'>';
-	}
-
-	/**
-	 * Return a string based on error condition
-	 * @param string $return
-	 * @param string $error_code
-	 * @return string
-	 *
-	 * Useful as <input <?php echo $form->field->if_error('class="error"') ?> ...>
-	 */
-	public function if_error($return, $error_code = null) {
-		return $this->has_error($error_code)? $return: '';
 	}
 
 
