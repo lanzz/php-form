@@ -441,3 +441,11 @@ li:before {
     content: counters(item, ".") ". ";
     counter-increment: item
 }
+
+/* Table of contents block */
+section.toc {
+  font-size: 60%;
+  width: 200px;
+  position: absolute;
+  left: -200px;
+}
