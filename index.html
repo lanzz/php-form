@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="PHP-Form : PHP library for dealing with forms" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>PHP-Form</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/lanzz/php-form">View on GitHub</a>
+
+          <h1 id="project_title">PHP-Form</h1>
+          <h2 id="project_tagline">PHP library for dealing with forms</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/lanzz/php-form/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/lanzz/php-form/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>Class <a href="Form_Container"><code>Form_Container</code></a>
+</h2>
+
+<h3>Implements interface <a href="http://php.net/manual/en/class.countable.php"><code>Countable</code></a>
+</h3>
+
+<ul>
+<li><a href="Form_Container.count"><code>int -&gt;count()</code></a></li>
+</ul><h3>Implements interface <a href="http://php.net/manual/en/class.iterator.php"><code>Iterator</code></a>
+</h3>
+
+<ul>
+<li><a href="Form_Container.current"><code>Form_Element -&gt;current()</code></a></li>
+<li><a href="Form_Container.key"><code>string -&gt;key()</code></a></li>
+<li><a href="Form_Container.next"><code>void -&gt;next()</code></a></li>
+<li><a href="Form_Container.rewind"><code>void -&gt;rewind()</code></a></li>
+<li><a href="Form_Container.valid"><code>bool -&gt;valid()</code></a></li>
+</ul><h3>Implements interface <a href="http://php.net/manual/en/class.arrayaccess.php"><code>ArrayAccess</code></a>
+</h3>
+
+<ul>
+<li><a href="Form_Container.offsetGet"><code>FormElement -&gt;offsetGet($index)</code></a></li>
+<li><a href="Form_Container.offsetSet"><code>void -&gt;offsetSet($index, $value)</code></a></li>
+<li><a href="Form_Container.offsetExists"><code>bool -&gt;offsetExists($index)</code></a></li>
+<li><a href="Form_Container.offsetUnset"><code>void -&gt;offsetUnset($index)</code></a></li>
+</ul><h3>Magic methods</h3>
+
+<ul>
+<li><a href="Form_Container.__get"><code>FormElement -&gt;__get($name)</code></a></li>
+<li><a href="Form_Container.__set"><code>void -&gt;__set($name, $value)</code></a></li>
+<li><a href="Form_Container.__isset"><code>bool -&gt;__isset($name)</code></a></li>
+<li><a href="Form_Container.__unset"><code>void -&gt;__unset($name)</code></a></li>
+</ul><h3>Instance methods</h3>
+
+<ul>
+<li><a href="Form_Container.clear_errors"><code>$this -&gt;clear_errors($code = null)</code></a></li>
+<li><a href="Form_Container.set_error"><code>$this -&gt;set_error($error, $code = null)</code></a></li>
+<li><a href="Form_Container.add_error"><code>$this -&gt;add_error($error, $code = null)</code></a></li>
+<li><a href="Form_Container.has_error"><code>bool -&gt;has_error($code = null)</code></a></li>
+<li><a href="Form_Container.get_errors"><code>array -&gt;get_errors($code = null)</code></a></li>
+<li><a href="Form_Container.if_error"><code>string -&gt;if_error()</code></a></li>
+</ul><h2>Class <a href="Form"><code>Form</code></a>
+</h2>
+
+<h3>Extends class <a href="Form_Container"><code>Form_Container</code></a>
+</h3>
+
+<h3>Static methods</h3>
+
+<ul>
+<li><a href="Form.from_array"><code>Form ::from_array(array $submission, $name = null)</code></a></li>
+<li><a href="Form.from_get"><code>Form ::from_get($context = null)</code></a></li>
+<li><a href="Form.from_post"><code>Form ::from_post($context = null)</code></a></li>
+<li><a href="Form.from_request"><code>Form ::from_request($context = null)</code></a></li>
+</ul><h3>Instance methods</h3>
+
+<ul>
+<li><a href="Form.is_submitted"><code>bool -&gt;is_submitted()</code></a></li>
+<li><a href="Form.set_defaults"><code>$this -&gt;set_defaults(array $defaults)</code></a></li>
+<li><a href="Form.hidden"><code>string -&gt;hidden()</code></a></li>
+<li><a href="Form.query"><code>string -&gt;query()</code></a></li>
+</ul><h2>Class <a href="Form_Element"><code>Form_Element</code></a>
+</h2>
+
+<h3>Extends class <a href="Form_Container"><code>Form_Container</code></a>
+</h3>
+
+<h3>Instance methods</h3>
+
+<ul>
+<li><a href="Form_Element.get_name"><code>string -&gt;get_name()</code></a></li>
+<li><a href="Form_Element.get_default"><code>string -&gt;get_default()</code></a></li>
+<li><a href="Form_Element.get_submitted"><code>string -&gt;get_submitted()</code></a></li>
+<li><a href="Form_Element.get_value"><code>string -&gt;get_value()</code></a></li>
+<li><a href="Form_Element.get_id"><code>string -&gt;get_id()</code></a></li>
+<li><a href="Form_Element.as_string"><code>string -&gt;as_string()</code></a></li>
+<li><a href="Form_Element.as_html"><code>string -&gt;as_html()</code></a></li>
+<li><a href="Form_Element.as_url"><code>string -&gt;as_url()</code></a></li>
+<li><a href="Form_Element.name"><code>string -&gt;name()</code></a></li>
+<li><a href="Form_Element.value"><code>string -&gt;value()</code></a></li>
+<li><a href="Form_Element.id"><code>string -&gt;id($prefix = null, $suffix = null)</code></a></li>
+<li><a href="Form_Element.checked"><code>string -&gt;checked($value)</code></a></li>
+<li><a href="Form_Element.selected"><code>string -&gt;selected($value)</code></a></li>
+<li><a href="Form_Element.hidden"><code>string -&gt;hidden()</code></a></li>
+<li><a href="Form_Element.query"><code>string -&gt;query()</code></a></li>
+<li><a href="Form_Element.input"><code>string -&gt;input($attributes = null)</code></a></li>
+<li><a href="Form_Element.password"><code>string -&gt;password($attributes = null)</code></a></li>
+<li><a href="Form_Element.textarea"><code>string -&gt;textarea($attributes = null)</code></a></li>
+<li><a href="Form_Element.checkbox"><code>string -&gt;checkbox($value, $attributes = null)</code></a></li>
+<li><a href="Form_Element.radio"><code>string -&gt;radio($value, $attributes = null)</code></a></li>
+<li><a href="Form_Element.select"><code>string -&gt;select(array $values, $attributes = null)</code></a></li>
+<li><a href="Form_Element.submit"><code>string -&gt;submit($label, $attributes = null)</code></a></li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">PHP-Form maintained by <a href="https://github.com/lanzz">lanzz</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
