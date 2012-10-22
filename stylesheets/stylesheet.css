@@ -446,3 +446,6 @@ li:before {
 section.toc {
   font-size: 60%;
 }
+section.toc h3 {
+  font-size: 19px;
+}
