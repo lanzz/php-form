@@ -445,11 +445,4 @@ li:before {
 /* Table of contents block */
 section.toc {
   font-size: 60%;
-  width: 200px;
-  position: absolute;
-  left: -200px;
-}
-
-section.inner {
-  overflow: auto;
 }
