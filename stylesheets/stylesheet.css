@@ -434,10 +434,10 @@ Small Device Styles
 ol.toc {
     counter-reset: item
 }
-.toc li {
+li.toc {
     display: block
 }
-.toc li:before {
+li.toc:before {
     content: counters(item, ".") ". ";
     counter-increment: item
 }
