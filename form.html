@@ -48,7 +48,7 @@
 
 				<p>Instantiating forms:</p>
 
-				<code>
+				<pre><code>
 					// Create a new form, populating it from GET query parameters
 					$form = Form::from_get();
 
@@ -65,11 +65,11 @@
 					// Create a new form, populating it from array, and namespacing it under 'foo'
 					// When rendered, its elements will have names 'foo[bar]' and 'foo[baz]'
 					$form = Form::from_array(array('bar' =&gt; 1, 'baz' =&gt; 2), 'foo');
-				</code>
+				</code></pre>
 
 				<p>Using form instances:</p>
 
-				<code>
+				<pre><code>
 					// Set default values to populate the form elements before it has been submitted
 					$form->set_defaults(array('foo' =&gt; 1, 'bar' =&gt; 2));
 
@@ -88,7 +88,7 @@
 
 					// Build a query string with all the form's elements' values
 					$query = $form->query()
-				</code>
+				</code></pre>
 
 				<h3>Constructor</h3>
 
