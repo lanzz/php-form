@@ -55,6 +55,8 @@
 				<pre><code>$form = Form::from_post('foo.bar');</code></pre>
 				<p>Rendering elements from the above form will likewise have names starting with <code>foo[bar]</code>.</p>
 
+				<hr>
+
 				<p>Instantiate a new form, populating it from both GET and POST parameters, POST parameters taking precedence in conflicts:</p>
 				<pre><code>$form = Form::from_request();</code></pre>
 
@@ -64,6 +66,8 @@
 				<p>Create a new form, populating it from array, and namespacing it under <code>foo</code>:</p>
 				<pre><code>$form = Form::from_array(array('bar' =&gt; 1, 'baz' =&gt; 2), 'foo');</code></pre>
 				<p>When rendered, its elements will have names <code>foo[bar]<code> and <code>foo[baz]</code></p>
+
+				<hr>
 
 				<h4>Using instances:</h4>
 
@@ -80,13 +84,17 @@
 
 				<p>Get a <a href="/php-form/form_element.html">Form_Element</a> instance for a deeper form element:</p>
 				<pre><code>$element = $form->foo->bar[2]->baz;</code></pre>
-				<p>This element would refer to the value of $_POST['foo']['bar'][2]['baz'].</p>
+				<p>This element would refer to the value of <code>$_POST['foo']['bar'][2]['baz']</code>.</p>
+
+				<hr>
 
 				<p>Generate HTML with all the form's elements as <code>type="hidden"</code> inputs:</p>
 				<pre><code>$html = $form->hidden();</code></pre>
 
 				<p>Build a query string with all the form's elements' values:</p>
 				<pre><code>$query = $form->query();</code></pre>
+
+				<hr>
 
 				<h3>Constructor</h3>
 
