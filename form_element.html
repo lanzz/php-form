@@ -46,28 +46,48 @@
 
 				<p>It can contain sub-elements, so it is an instance of <a href="/php-form/form_container.html">Form_Container</a>.</p>
 
-				<h3>Constructor</h3>
+				<h3>Accessor methods</h3>
 
-				<p><a href="/php-form/form_element/construct.html">__construct(Form $form, $name, $value, $default_value)</a></p>
-
-				<h3>Instance methods</h3>
+				<p>These methods return various properties of the element</p>
 
 				<ul>
 					<li><a href="/php-form/form_element/get_name.html">get_name()</a></li>
 					<li><a href="/php-form/form_element/get_default.html">get_default()</a></li>
 					<li><a href="/php-form/form_element/get_submitted.html">get_submitted()</a></li>
 					<li><a href="/php-form/form_element/get_value.html">get_value()</a></li>
+					<li><a href="/php-form/form_element/get_type.html">get_type()</a></li>
 					<li><a href="/php-form/form_element/get_id.html">get_id()</a></li>
+				</ul>
+
+				<h3>Formatting methods</h3>
+
+				<p>These methods return the value of the element in various formats</p>
+
+				<ul>
 					<li><a href="/php-form/form_element/as_string.html">as_string()</a></li>
 					<li><a href="/php-form/form_element/as_html.html">as_html()</a></li>
 					<li><a href="/php-form/form_element/as_url.html">as_url()</a></li>
+					<li><a href="/php-form/form_element/query.html">query()</a></li>
+				</ul>
+
+				<h3>Attribute rendering methods</h3>
+
+				<p>These methods render various input element attributes</p>
+
+				<ul>
 					<li><a href="/php-form/form_element/name.html">name()</a></li>
 					<li><a href="/php-form/form_element/value.html">value()</a></li>
 					<li><a href="/php-form/form_element/id.html">id($prefix = null, $suffix = null)</a></li>
 					<li><a href="/php-form/form_element/checked.html">checked($value)</a></li>
 					<li><a href="/php-form/form_element/selected.html">selected($value)</a></li>
+				</ul>
+
+				<h3>Input element rendering methods</h3>
+
+				<p>These methods render entire <code>&lt;input&gt;</code> elements</p>
+
+				<ul>
 					<li><a href="/php-form/form_element/hidden.html">hidden()</a></li>
-					<li><a href="/php-form/form_element/query.html">query()</a></li>
 					<li><a href="/php-form/form_element/input.html">input($attributes = null)</a></li>
 					<li><a href="/php-form/form_element/password.html">password($attributes = null)</a></li>
 					<li><a href="/php-form/form_element/textarea.html">textarea($attributes = null)</a></li>
