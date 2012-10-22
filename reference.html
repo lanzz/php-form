@@ -47,57 +47,53 @@
 				<h3>Magic methods</h3>
 
 				<ul>
-					<li><a href="/php-form/form_container/__get.html">__get($name)</a></li>
-					<li><a href="/php-form/form_container/__set.html">__set($name, $value)</a></li>
-					<li><a href="/php-form/form_container/__isset.html">__isset($name)</a></li>
-					<li><a href="/php-form/form_container/__unset.html">__unset($name)</a></li>
+					<li><a href="/php-form/form_container/__get.html"><em>Form_Element</em> __get(<em>string</em> $name)</a></li>
+					<li><a href="/php-form/form_container/__set.html"><em>void</em> __set(<em>string</em> $name, <em>mixed</em> $value)</a></li>
+					<li><a href="/php-form/form_container/__isset.html"><em>boolean</em> __isset(<em>string</em> $name)</a></li>
+					<li><a href="/php-form/form_container/__unset.html"><em>void</em> __unset(<em>string</em> $name)</a></li>
 				</ul>
 
 				<h3>Instance methods</h3>
 
 				<ul>
-					<li><a href="/php-form/form_container/count.html">count()</a></li>
-					<li><a href="/php-form/form_container/current.html">current()</a></li>
-					<li><a href="/php-form/form_container/key.html">key()</a></li>
-					<li><a href="/php-form/form_container/next.html">next()</a></li>
-					<li><a href="/php-form/form_container/rewind.html">rewind()</a></li>
-					<li><a href="/php-form/form_container/valid.html">valid()</a></li>
-					<li><a href="/php-form/form_container/offsetGet.html">offsetGet($index)</a></li>
-					<li><a href="/php-form/form_container/offsetSet.html">offsetSet($index, $value)</a></li>
-					<li><a href="/php-form/form_container/offsetExists.html">offsetExists($index)</a></li>
-					<li><a href="/php-form/form_container/offsetUnset.html">offsetUnset($index)</a></li>
-					<li><a href="/php-form/form_container/clear_errors.html">clear_errors($code = null)</a></li>
-					<li><a href="/php-form/form_container/set_error.html">set_error($error, $code = null)</a></li>
-					<li><a href="/php-form/form_container/add_error.html">add_error($error, $code = null)</a></li>
-					<li><a href="/php-form/form_container/has_error.html">has_error($code = null)</a></li>
-					<li><a href="/php-form/form_container/get_errors.html">get_errors($code = null)</a></li>
-					<li><a href="/php-form/form_container/if_error.html">if_error($return, $error_code = null)</a></li>
+					<li><a href="/php-form/form_container/count.html"><em>int</e,> count()</a></li>
+					<li><a href="/php-form/form_container/current.html">Form_Element current()</a></li>
+					<li><a href="/php-form/form_container/key.html"><em>string</em> key()</a></li>
+					<li><a href="/php-form/form_container/next.html"><em>void</em> next()</a></li>
+					<li><a href="/php-form/form_container/rewind.html"><em>void</em> rewind()</a></li>
+					<li><a href="/php-form/form_container/valid.html"><em>boolean</em> valid()</a></li>
+					<li><a href="/php-form/form_container/offsetGet.html">Form_Element offsetGet(<em>mixed</em> $index)</a></li>
+					<li><a href="/php-form/form_container/offsetSet.html"><em>void</em> offsetSet(<em>mixed</em> $index, <em>mixed</em> $value)</a></li>
+					<li><a href="/php-form/form_container/offsetExists.html"><em>boolean</em> offsetExists(<em>mixed</em> $index)</a></li>
+					<li><a href="/php-form/form_container/offsetUnset.html"><em>void</em> offsetUnset(<em>mixed</em> $index)</a></li>
+					<li><a href="/php-form/form_container/clear_errors.html">Form_Container clear_errors(<em>string</em> $code = null)</a></li>
+					<li><a href="/php-form/form_container/set_error.html">Form_Container set_error(<em>string</em> $error, <em>string</em> $code = null)</a></li>
+					<li><a href="/php-form/form_container/add_error.html">Form_Container add_error(<em>string</em> $error, <em>string</em> $code = null)</a></li>
+					<li><a href="/php-form/form_container/has_error.html"><em>boolean</em> has_error(<em>string</em> $code = null)</a></li>
+					<li><a href="/php-form/form_container/get_errors.html">array get_errors(<em>string</em> $code = null)</a></li>
+					<li><a href="/php-form/form_container/if_error.html"><em>string</em> if_error(<em>string</em> $return, <em>string</em> $code = null)</a></li>
 				</ul>
 
 				<h2>Class <a href="/php-form/form.html">Form</a></h2>
 
 				<h3>Extends class <a href="/php-form/form_container.html">Form_Container</a></h3>
 
-				<h3>Constructor</h3>
-
-				<p><a href="/php-form/form/construct.html">__construct(array $submission, $name = null)</a></p>
-
 				<h3>Static methods</h3>
 
 				<ul>
-					<li><a href="/php-form/form/from_array.html">from_array(array $submission, $name = null)</a></li>
-					<li><a href="/php-form/form/from_get.html">from_get($context = null)</a></li>
-					<li><a href="/php-form/form/from_post.html">from_post($context = null)</a></li>
-					<li><a href="/php-form/form/from_request.html">from_request($context = null)</a></li>
+					<li><a href="/php-form/form/from_array.html">Form from_array(array $submission, $name = null)</a></li>
+					<li><a href="/php-form/form/from_get.html">Form from_get($context = null)</a></li>
+					<li><a href="/php-form/form/from_post.html">Form from_post($context = null)</a></li>
+					<li><a href="/php-form/form/from_request.html">Form from_request($context = null)</a></li>
 				</ul>
 
 				<h3>Instance methods</h3>
 
 				<ul>
-					<li><a href="/php-form/form/is_submitted.html">is_submitted()</a></li>
-					<li><a href="/php-form/form/set_defaults.html">set_defaults(array $defaults)</a></li>
-					<li><a href="/php-form/form/hidden.html">hidden()</a></li>
-					<li><a href="/php-form/form/query.html">query()</a></li>
+					<li><a href="/php-form/form/is_submitted.html"><em>boolean</em> is_submitted()</a></li>
+					<li><a href="/php-form/form/set_defaults.html">Form set_defaults(array $defaults)</a></li>
+					<li><a href="/php-form/form/hidden.html"><em>string</em> hidden()</a></li>
+					<li><a href="/php-form/form/query.html"><em>string</em> query()</a></li>
 				</ul>
 
 				<h2>Class <a href="/php-form/form_element.html">Form_Element</a></h2>
@@ -107,29 +103,29 @@
 				<h3>Instance methods</h3>
 
 				<ul>
-					<li><a href="/php-form/form_element/get_name.html">get_name()</a></li>
-					<li><a href="/php-form/form_element/get_default.html">get_default()</a></li>
-					<li><a href="/php-form/form_element/get_submitted.html">get_submitted()</a></li>
-					<li><a href="/php-form/form_element/get_value.html">get_value()</a></li>
-					<li><a href="/php-form/form_element/get_type.html">get_type()</a></li>
-					<li><a href="/php-form/form_element/get_id.html">get_id()</a></li>
-					<li><a href="/php-form/form_element/as_string.html">as_string()</a></li>
-					<li><a href="/php-form/form_element/as_html.html">as_html()</a></li>
-					<li><a href="/php-form/form_element/as_url.html">as_url()</a></li>
-					<li><a href="/php-form/form_element/name.html">name()</a></li>
-					<li><a href="/php-form/form_element/value.html">value()</a></li>
-					<li><a href="/php-form/form_element/id.html">id($prefix = null, $suffix = null)</a></li>
-					<li><a href="/php-form/form_element/checked.html">checked($value)</a></li>
-					<li><a href="/php-form/form_element/selected.html">selected($value)</a></li>
-					<li><a href="/php-form/form_element/hidden.html">hidden()</a></li>
-					<li><a href="/php-form/form_element/query.html">query()</a></li>
-					<li><a href="/php-form/form_element/input.html">input($attributes = null)</a></li>
-					<li><a href="/php-form/form_element/password.html">password($attributes = null)</a></li>
-					<li><a href="/php-form/form_element/textarea.html">textarea($attributes = null)</a></li>
-					<li><a href="/php-form/form_element/checkbox.html">checkbox($value, $attributes = null)</a></li>
-					<li><a href="/php-form/form_element/radio.html">radio($value, $attributes = null)</a></li>
-					<li><a href="/php-form/form_element/select.html">select(array $values, $attributes = null)</a></li>
-					<li><a href="/php-form/form_element/submit.html">submit($label, $attributes = null)</a></li>
+					<li><a href="/php-form/form_element/get_name.html"><em>string</em> get_name()</a></li>
+					<li><a href="/php-form/form_element/get_default.html"><em>mixed</em> get_default()</a></li>
+					<li><a href="/php-form/form_element/get_submitted.html"><em>mixed</em> get_submitted()</a></li>
+					<li><a href="/php-form/form_element/get_value.html"><em>mixed</em> get_value()</a></li>
+					<li><a href="/php-form/form_element/get_type.html"><em>string</em> get_type()</a></li>
+					<li><a href="/php-form/form_element/get_id.html"><em>string</em> get_id()</a></li>
+					<li><a href="/php-form/form_element/as_string.html"><em>string</em> as_string()</a></li>
+					<li><a href="/php-form/form_element/as_html.html"><em>string</em> as_html()</a></li>
+					<li><a href="/php-form/form_element/as_url.html"><em>string</em> as_url()</a></li>
+					<li><a href="/php-form/form_element/name.html"><em>string</em> name()</a></li>
+					<li><a href="/php-form/form_element/value.html"><em>string</em> value()</a></li>
+					<li><a href="/php-form/form_element/id.html"><em>string</em> id($prefix = null, $suffix = null)</a></li>
+					<li><a href="/php-form/form_element/checked.html"><em>string</em> checked($value)</a></li>
+					<li><a href="/php-form/form_element/selected.html"><em>string</em> selected($value)</a></li>
+					<li><a href="/php-form/form_element/hidden.html"><em>string</em> hidden()</a></li>
+					<li><a href="/php-form/form_element/query.html"><em>string</em> query()</a></li>
+					<li><a href="/php-form/form_element/input.html"><em>string</em> input($attributes = null)</a></li>
+					<li><a href="/php-form/form_element/password.html"><em>string</em> password($attributes = null)</a></li>
+					<li><a href="/php-form/form_element/textarea.html"><em>string</em> textarea($attributes = null)</a></li>
+					<li><a href="/php-form/form_element/checkbox.html"><em>string</em> checkbox($value, $attributes = null)</a></li>
+					<li><a href="/php-form/form_element/radio.html"><em>string</em> radio($value, $attributes = null)</a></li>
+					<li><a href="/php-form/form_element/select.html"><em>string</em> select(array $values, $attributes = null)</a></li>
+					<li><a href="/php-form/form_element/submit.html"><em>string</em> submit($label, $attributes = null)</a></li>
 				</ul>
 
 				<div>

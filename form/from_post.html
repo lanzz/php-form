@@ -36,7 +36,28 @@
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
 				</div>
 
-				<h1>Under Construction</h1>
+				<h2>Factory method <a href="/php-form/form.html">Form</a>::from_post($name = null)</h2>
+
+				<p>Returns a new <a href="/php-form/form.html"><code>Form</code></a> instance, populated with submitted values from
+					the POST parameters.</p>
+
+				<p><code>$name</code> specifies the point within the <code>$_POST</code> array from which to retrieve the form values,
+					and determines the name of the new form instance. For example:</p>
+
+				<pre><code>$form = Form::from_post('foo[bar]');
+$element = $form->baz;
+echo $element->get_name(); // => 'foo[bar][baz]''
+
+echo $element->get_submitted(); // will print the value of $_POST['foo']['bar']['baz']</code></pre>
+
+				<p>If <code>$name</code> is not provided, the form will be populated with the full <code>$_POST</code> array,
+					and will not have a name prefix:</p>
+
+				<pre><code>$form = Form::from_post();
+$element = $form->baz;
+echo $element->get_name(); // => 'baz'
+
+echo $element->get_submitted(); // will print the value of $_POST['baz']</code></pre>
 
 				<div>
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
