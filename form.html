@@ -46,45 +46,65 @@
 				<p>It provides several static methods to instantiate a Form from a given set of submitted values — either from actual
 					GET/POST submitted values, or directly from an array of values.</p>
 
-				<p>Instantiating forms:</p>
+				<hr>
 
-<pre><code>// Create a new form, populating it from GET query parameters
-$form = Form::from_get();
+				<p>Instantiate a new form, populating it from GET query parameters:</p>
+				<pre><code>$form = Form::from_get();</code></pre>
 
-// Create a new form, populating it from POST parameters starting at $_POST['foo']['bar']
-// Rendering elements from this form will likewise have names starting with 'foo[bar]'
-$form = Form::from_post('foo.bar');
+				<hr>
 
-// Create a new form, populating it from both GET and POST parameters
-$form = Form::from_request();
+				<p>Instantiate a new form, populating it from POST parameters starting at <code>$_POST['foo']['bar']</code>:</p>
+				<pre><code>$form = Form::from_post('foo.bar');</code></pre>
+				<p>Rendering elements from the above form will likewise have names starting with <code>foo[bar]</code>.</p>
 
-// Create a new form, populating it with preset values from an array
-$form = Form::from_array(array('foo' =&gt; 1, 'bar' =&gt; 2));
+				<hr>
 
-// Create a new form, populating it from array, and namespacing it under 'foo'
-// When rendered, its elements will have names 'foo[bar]' and 'foo[baz]'
-$form = Form::from_array(array('bar' =&gt; 1, 'baz' =&gt; 2), 'foo');</code></pre>
+				<p>Instantiate a new form, populating it from both GET and POST parameters, POST parameters taking precedence in conflicts:</p>
+				<pre><code>$form = Form::from_request();</code></pre>
 
-				<p>Using form instances:</p>
+				<hr>
 
-<pre><code>// Set default values to populate the form elements before it has been submitted
-$form->set_defaults(array('foo' =&gt; 1, 'bar' =&gt; 2));
+				<p>Create a new form, populating it with preset values from an array:</p>
+				<pre><code>$form = Form::from_array(array('foo' =&gt; 1, 'bar' =&gt; 2));</code></pre>
 
-if ($form->is_submitted()) {
-	// Do something only when the form has been actually submitted
-}
+				<hr>
 
-// Get a Form_Element instance for the 'foo' element of the form
-$element = $form->foo;
+				<p>Create a new form, populating it from array, and namespacing it under <code>foo</code>:</p>
+				<pre><code>$form = Form::from_array(array('bar' =&gt; 1, 'baz' =&gt; 2), 'foo');</code></pre>
+				<p>When rendered, its elements will have names <code>foo[bar]<code> and <code>foo[baz]</code></p>
 
-// Get a Form_Element instance for a deeper form element, equivalent to $_POST['foo']['bar'][2]['baz']
-$element = $form->foo->bar[2]->baz;
+				<hr>
 
-// Generate HTML with all the form's elements as type="hidden" inputs
-$html = $form->hidden();
+				<p>Set default values to populate the form elements before it has been submitted:</p>
+				<pre><code>$form->set_defaults(array('foo' =&gt; 1, 'bar' =&gt; 2));</code></pre>
 
-// Build a query string with all the form's elements' values
-$query = $form->query();</code></pre>
+				<hr>
+
+				<p>Do something only when the form has been actually submitted:</p>
+				<pre><code>if ($form->is_submitted()) {
+    // ...
+}</code></pre>
+
+				<hr>
+
+				<p>Get a <a href="/php-form/form_element.html">Form_Element</a> instance for the <code>foo</code> element of the form:</p>
+				<pre><code>$element = $form->foo;</code></pre>
+
+				<hr>
+
+				<p>Get a <a href="/php-form/form_element.html">Form_Element</a> instance for a deeper form element:</p>
+				<pre><code>$element = $form->foo->bar[2]->baz;</code></pre>
+				<p>This element would refer to the value of $_POST['foo']['bar'][2]['baz'].</p>
+
+				<hr>
+
+				<p>Generate HTML with all the form's elements as <code>type="hidden"</code> inputs:</p>
+				<pre><code>$html = $form->hidden();</code></pre>
+
+				<hr>
+
+				<p>Build a query string with all the form's elements' values:</p>
+				<pre><code>$query = $form->query();</code></pre>
 
 				<h3>Constructor</h3>
 
