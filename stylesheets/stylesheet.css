@@ -180,7 +180,7 @@ pre {
 
 code {
   /*padding: 3px;*/
-  margin: 0 3px;
+  padding: 3px;
   font-size: 80%;
   border-radius: 5px;
 }
