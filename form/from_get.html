@@ -57,7 +57,7 @@ $element = $form->baz;
 echo $element->get_name();
 <hr><em>foo[bar][baz]</em></pre></code>
 
-				<p><code>echo $element->get_submitted();</code> will print the value of <code>$_GET['foo']['bar']['baz']</code></p>
+				<p><code>$element->get_submitted();</code> will return the value of <code>$_GET['foo']['bar']['baz']</code></p>
 
 				<p>If <code>$name</code> is not provided, the form will be populated with the full <code>$_GET</code> array,
 					and will not have a name prefix:</p>
@@ -67,7 +67,7 @@ $element = $form->baz;
 echo $element->get_name();
 <hr><em>baz</em></pre></code>
 
-				<p><code>echo $element->get_submitted();</code> will print the value of <code>$_GET['baz']</code></p>
+				<p><code>$element->get_submitted();</code> will return the value of <code>$_GET['baz']</code></p>
 
 				<div>
 					<a href="..">Home</a> | <a href="../reference.html">Reference</a> | <a href="../tutorial.html">Tutorial</a>
