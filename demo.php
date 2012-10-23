@@ -1,10 +1,11 @@
 <?php
 require('./lib/form.php');
 
-$form = Form::from_request('foo.bar.baz');
+$form = Form::from_request('foo[bar][baz]');
 $form->set_defaults(array(
 	'subs' => array(),
 	'multi' => array(),
+	'remember' => 0,
 ));
 
 function inspect(Form_Container $form) {
@@ -32,7 +33,7 @@ function inspect(Form_Container $form) {
 		<title>Form test</title>
 	</head>
 	<body>
-		<form method="post" action="test.php">
+		<form method="post" action="demo.php">
 			Username: <?php echo $form->username->input() ?><br>
 			Password: <?php echo $form->password->password() ?><br>
 			<hr>
