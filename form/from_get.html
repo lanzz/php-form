@@ -54,18 +54,20 @@
 
 				<pre><code>$form = Form::from_get('foo[bar]');
 $element = $form->baz;
-echo $element->get_name(); // => 'foo[bar][baz]'
+echo $element->get_name();
+<hr><em>foo[bar][baz]</em></pre></code>
 
-echo $element->get_submitted(); // will print the value of $_GET['foo']['bar']['baz']</code></pre>
+				<p><code>echo $element->get_submitted();</code> will print the value of <code>$_GET['foo']['bar']['baz']</code></p>
 
 				<p>If <code>$name</code> is not provided, the form will be populated with the full <code>$_GET</code> array,
 					and will not have a name prefix:</p>
 
 				<pre><code>$form = Form::from_get();
 $element = $form->baz;
-echo $element->get_name(); // => 'baz'
+echo $element->get_name();
+<hr><em>baz</em></pre></code>
 
-echo $element->get_submitted(); // will print the value of $_GET['baz']</code></pre>
+				<p><code>echo $element->get_submitted();</code> will print the value of <code>$_GET['baz']</code></p>
 
 				<div>
 					<a href="..">Home</a> | <a href="../reference.html">Reference</a> | <a href="../tutorial.html">Tutorial</a>
