@@ -66,6 +66,14 @@ class Form_Element extends Form_Container {
 	}
 
 	/**
+	 * Get the type of the element's calculated value
+	 * @return string
+	 */
+	public function get_type() {
+		return gettype($this->get_value());
+	}
+
+	/**
 	 * Return the element's name mangled into an identifier, with optional prefix and suffix
 	 * @param string|null $prefix
 	 * @param string|null $suffix
