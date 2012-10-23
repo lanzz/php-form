@@ -160,9 +160,7 @@ img {
 
 pre, code {
   color: #222;
-
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  font-size: 80%;
 }
 
 pre {
@@ -176,11 +174,13 @@ pre {
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
+  font-size: 90%;
 }
 
 code {
   /*padding: 3px;*/
   margin: 0 3px;
+  font-size: 80%;
 }
 
 pre code {
