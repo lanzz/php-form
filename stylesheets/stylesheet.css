@@ -179,9 +179,9 @@ pre {
 }
 
 code {
-  padding: 3px;
+  padding: 1px 0.3em;
   font-size: 80%;
-  border-radius: 5px;
+  border-radius: 0.3em;
   box-shadow: 0 0 2px rgba(0,0,0,.1);
 }
 
@@ -189,7 +189,6 @@ pre code {
   display: block;
   box-shadow: none;
   border-radius: 0;
-  box-shadow: none;
 }
 
 blockquote {
