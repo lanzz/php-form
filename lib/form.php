@@ -40,12 +40,44 @@ class Form extends Form_Container {
 	}
 
 	/**
+	 * Merge two arrays recursively
+	 * @param array $base
+	 * @param array $override
+	 * @return array
+	 */
+	static protected function merge(array $base, array $override) {
+		// remove indexed elements from the base
+		foreach ($base as $key => $value) {
+			if (is_int($key) && !array_key_exists($key, $override)) {
+				unset($base[$key]);
+			}
+		}
+		foreach ($override as $key => $value) {
+			if (array_key_exists($key, $base) && is_array($value) && is_array($base[$key])) {
+				$base[$key] = Form::merge($base[$key], $value);
+			} else {
+				$base[$key] = $value;
+			}
+		}
+		return $base;
+	}
+
+	/**
 	 * Resolve data context within an array of submitted data
 	 * @param array $vars
 	 * @param string $context
 	 */
 	static protected function resolve_context(array $submission, $context) {
-		$keys = strlen($context)? explode('.', $context): array();
+		if (!strlen($context)) {
+			return $submission;
+		}
+		parse_str($context.'=1', $path);
+		$keys = array();
+		while ($path !== '1') {
+			$key = key($path);
+			$keys[] = $key;
+			$path = $path[$key];
+		}
 		foreach ($keys as $key) {
 			if (array_key_exists($key, $submission)) {
 				$submission = $submission[$key];
@@ -55,19 +87,6 @@ class Form extends Form_Container {
 			}
 		}
 		return $submission;
-	}
-
-	/**
-	 * Form an element name from a context path
-	 * @param string $context
-	 */
-	static protected function context_name($context) {
-		$keys = strlen($context)? explode('.', $context): array();
-		$name = '';
-		foreach ($keys as $key) {
-			$name = strlen($name)? $name.'['.$key.']': $key;
-		}
-		return $name;
 	}
 
 	/**
@@ -85,8 +104,7 @@ class Form extends Form_Container {
 	 */
 	static public function from_get($context = null) {
 		$submission = Form::resolve_context($_GET, $context);
-		$name = Form::context_name($context);
-		return Form::from_array($submission, $name);
+		return Form::from_array($submission, $context);
 	}
 
 	/**
@@ -95,8 +113,7 @@ class Form extends Form_Container {
 	 */
 	static public function from_post($context = null) {
 		$submission = Form::resolve_context($_POST, $context);
-		$name = Form::context_name($context);
-		return Form::from_array($submission, $name);
+		return Form::from_array($submission, $context);
 	}
 
 	/**
@@ -104,10 +121,9 @@ class Form extends Form_Container {
 	 * @param string|null $context
 	 */
 	static public function from_request($context = null) {
-		$submission = array_merge_recursive($_GET, $_POST);
+		$submission = Form::merge($_GET, $_POST);
 		$submission = Form::resolve_context($submission, $context);
-		$name = Form::context_name($context);
-		return Form::from_array($submission, $name);
+		return Form::from_array($submission, $context);
 	}
 
 	/**
@@ -126,7 +142,16 @@ class Form extends Form_Container {
 	public function set_defaults(array $defaults) {
 		$this->default = $defaults;
 		$this->keys = array_keys(array_merge($this->value, $this->default));
+		$this->merged = Form::merge($this->default, $this->value);
 		return $this;
+	}
+
+	/**
+	 * Get all form values as an array
+	 * @return array
+	 */
+	public function get_values() {
+		return $this->merged;
 	}
 
 	/**
@@ -146,7 +171,7 @@ class Form extends Form_Container {
 	 * @return string
 	 */
 	public function query() {
-		return http_build_query(strlen($this->name)? array($this->name => $this->value): $this->value);
+		return http_build_query(strlen($this->name)? array($this->name => $this->merged): $this->merged);
 	}
 
 }
