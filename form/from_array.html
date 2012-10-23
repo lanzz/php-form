@@ -33,10 +33,10 @@
 			<section id="main_content" class="inner">
 
 				<div>
-					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
+					<a href="..">Home</a> | <a href="../reference.html">Reference</a> | <a href="../tutorial.html">Tutorial</a>
 				</div>
 
-				<h2>Static method <code><a href="/php-form/form.html">Form</a>::from_array</code></h2>
+				<h2>Static method <code><a href="../form.html">Form</a>::from_array</code></h2>
 
 				<h3>Parameters:</h3>
 
@@ -45,25 +45,27 @@
 					<li><em>string</em> <strong>$name</strong> = null</li>
 				</ul>
 
-				<h3>Returns: <a href="/php-form/form.html"><em>Form</em></a></h3>
+				<h3>Returns: <a href="../form.html"><em>Form</em></a></h3>
 
-				<p>Creates a new <code><a href="/php-form/form.html">Form</a></code> instance, populated with submitted values from the
+				<p>Creates a new <code><a href="../form.html">Form</a></code> instance, populated with submitted values from the
 					<code>$submission</code> array.</p>
 
-				<p><code>$name</code> sets a prefix for the form's elements' names. For example:</p>
+				<p><code>$name</code> sets a prefix for the form's elements' names:</p>
 
 				<pre><code>$form = Form::from_array(array('baz' =&gt; 123), 'foo[bar]');
 $element = $form->baz;
-echo $element->get_name(); // => 'foo[bar][baz]'</code></pre>
+echo $element->get_name();</code>
+<pre><code>foo[bar][baz]</code></pre></pre>
 
 				<p>If <code>$name</code> is not provided, the form will have no name prefix:</p>
 
 				<pre><code>$form = Form::from_array(array('baz' =&gt; 123));
 $element = $form->baz;
-echo $element->get_name(); // => 'baz'</code></pre>
+echo $element->get_name();</code>
+<pre><code>baz</code></pre></code></pre>
 
 				<div>
-					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
+					<a href="..">Home</a> | <a href="../reference.html">Reference</a> | <a href="../tutorial.html">Tutorial</a>
 				</div>
 
 			</section>

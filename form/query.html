@@ -33,19 +33,25 @@
 			<section id="main_content" class="inner">
 
 				<div>
-					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
+					<a href="..">Home</a> | <a href="../reference.html">Reference</a> | <a href="../tutorial.html">Tutorial</a>
 				</div>
 
-				<h2>Method <a href="/php-form/form.html">Form</a>::query()</h2>
+				<h2>Method <code><a href="../form.html">Form</a>::query</code></h2>
+
+				<h3>Returns: <em>string</em></h3>
 
 				<p>Renders a query string with all form elements' values.</p>
 
 				<pre><code>$form = Form::from_array(array('foo' => 123, 'bar' => array('baz' => 456)));
 $query = $form->query();
-echo $query; // => foo=123&amp;bar%5Bbaz%5D=456</code></pre>
+echo $query;</code></pre>
+
+				<p>Output:</p>
+
+				<pre><code>foo=123&amp;bar%5Bbaz%5D=456</code></pre>
 
 				<div>
-					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
+					<a href="..">Home</a> | <a href="../reference.html">Reference</a> | <a href="../tutorial.html">Tutorial</a>
 				</div>
 
 			</section>
