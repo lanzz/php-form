@@ -178,11 +178,6 @@ pre {
   -webkit-border-radius: 2px;
 }
 
-code {
-  padding: 3px;
-  margin: 0 3px;
-}
-
 pre code {
   display: block;
   box-shadow: none;
