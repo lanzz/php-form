@@ -44,28 +44,43 @@
 
 				<h3>Implements interface <a href="http://php.net/manual/en/class.arrayaccess.php">ArrayAccess</a></h3>
 
-				<h3>Magic methods</h3>
+				<h3>Property access methods</h3>
 
 				<ul>
-					<li><a href="/php-form/form_container/__get.html"><em>Form_Element</em> <strong>__get</strong>(<em>string</em> <strong>$name</strong>)</a></li>
-					<li><a href="/php-form/form_container/__set.html"><em>void</em> <strong>__set</strong>(<em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>)</a></li>
-					<li><a href="/php-form/form_container/__isset.html"><em>boolean</em> <strong>__isset</strong>(<em>string</em> <strong>$name</strong>)</a></li>
-					<li><a href="/php-form/form_container/__unset.html"><em>void</em> <strong>__unset</strong>(<em>string</em> <strong>$name</strong>)</a></li>
+					<li><a href="/php-form/form_container/get.html"><em>Form_Element</em> <strong>__get</strong>(<em>string</em> <strong>$name</strong>)</a></li>
+					<li><a href="/php-form/form_container/set.html"><em>void</em> <strong>__set</strong>(<em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>)</a></li>
+					<li><a href="/php-form/form_container/isset.html"><em>boolean</em> <strong>__isset</strong>(<em>string</em> <strong>$name</strong>)</a></li>
+					<li><a href="/php-form/form_container/unset.html"><em>void</em> <strong>__unset</strong>(<em>string</em> <strong>$name</strong>)</a></li>
 				</ul>
 
-				<h3>Instance methods</h3>
+				<h3>Countable interface methods</h3>
 
 				<ul>
 					<li><a href="/php-form/form_container/count.html"><em>int</em> <strong>count</strong>()</a></li>
+				</ul>
+
+				<h3>Iterator interface methods</h3>
+
+				<ul>
 					<li><a href="/php-form/form_container/current.html"><em>Form_Element</em> <strong>current</strong>()</a></li>
 					<li><a href="/php-form/form_container/key.html"><em>string</em> <strong>key</strong>()</a></li>
 					<li><a href="/php-form/form_container/next.html"><em>void</em> <strong>next</strong>()</a></li>
 					<li><a href="/php-form/form_container/rewind.html"><em>void</em> <strong>rewind</strong>()</a></li>
 					<li><a href="/php-form/form_container/valid.html"><em>boolean</em> <strong>valid</strong>()</a></li>
+				</ul>
+
+				<h3>ArrayAccess interface methods</h3>
+
+				<ul>
 					<li><a href="/php-form/form_container/offsetGet.html"><em>Form_Element</em> <strong>offsetGet</strong>(<em>mixed</em> <strong>$index</strong>)</a></li>
 					<li><a href="/php-form/form_container/offsetSet.html"><em>void</em> <strong>offsetSet</strong>(<em>mixed</em> <strong>$index</strong>, <em>mixed</em> <strong>$value</strong>)</a></li>
 					<li><a href="/php-form/form_container/offsetExists.html"><em>boolean</em> <strong>offsetExists</strong>(<em>mixed</em> <strong>$index</strong>)</a></li>
 					<li><a href="/php-form/form_container/offsetUnset.html"><em>void</em> <strong>offsetUnset</strong>(<em>mixed</em> <strong>$index</strong>)</a></li>
+				</ul>
+
+				<h3>Error handling methods</h3>
+
+				<ul>
 					<li><a href="/php-form/form_container/clear_errors.html"><em>Form_Container</em> <strong>clear_errors</strong>(<em>string</em> <strong>$code</strong> = null)</a></li>
 					<li><a href="/php-form/form_container/set_error.html"><em>Form_Container</em> <strong>set_error</strong>(<em>string</em> <strong>$error</strong>, <em>string</em> <strong>$code</strong> = null)</a></li>
 					<li><a href="/php-form/form_container/add_error.html"><em>Form_Container</em> <strong>add_error</strong>(<em>string</em> <strong>$error</strong>, <em>string</em> <strong>$code</strong> = null)</a></li>
@@ -78,7 +93,7 @@
 
 				<h3>Extends class <a href="/php-form/form_container.html">Form_Container</a></h3>
 
-				<h3>Static methods</h3>
+				<h3>Factory methods</h3>
 
 				<ul>
 					<li><a href="/php-form/form/from_array.html"><em>Form</em> <strong>from_array</strong>(<em>array</em> <strong>$submission</strong>, <em>string</em> <strong>$name</strong> = null)</a></li>
@@ -87,20 +102,25 @@
 					<li><a href="/php-form/form/from_request.html"><em>Form</em> <strong>from_request</strong>(<em>string</em> <strong>$context</strong> = null)</a></li>
 				</ul>
 
-				<h3>Instance methods</h3>
+				<h3>Formatting methods</h3>
+
+				<ul>
+					<li><a href="/php-form/form/hidden.html"><em>string</em> <strong>hidden</strong>()</a></li>
+					<li><a href="/php-form/form/query.html"><em>string</em> <strong>query</strong>()</a></li>
+				</ul>
+
+				<h3>Miscellaneous methods</h3>
 
 				<ul>
 					<li><a href="/php-form/form/is_submitted.html"><em>boolean</em> <strong>is_submitted</strong>()</a></li>
 					<li><a href="/php-form/form/set_defaults.html"><em>Form</em> <strong>set_defaults</strong>(<em>array</em> <strong>$defaults</strong>)</a></li>
-					<li><a href="/php-form/form/hidden.html"><em>string</em> <strong>hidden</strong>()</a></li>
-					<li><a href="/php-form/form/query.html"><em>string</em> <strong>query</strong>()</a></li>
 				</ul>
 
 				<h2>Class <a href="/php-form/form_element.html">Form_Element</a></h2>
 
 				<h3>Extends class <a href="/php-form/form_container.html">Form_Container</a></h3>
 
-				<h3>Instance methods</h3>
+				<h3>Accessor methods</h3>
 
 				<ul>
 					<li><a href="/php-form/form_element/get_name.html"><em>string</em> <strong>get_name</strong>()</a></li>
@@ -109,16 +129,31 @@
 					<li><a href="/php-form/form_element/get_value.html"><em>mixed</em> <strong>get_value</strong>()</a></li>
 					<li><a href="/php-form/form_element/get_type.html"><em>string</em> <strong>get_type</strong>()</a></li>
 					<li><a href="/php-form/form_element/get_id.html"><em>string</em> <strong>get_id</strong>()</a></li>
+				</ul>
+
+				<h3>Formatting methods</h3>
+
+				<ul>
 					<li><a href="/php-form/form_element/as_string.html"><em>string</em> <strong>as_string</strong>()</a></li>
 					<li><a href="/php-form/form_element/as_html.html"><em>string</em> <strong>as_html</strong>()</a></li>
 					<li><a href="/php-form/form_element/as_url.html"><em>string</em> <strong>as_url</strong>()</a></li>
+					<li><a href="/php-form/form_element/query.html"><em>string</em> <strong>query</strong>()</a></li>
+				</ul>
+
+				<h3>Attribute rendering methods</h3>
+
+				<ul>
 					<li><a href="/php-form/form_element/name.html"><em>string</em> <strong>name</strong>()</a></li>
 					<li><a href="/php-form/form_element/value.html"><em>string</em> <strong>value</strong>()</a></li>
 					<li><a href="/php-form/form_element/id.html"><em>string</em> <strong>id</strong>(<em>string</em> <strong>$prefix</strong> = null, <em>string</em> <strong>$suffix</strong> = null)</a></li>
 					<li><a href="/php-form/form_element/checked.html"><em>string</em> <strong>checked</strong>(<em>string</em> <strong>$value</strong>)</a></li>
 					<li><a href="/php-form/form_element/selected.html"><em>string</em> <strong>selected</strong>(<em>string</em> <strong>$value</strong>)</a></li>
+				</ul>
+
+				<h3>Input element rendering methods</h3>
+
+				<ul>
 					<li><a href="/php-form/form_element/hidden.html"><em>string</em> <strong>hidden</strong>()</a></li>
-					<li><a href="/php-form/form_element/query.html"><em>string</em> <strong>query</strong>()</a></li>
 					<li><a href="/php-form/form_element/input.html"><em>string</em> <strong>input</strong>(<em>string</em> <strong>$attributes</strong> = null)</a></li>
 					<li><a href="/php-form/form_element/password.html"><em>string</em> <strong>password</strong>(<em>string</em> <strong>$attributes</strong> = null)</a></li>
 					<li><a href="/php-form/form_element/textarea.html"><em>string</em> <strong>textarea</strong>(<em>string</em> <strong>$attributes</strong> = null)</a></li>

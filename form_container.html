@@ -52,15 +52,15 @@
 				<p>If a non-existent name is accessed, a new <a href="/php-form/form_element.html">Form_Element</a> instance
 					will be automatically created for the new element.</p>
 
-				<h3>Sub-element access methods</h3>
+				<h3>Property access methods</h3>
 
 				<p>These methods give access to children elements as <code>$container-&gt;child_name</code></p>
 
 				<ul>
-					<li><a href="/php-form/form_container/get.html">__get($name)</a></li>
-					<li><a href="/php-form/form_container/set.html">__set($name, $value)</a></li>
-					<li><a href="/php-form/form_container/isset.html">__isset($name)</a></li>
-					<li><a href="/php-form/form_container/unset.html">__unset($name)</a></li>
+					<li><a href="/php-form/form_container/get.html"><em>Form_Element</em> <strong>__get</strong>(<em>string</em> <strong>$name</strong>)</a></li>
+					<li><a href="/php-form/form_container/set.html"><em>void</em> <strong>__set</strong>(<em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>)</a></li>
+					<li><a href="/php-form/form_container/isset.html"><em>boolean</em> <strong>__isset</strong>(<em>string</em> <strong>$name</strong>)</a></li>
+					<li><a href="/php-form/form_container/unset.html"><em>void</em> <strong>__unset</strong>(<em>string</em> <strong>$name</strong>)</a></li>
 				</ul>
 
 				<hr>
@@ -69,18 +69,20 @@
 
 				<p>Return number of the children elements when invoking <code>count($element)</code></p>
 
-				<ul><li><a href="/php-form/form_container/count.html">count()</a></li></ul>
+				<ul>
+					<li><a href="/php-form/form_container/count.html"><em>int</em> <strong>count</strong>()</a></li>
+				</ul>
 
 				<h3>Iterator interface methods</h3>
 
 				<p>These methods allow for <code>foreach</code> iteration over the children elements</p>
 
 				<ul>
-					<li><a href="/php-form/form_container/current.html">current()</a></li>
-					<li><a href="/php-form/form_container/key.html">key()</a></li>
-					<li><a href="/php-form/form_container/next.html">next()</a></li>
-					<li><a href="/php-form/form_container/rewind.html">rewind()</a></li>
-					<li><a href="/php-form/form_container/valid.html">valid()</a></li>
+					<li><a href="/php-form/form_container/current.html"><em>Form_Element</em> <strong>current</strong>()</a></li>
+					<li><a href="/php-form/form_container/key.html"><em>string</em> <strong>key</strong>()</a></li>
+					<li><a href="/php-form/form_container/next.html"><em>void</em> <strong>next</strong>()</a></li>
+					<li><a href="/php-form/form_container/rewind.html"><em>void</em> <strong>rewind</strong>()</a></li>
+					<li><a href="/php-form/form_container/valid.html"><em>boolean</em> <strong>valid</strong>()</a></li>
 				</ul>
 
 				<h3>ArrayAccess interface methods</h3>
@@ -88,10 +90,10 @@
 				<p>These methods give access to children elements as <code>$container['child_name']</code> or <code>$container[7]</code></p>
 
 				<ul>
-					<li><a href="/php-form/form_container/offsetGet.html">offsetGet($index)</a></li>
-					<li><a href="/php-form/form_container/offsetSet.html">offsetSet($index, $value)</a></li>
-					<li><a href="/php-form/form_container/offsetExists.html">offsetExists($index)</a></li>
-					<li><a href="/php-form/form_container/offsetUnset.html">offsetUnset($index)</a></li>
+					<li><a href="/php-form/form_container/offsetGet.html"><em>Form_Element</em> <strong>offsetGet</strong>(<em>mixed</em> <strong>$index</strong>)</a></li>
+					<li><a href="/php-form/form_container/offsetSet.html"><em>void</em> <strong>offsetSet</strong>(<em>mixed</em> <strong>$index</strong>, <em>mixed</em> <strong>$value</strong>)</a></li>
+					<li><a href="/php-form/form_container/offsetExists.html"><em>boolean</em> <strong>offsetExists</strong>(<em>mixed</em> <strong>$index</strong>)</a></li>
+					<li><a href="/php-form/form_container/offsetUnset.html"><em>void</em> <strong>offsetUnset</strong>(<em>mixed</em> <strong>$index</strong>)</a></li>
 				</ul>
 
 				<h3>Error handling methods</h3>
@@ -99,12 +101,12 @@
 				<p>These methods allow setting and checking for error messages for the container</p>
 
 				<ul>
-					<li><a href="/php-form/form_container/clear_errors.html">clear_errors($code = null)</a></li>
-					<li><a href="/php-form/form_container/set_error.html">set_error($error, $code = null)</a></li>
-					<li><a href="/php-form/form_container/add_error.html">add_error($error, $code = null)</a></li>
-					<li><a href="/php-form/form_container/has_error.html">has_error($code = null)</a></li>
-					<li><a href="/php-form/form_container/get_errors.html">get_errors($code = null)</a></li>
-					<li><a href="/php-form/form_container/if_error.html">if_error($return, $error_code = null)</a></li>
+					<li><a href="/php-form/form_container/clear_errors.html"><em>Form_Container</em> <strong>clear_errors</strong>(<em>string</em> <strong>$code</strong> = null)</a></li>
+					<li><a href="/php-form/form_container/set_error.html"><em>Form_Container</em> <strong>set_error</strong>(<em>string</em> <strong>$error</strong>, <em>string</em> <strong>$code</strong> = null)</a></li>
+					<li><a href="/php-form/form_container/add_error.html"><em>Form_Container</em> <strong>add_error</strong>(<em>string</em> <strong>$error</strong>, <em>string</em> <strong>$code</strong> = null)</a></li>
+					<li><a href="/php-form/form_container/has_error.html"><em>boolean</em> <strong>has_error</strong>(<em>string</em> <strong>$code</strong> = null)</a></li>
+					<li><a href="/php-form/form_container/get_errors.html">array get_errors</strong>(<em>string</em> <strong>$code</strong> = null)</a></li>
+					<li><a href="/php-form/form_container/if_error.html"><em>string</em> <strong>if_error</strong>(<em>string</em> <strong>$return</strong>, <em>string</em> <strong>$code</strong> = null)</a></li>
 				</ul>
 
 				<div>
