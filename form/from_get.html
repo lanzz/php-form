@@ -36,13 +36,16 @@
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
 				</div>
 
-				<h2>Factory method <a href="/php-form/form.html">Form</a>::from_get($name = null)</h2>
+				<h2>
+					Static method<br>
+					<code><a href="/php-form/form.html">Form</a>::from_get($name = null)</code>
+				</h2>
 
 				<p>Returns a new <a href="/php-form/form.html"><code>Form</code></a> instance, populated with submitted values from
 					the URL query parameters.</p>
 
 				<p><code>$name</code> specifies the point within the <code>$_GET</code> array from which to retrieve the form values,
-					and determines the name of the new form instance. For example:</p>
+					and determines the prefix for the form elements' names. For example:</p>
 
 				<pre><code>$form = Form::from_get('foo[bar]');
 $element = $form->baz;

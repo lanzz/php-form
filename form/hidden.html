@@ -36,13 +36,21 @@
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
 				</div>
 
-				<h2>Method <a href="/php-form/form.html">Form</a>::hidden()</h2>
+				<h2>
+					Instance method<br>
+					<code><a href="/php-form/form.html">Form</a>-&gt;hidden()</code>
+				</h2>
 
 				<p>Renders &lt;input type="hidden"&gt; fields with all form elements' values.</p>
 
 				<pre><code>$form = Form::from_array(array('foo' => 123, 'bar' => array('baz' => 456)));
 $html = $form->hidden();
-echo $html; // => '&lt;input type="hidden" name="foo"  value="123" &gt;\n&lt;input type="hidden" name="bar[baz]"  value="456" &gt;'</code></pre>
+echo $html;</code></pre>
+
+				<p>Output:</p>
+
+				<pre><code>&lt;input type="hidden" name="foo"  value="123" &gt;
+&lt;input type="hidden" name="bar[baz]"  value="456" &gt;'</code></pre>
 
 				<div>
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
