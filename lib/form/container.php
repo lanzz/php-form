@@ -129,7 +129,7 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 		if (!isset($this->children[$name])) {
 			$value = (is_array($this->value) && isset($this->value[$name]))? $this->value[$name]: null;
 			$default_value = (is_array($this->default) && isset($this->default[$name]))? $this->default[$name]: null;
-			$child = $this->create_child($this->form, strlen($this->name)? $this->name.'['.(is_int($name)? '': $name).']': $name, $value, $default_value);
+			$child = $this->create_child($this->form, strlen($this->name)? $this->name.'['.$name.']': $name, $value, $default_value);
 			$this->children[$name] = $child;
 		}
 		return $this->children[$name];
@@ -265,8 +265,8 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 	 *
 	 * Useful as <input <?php echo $form->field->if_error('class="error"') ?> ...>
 	 */
-	public function if_error($return, $error_code = null) {
-		return $this->has_error($error_code)? $return: '';
+	public function if_error($return, $code = null) {
+		return $this->has_error($code)? $return: '';
 	}
 
 }
