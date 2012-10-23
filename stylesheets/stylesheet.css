@@ -160,13 +160,13 @@ img {
 
 pre, code {
   color: #222;
+  background-color: #fff;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
 }
 
 pre {
   font-size: 14px;
   width: 100%;
-  background-color: #fff;
   padding: 10px;
   margin: 15px 0;
   box-shadow: 0 0 10px rgba(0,0,0,.1);
@@ -182,11 +182,13 @@ code {
   /*padding: 3px;*/
   margin: 0 3px;
   font-size: 80%;
+  border-radius: 5px;
 }
 
 pre code {
   display: block;
   box-shadow: none;
+  border-radius: 0;
 }
 
 blockquote {
