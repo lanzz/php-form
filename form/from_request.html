@@ -36,12 +36,17 @@
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
 				</div>
 
-				<h2>
-					Static method<br>
-					<code><a href="/php-form/form.html">Form</a>::from_request($name = null)</code>
-				</h2>
+				<h2>Static method <code><a href="/php-form/form.html">Form</a>::from_request</code></h2>
 
-				<p>Returns a new <a href="/php-form/form.html"><code>Form</code></a> instance, populated with combined submitted values from
+				<h3>Parameters:</h3>
+
+				<ul>
+					<li><em>string</em> <strong>$name</strong> = null</li>
+				</ul>
+
+				<h3>Returns: <a href="/php-form/form.html"><em>Form</em></a></h3>
+
+				<p>Creates a new <a href="/php-form/form.html"><code>Form</code></a> instance, populated with combined submitted values from
 					the GET and POST parameters, and with <code>$name</code> as prefix for the form elements' names.</p>
 
 				<p>In case of name conflicts, POST parameters override GET parameters.</p>
