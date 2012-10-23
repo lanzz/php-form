@@ -54,15 +54,19 @@
 
 				<pre><code>$form = Form::from_array(array('baz' =&gt; 123), 'foo[bar]');
 $element = $form->baz;
-echo $element->get_name();</code>
-<pre><code>foo[bar][baz]</code></pre></pre>
+echo $element->get_name();
+
+<strong>Output:</strong>
+foo[bar][baz]</code></pre></pre>
 
 				<p>If <code>$name</code> is not provided, the form will have no name prefix:</p>
 
 				<pre><code>$form = Form::from_array(array('baz' =&gt; 123));
 $element = $form->baz;
-echo $element->get_name();</code></pre>
-				<pre><code>baz</code></pre>
+echo $element->get_name();
+
+<strong>Output:</strong>
+baz</code></pre>
 
 				<div>
 					<a href="..">Home</a> | <a href="../reference.html">Reference</a> | <a href="../tutorial.html">Tutorial</a>
