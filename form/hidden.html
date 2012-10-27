@@ -47,10 +47,8 @@
 				<pre><code>$form = Form::from_array(array('foo' => 123, 'bar' => array('baz' => 456)));
 $html = $form->hidden();
 echo $html;
-<em>/* prints:
-  &lt;input type="hidden" name="foo"  value="123" &gt;
-  &lt;input type="hidden" name="bar[baz]"  value="456" &gt;
-*/</em></code></pre>
+<em>// &lt;input type="hidden" name="foo"  value="123" &gt;
+// &lt;input type="hidden" name="bar[baz]"  value="456" &gt;</em></code></pre>
 
 				<div>
 					<a href="..">Home</a> | <a href="../reference.html">Reference</a> | <a href="../tutorial.html">Tutorial</a>
