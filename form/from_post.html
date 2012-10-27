@@ -54,20 +54,24 @@
 
 				<pre><code>$form = Form::from_post('foo[bar]');
 $element = $form->baz;
-echo $element->get_name();
-<hr><em>foo[bar][baz]</em></pre></code>
 
-				<p><code>$element->get_submitted()</code> will return the value of <code>$_POST['foo']['bar']['baz']</code></p>
+echo $element->get_name();
+<em>// prints "foo[bar][baz]"</em>
+
+echo $element->get_submitted();
+<em>// prints the value of $_POST['foo']['bar']['baz']</em></pre></code>
 
 				<p>If <code>$name</code> is not provided, the form will be populated with the full <code>$_POST</code> array,
 					and will not have a name prefix:</p>
 
 				<pre><code>$form = Form::from_post();
 $element = $form->baz;
-echo $element->get_name();
-<hr><em>baz</em></pre></code>
 
-				<p><code>$element->get_submitted()</code> will return the value of <code>$_POST['baz']</code></p>
+echo $element->get_name();
+<em>// prints "baz"</em>
+
+echo $element->get_submitted();
+<em>// prints the value of $_POST['baz']</em></pre></code>
 
 				<div>
 					<a href="..">Home</a> | <a href="../reference.html">Reference</a> | <a href="../tutorial.html">Tutorial</a>
