@@ -109,6 +109,29 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 	}
 
 	/**
+	 * Merge two arrays recursively
+	 * @param array $base
+	 * @param array $override
+	 * @return array
+	 */
+	protected function merge(array $base, array $override) {
+		// remove indexed elements from the base
+		foreach ($base as $key => $value) {
+			if (is_int($key) && !array_key_exists($key, $override)) {
+				unset($base[$key]);
+			}
+		}
+		foreach ($override as $key => $value) {
+			if (array_key_exists($key, $base) && is_array($value) && is_array($base[$key])) {
+				$base[$key] = $this->merge($base[$key], $value);
+			} else {
+				$base[$key] = $value;
+			}
+		}
+		return $base;
+	}
+
+	/**
 	 * Child instance factory, useful to override in children classes
 	 * @param Form $form
 	 * @param string $name

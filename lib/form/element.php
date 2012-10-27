@@ -25,10 +25,10 @@ class Form_Element extends Form_Container {
 		$this->default = $default_value;
 		$this->keys = array();
 		if (is_array($default_value)) {
-			$this->keys = array_merge($this->keys, $default_value);
+			$this->keys = $this->merge($this->keys, $default_value);
 		}
 		if (is_array($value)) {
-			$this->keys = array_merge($this->keys, $value);
+			$this->keys = $this->merge($this->keys, $value);
 		}
 		$this->keys = array_keys($this->keys);
 	}

@@ -27,6 +27,12 @@ class Form extends Form_Container {
 	protected $submitted = false;
 
 	/**
+	 * Store the merged submitted + default values
+	 * @var array
+	 */
+	protected $merged = array();
+
+	/**
 	 * Construct a new Form
 	 * @param array $submission		Submitted values
 	 * @param string|null $name		Root name of the form data
@@ -34,32 +40,10 @@ class Form extends Form_Container {
 	protected function __construct(array $submission, $name = null) {
 		$this->form = $this;
 		$this->value = $submission;
+		$this->merged = $submission;
 		$this->name = strlen($name)? $name: '';
 		$this->keys = array_keys($this->value);
 		$this->submitted = (bool)count($this->keys);
-	}
-
-	/**
-	 * Merge two arrays recursively
-	 * @param array $base
-	 * @param array $override
-	 * @return array
-	 */
-	static protected function merge(array $base, array $override) {
-		// remove indexed elements from the base
-		foreach ($base as $key => $value) {
-			if (is_int($key) && !array_key_exists($key, $override)) {
-				unset($base[$key]);
-			}
-		}
-		foreach ($override as $key => $value) {
-			if (array_key_exists($key, $base) && is_array($value) && is_array($base[$key])) {
-				$base[$key] = Form::merge($base[$key], $value);
-			} else {
-				$base[$key] = $value;
-			}
-		}
-		return $base;
 	}
 
 	/**
@@ -121,7 +105,7 @@ class Form extends Form_Container {
 	 * @param string|null $context
 	 */
 	static public function from_request($context = null) {
-		$submission = Form::merge($_GET, $_POST);
+		$submission = $this->merge($_GET, $_POST);
 		$submission = Form::resolve_context($submission, $context);
 		return Form::from_array($submission, $context);
 	}
@@ -142,7 +126,7 @@ class Form extends Form_Container {
 	public function set_defaults(array $defaults) {
 		$this->default = $defaults;
 		$this->keys = array_keys(array_merge($this->value, $this->default));
-		$this->merged = Form::merge($this->default, $this->value);
+		$this->merged = $this->merge($this->default, $this->value);
 		return $this;
 	}
 
