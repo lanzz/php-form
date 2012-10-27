@@ -36,7 +36,27 @@
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
 				</div>
 
-				<h1>Under Construction</h1>
+				<h2><code><a href="http://php.net/manual/en/class.countable.php">Countable</a></code> Interface Method</h2>
+
+				<ul>
+					<li>Method <code><a href="../form_container.html">Form_Container</a>-&gt;count</code></li>
+				</ul>
+
+				<p>Returns the count of elements in the container for <code>count($container)</code> invocations.</p>
+
+				<p>Counting child elements — each submitted or default value is counted:</p>
+
+				<pre><code>$form = Form::from_array(array('foo' =&gt; 123, 'bar' =&gt; 456));
+$form-&gt;set_defaults(array('foo' =&gt; 789, 'baz' =&gt; null));
+echo count($form);
+<em>// prints 3 — distinct child elements 'foo', 'bar' and 'baz'</em></code></pre>
+
+				<p>Counting array values — submitted array overrides the default array:</p>
+
+				<pre><code>$form = Form::from_array(array('foo' => array(3, 4, 5)));
+$form->set_defaults(array('foo' => array(1)));
+print(count($form->foo)."\n");
+<em>// prints 3 — the submitted list (1, 2, 3) overrides the default 1-element list (1)</code></pre>
 
 				<div>
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>

@@ -40,42 +40,36 @@
 
 				<h3>Implements interface <a href="http://php.net/manual/en/class.countable.php">Countable</a></h3>
 
+				<ul>
+					<li><a href="form_container/countable.html"><em>int</em> <strong>count</strong>()</a></li>
+				</ul>
+
 				<h3>Implements interface <a href="http://php.net/manual/en/class.iterator.php">Iterator</a></h3>
 
+				<ul>
+					<li><a href="form_container/iterator.html"><em>Form_Element</em> <strong>current</strong>()</a></li>
+					<li><a href="form_container/iterator.html"><em>string</em> <strong>key</strong>()</a></li>
+					<li><a href="form_container/iterator.html"><em>void</em> <strong>next</strong>()</a></li>
+					<li><a href="form_container/iterator.html"><em>void</em> <strong>rewind</strong>()</a></li>
+					<li><a href="form_container/iterator.html"><em>boolean</em> <strong>valid</strong>()</a></li>
+				</ul>
+
 				<h3>Implements interface <a href="http://php.net/manual/en/class.arrayaccess.php">ArrayAccess</a></h3>
+
+				<ul>
+					<li><a href="form_container/arrayaccess.html"><em>Form_Element</em> <strong>offsetGet</strong>(<em>mixed</em> <strong>$index</strong>)</a></li>
+					<li><a href="form_container/arrayaccess.html"><em>void</em> <strong>offsetSet</strong>(<em>mixed</em> <strong>$index</strong>, <em>mixed</em> <strong>$value</strong>)</a></li>
+					<li><a href="form_container/arrayaccess.html"><em>boolean</em> <strong>offsetExists</strong>(<em>mixed</em> <strong>$index</strong>)</a></li>
+					<li><a href="form_container/arrayaccess.html"><em>void</em> <strong>offsetUnset</strong>(<em>mixed</em> <strong>$index</strong>)</a></li>
+				</ul>
 
 				<h3>Property access methods</h3>
 
 				<ul>
-					<li><a href="form_container/get.html"><em>Form_Element</em> <strong>__get</strong>(<em>string</em> <strong>$name</strong>)</a></li>
-					<li><a href="form_container/set.html"><em>void</em> <strong>__set</strong>(<em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>)</a></li>
-					<li><a href="form_container/isset.html"><em>boolean</em> <strong>__isset</strong>(<em>string</em> <strong>$name</strong>)</a></li>
-					<li><a href="form_container/unset.html"><em>void</em> <strong>__unset</strong>(<em>string</em> <strong>$name</strong>)</a></li>
-				</ul>
-
-				<h3>Countable interface methods</h3>
-
-				<ul>
-					<li><a href="form_container/count.html"><em>int</em> <strong>count</strong>()</a></li>
-				</ul>
-
-				<h3>Iterator interface methods</h3>
-
-				<ul>
-					<li><a href="form_container/current.html"><em>Form_Element</em> <strong>current</strong>()</a></li>
-					<li><a href="form_container/key.html"><em>string</em> <strong>key</strong>()</a></li>
-					<li><a href="form_container/next.html"><em>void</em> <strong>next</strong>()</a></li>
-					<li><a href="form_container/rewind.html"><em>void</em> <strong>rewind</strong>()</a></li>
-					<li><a href="form_container/valid.html"><em>boolean</em> <strong>valid</strong>()</a></li>
-				</ul>
-
-				<h3>ArrayAccess interface methods</h3>
-
-				<ul>
-					<li><a href="form_container/offsetGet.html"><em>Form_Element</em> <strong>offsetGet</strong>(<em>mixed</em> <strong>$index</strong>)</a></li>
-					<li><a href="form_container/offsetSet.html"><em>void</em> <strong>offsetSet</strong>(<em>mixed</em> <strong>$index</strong>, <em>mixed</em> <strong>$value</strong>)</a></li>
-					<li><a href="form_container/offsetExists.html"><em>boolean</em> <strong>offsetExists</strong>(<em>mixed</em> <strong>$index</strong>)</a></li>
-					<li><a href="form_container/offsetUnset.html"><em>void</em> <strong>offsetUnset</strong>(<em>mixed</em> <strong>$index</strong>)</a></li>
+					<li><a href="form_container/magic.html"><em>Form_Element</em> <strong>__get</strong>(<em>string</em> <strong>$name</strong>)</a></li>
+					<li><a href="form_container/magic.html"><em>void</em> <strong>__set</strong>(<em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>)</a></li>
+					<li><a href="form_container/magic.html"><em>boolean</em> <strong>__isset</strong>(<em>string</em> <strong>$name</strong>)</a></li>
+					<li><a href="form_container/magic.html"><em>void</em> <strong>__unset</strong>(<em>string</em> <strong>$name</strong>)</a></li>
 				</ul>
 
 				<h3>Error handling methods</h3>
