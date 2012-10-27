@@ -115,9 +115,9 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 	 * @return array
 	 */
 	protected function merge(array $base, array $override) {
-		// remove indexed elements from the base
+		// remove scalar and indexed elements from the base
 		foreach ($base as $key => $value) {
-			if (is_int($key) && !array_key_exists($key, $override)) {
+			if (is_scalar($value) || (is_int($key) && !array_key_exists($key, $override))) {
 				unset($base[$key]);
 			}
 		}
