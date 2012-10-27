@@ -42,16 +42,16 @@
 
 				<h3>Returns: <em>int</em></h3>
 
-				<p>Returns the count of values in the container. Each unique submitted and default value is counted.</p>
+				<p>Returns the count of values in the container.</p>
 
-				<p>Counting child elements:</p>
+				<p>Counting child elements — each submitted or default value is counted:</p>
 
 				<pre><code>$form = Form::from_array(array('foo' =&gt; 123, 'bar' =&gt; 456));
 $form-&gt;set_defaults(array('foo' =&gt; 789, 'baz' =&gt; null));
 echo count($form);
 <em>// prints 3 — distinct values for keys 'foo', 'bar' and 'baz'</em></code></pre>
 
-				<p>Counting array values:</p>
+				<p>Counting array values — submitted array overrides the default array:</p>
 
 				<pre><code>$form = Form::from_array(array('foo' => array(3, 4, 5)));
 $form->set_defaults(array('foo' => array(1)));
