@@ -38,12 +38,6 @@
 
 				<h2>Abstract class <strong>Form_Container</strong></h2>
 
-				<h3>Implements interface <a href="http://php.net/manual/en/class.arrayaccess.php">ArrayAccess</a></h3>
-
-				<h3>Implements interface <a href="http://php.net/manual/en/class.countable.php">Countable</a></h3>
-
-				<h3>Implements interface <a href="http://php.net/manual/en/class.iterator.php">Iterator</a></h3>
-
 				<p>This abstract class is the base for both the <a href="form.html">Form</a> and the
 					<a href="form_element.html">Form_Element</a> classes. It represents a container for named
 					form elements; both the actual form and each form element in it can contain children
@@ -52,30 +46,17 @@
 				<p>If a non-existent name is accessed, a new <a href="form_element.html">Form_Element</a> instance
 					will be automatically created for the new element.</p>
 
-				<h3>Property access methods</h3>
+				<h3>Implements interface <a href="http://php.net/manual/en/class.countable.php">Countable</a></h3>
 
-				<p>These methods give access to children elements as <code>$container-&gt;child_name</code></p>
-
-				<ul>
-					<li><a href="form_container/get.html"><em>Form_Element</em> <strong>__get</strong>(<em>string</em> <strong>$name</strong>)</a></li>
-					<li><a href="form_container/set.html"><em>void</em> <strong>__set</strong>(<em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>)</a></li>
-					<li><a href="form_container/isset.html"><em>boolean</em> <strong>__isset</strong>(<em>string</em> <strong>$name</strong>)</a></li>
-					<li><a href="form_container/unset.html"><em>void</em> <strong>__unset</strong>(<em>string</em> <strong>$name</strong>)</a></li>
-				</ul>
-
-				<hr>
-
-				<h3>Countable interface methods</h3>
-
-				<p>Return number of the children elements when invoking <code>count($element)</code></p>
+				<p>Return number of the children elements when invoking <code>count($element)</code>.</p>
 
 				<ul>
 					<li><a href="form_container/count.html"><em>int</em> <strong>count</strong>()</a></li>
 				</ul>
 
-				<h3>Iterator interface methods</h3>
+				<h3>Implements interface <a href="http://php.net/manual/en/class.iterator.php">Iterator</a></h3>
 
-				<p>These methods allow for <code>foreach</code> iteration over the children elements</p>
+				<p>Аllow <code>foreach</code> iteration over the children elements.</p>
 
 				<ul>
 					<li><a href="form_container/current.html"><em>Form_Element</em> <strong>current</strong>()</a></li>
@@ -85,9 +66,9 @@
 					<li><a href="form_container/valid.html"><em>boolean</em> <strong>valid</strong>()</a></li>
 				</ul>
 
-				<h3>ArrayAccess interface methods</h3>
+				<h3>Implements interface <a href="http://php.net/manual/en/class.arrayaccess.php">ArrayAccess</a></h3>
 
-				<p>These methods give access to children elements as <code>$container['child_name']</code> or <code>$container[7]</code></p>
+				<p>Allow access to children elements as <code>$container['child_name']</code> or <code>$container[7]</code>.</p>
 
 				<ul>
 					<li><a href="form_container/offsetGet.html"><em>Form_Element</em> <strong>offsetGet</strong>(<em>mixed</em> <strong>$index</strong>)</a></li>
@@ -96,9 +77,20 @@
 					<li><a href="form_container/offsetUnset.html"><em>void</em> <strong>offsetUnset</strong>(<em>mixed</em> <strong>$index</strong>)</a></li>
 				</ul>
 
+				<h3>Property access methods</h3>
+
+				<p>Allow access to children elements as <code>$container-&gt;child_name</code>.</p>
+
+				<ul>
+					<li><a href="form_container/get.html"><em>Form_Element</em> <strong>__get</strong>(<em>string</em> <strong>$name</strong>)</a></li>
+					<li><a href="form_container/set.html"><em>void</em> <strong>__set</strong>(<em>string</em> <strong>$name</strong>, <em>mixed</em> <strong>$value</strong>)</a></li>
+					<li><a href="form_container/isset.html"><em>boolean</em> <strong>__isset</strong>(<em>string</em> <strong>$name</strong>)</a></li>
+					<li><a href="form_container/unset.html"><em>void</em> <strong>__unset</strong>(<em>string</em> <strong>$name</strong>)</a></li>
+				</ul>
+
 				<h3>Error handling methods</h3>
 
-				<p>These methods allow setting and checking for error messages for the container</p>
+				<p>Set error messages and check for error conditions.</p>
 
 				<ul>
 					<li><a href="form_container/clear_errors.html"><em>Form_Container</em> <strong>clear_errors</strong>(<em>string</em> <strong>$code</strong> = null)</a></li>
