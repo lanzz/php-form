@@ -44,6 +44,20 @@
 
 				<p>Returns all form elements' values as an array.</p>
 
+				<pre>$form = Form::from_array(array('foo' =&gt; 123, 'bar' =&gt; array('baz' =&gt; 123)));
+print_r($form->get_values());
+<em>/* prints:
+Array
+  (
+      [foo] =&gt; 123
+      [bar] =&gt; Array
+          (
+              [baz] =&gt; 123
+          )
+
+  )
+*/<code></code></pre>
+
 				<div>
 					<a href="..">Home</a> | <a href="../reference.html">Reference</a> | <a href="../tutorial.html">Tutorial</a>
 				</div>
