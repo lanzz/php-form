@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', true);
+error_reporting(E_ALL | E_STRICT);
+
 require('./lib/form.php');
 
 $form = Form::from_request('foo[bar][baz]');
@@ -65,7 +68,7 @@ function inspect(Form_Container $form) {
 		<?php inspect($form) ?>
 		<hr>
 		<h3>Build query string from form data</h3>
-		<pre><a href="?<?php echo htmlspecialchars($form->query()) ?>"><?php echo htmlspecialchars($form->query()) ?></a></pre>
+		<pre><a href="?<?php echo htmlspecialchars($form->query()) ?>"><?php echo htmlspecialchars(urldecode($form->query())) ?></a></pre>
 		<hr>
 		<h3>Build hidden fields from form data</h3>
 		<pre><?php echo htmlspecialchars($form->hidden()) ?></pre>

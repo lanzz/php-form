@@ -39,10 +39,9 @@ class Form extends Form_Container {
 	 */
 	protected function __construct(array $submission, $name = null) {
 		$this->form = $this;
-		$this->value = $submission;
-		$this->merged = $submission;
 		$this->name = strlen($name)? $name: '';
-		$this->keys = array_keys($this->value);
+		$this->set_value($submission);
+		$this->merged = $this->value;
 		$this->submitted = (bool)count($this->keys);
 	}
 
@@ -87,8 +86,8 @@ class Form extends Form_Container {
 	 * @param string|null $context
 	 */
 	static public function from_get($context = null) {
-		$submission = Form::resolve_context($_GET, $context);
-		return Form::from_array($submission, $context);
+		$submission = self::resolve_context($_GET, $context);
+		return self::from_array($submission, $context);
 	}
 
 	/**
@@ -96,8 +95,8 @@ class Form extends Form_Container {
 	 * @param string|null $context
 	 */
 	static public function from_post($context = null) {
-		$submission = Form::resolve_context($_POST, $context);
-		return Form::from_array($submission, $context);
+		$submission = self::resolve_context($_POST, $context);
+		return self::from_array($submission, $context);
 	}
 
 	/**
@@ -105,9 +104,9 @@ class Form extends Form_Container {
 	 * @param string|null $context
 	 */
 	static public function from_request($context = null) {
-		$submission = $this->merge($_GET, $_POST);
-		$submission = Form::resolve_context($submission, $context);
-		return Form::from_array($submission, $context);
+		$submission = self::merge($_GET, $_POST);
+		$submission = self::resolve_context($submission, $context);
+		return self::from_array($submission, $context);
 	}
 
 	/**
@@ -124,9 +123,8 @@ class Form extends Form_Container {
 	 * @return Form $this
 	 */
 	public function set_defaults(array $defaults) {
-		$this->default = $defaults;
-		$this->keys = array_keys(array_merge($this->value, $this->default));
-		$this->merged = $this->merge($this->default, $this->value);
+		$this->set_default($defaults);
+		$this->merged = Form_Container::merge($this->default, $this->value);
 		return $this;
 	}
 

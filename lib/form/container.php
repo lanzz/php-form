@@ -14,16 +14,28 @@
 abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 
 	/**
-	 * Parent form
+	 * Form instance that the container belongs to
 	 * @var Form
 	 */
 	protected $form;
 
 	/**
-	 * Root name of the form container
+	 * Root name of the container
 	 * @var string
 	 */
 	protected $name = '';
+
+	/**
+	 * Default value for this container
+	 * @var mixed
+	 */
+	protected $default = null;
+
+	/**
+	 * Value of this container
+	 * @var mixed
+	 */
+	protected $value = null;
 
 	/**
 	 * Storage for the child elements
@@ -32,19 +44,7 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 	protected $children = array();
 
 	/**
-	 * Default value for this container's elements
-	 * @var mixed
-	 */
-	protected $default = null;
-
-	/**
-	 * Value of this container's elements
-	 * @var mixed
-	 */
-	protected $value = null;
-
-	/**
-	 * Keys of all elements in container (= unique keys of both values and default values)
+	 * Keys of all child elements in container (= unique keys of both values and default values)
 	 * @var array
 	 */
 	protected $keys = array();
@@ -60,6 +60,28 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 	 * @var array
 	 */
 	protected $errors = array();
+
+	/**
+	 * Set the submitted values of the container
+	 * @param mixed $value
+	 * @return Form_Container $this
+	 */
+	protected function set_value($value) {
+		$this->value = $value;
+		$this->keys = array_keys(array_merge(is_array($this->value)? $this->value: array(), is_array($this->default)? $this->default: array()));
+		return $this;
+	}
+
+	/**
+	 * Set default value for the container
+	 * @param mixed $default
+	 * @return Form_Container $this
+	 */
+	protected function set_default($default) {
+		$this->default = $default;
+		$this->keys = array_keys(array_merge(is_array($this->value)? $this->value: array(), is_array($this->default)? $this->default: array()));
+		return $this;
+	}
 
 	/**
 	 * Implement Countable
@@ -114,16 +136,17 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 	 * @param array $override
 	 * @return array
 	 */
-	protected function merge(array $base, array $override) {
+	static protected function merge(array $base, array $override) {
 		// remove scalar and indexed elements from the base
 		foreach ($base as $key => $value) {
-			if (is_scalar($value) || (is_int($key) && !array_key_exists($key, $override))) {
+			if (is_int($key) && !array_key_exists($key, $override)) {
 				unset($base[$key]);
 			}
 		}
+		// merge overrides into base
 		foreach ($override as $key => $value) {
 			if (array_key_exists($key, $base) && is_array($value) && is_array($base[$key])) {
-				$base[$key] = $this->merge($base[$key], $value);
+				$base[$key] = self::merge($base[$key], $value);
 			} else {
 				$base[$key] = $value;
 			}
@@ -144,14 +167,22 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 	}
 
 	/**
+	 * Return keys of child elements
+	 * @return array
+	 */
+	public function keys() {
+		return $this->keys;
+	}
+
+	/**
 	 * Wrap child values in FormElement instances
 	 * @param string $key
 	 * @return FormElement
 	 */
 	public function __get($name) {
 		if (!isset($this->children[$name])) {
-			$value = (is_array($this->value) && isset($this->value[$name]))? $this->value[$name]: null;
-			$default_value = (is_array($this->default) && isset($this->default[$name]))? $this->default[$name]: null;
+			$value = isset($this->value[$name])? $this->value[$name]: null;
+			$default_value = isset($this->default[$name])? $this->default[$name]: null;
 			$child = $this->create_child($this->form, strlen($this->name)? $this->name.'['.$name.']': $name, $value, $default_value);
 			$this->children[$name] = $child;
 		}
@@ -214,7 +245,7 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 	/**
 	 * Clear errors for the container or just a single code
 	 * @param string|null $code
-	 * @return FormContainer $this
+	 * @return Form_Container $this
 	 */
 	public function clear_errors($code = null) {
 		if (is_null($code)) {
@@ -229,7 +260,7 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 	 * Set error for the container
 	 * @param string $error
 	 * @param string|null $code
-	 * @return FormContainer $this
+	 * @return Form_Container $this
 	 */
 	public function set_error($error, $code = null) {
 		$this->clear_errors();
@@ -241,7 +272,7 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 	 * Add an error for the container
 	 * @param string $error
 	 * @param string|null $code
-	 * @return FormContainer $this
+	 * @return Form_Container $this
 	 */
 	public function add_error($error, $code = null) {
 		if (is_null($code)) {

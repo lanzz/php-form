@@ -14,6 +14,12 @@
 class Form_Element extends Form_Container {
 
 	/**
+	 * Parent form
+	 * @var Form
+	 */
+	protected $form;
+
+	/**
 	 * Construct a form element
 	 * @param Form $form
 	 * @param string $name
@@ -21,16 +27,8 @@ class Form_Element extends Form_Container {
 	public function __construct(Form $form, $name, $value, $default_value) {
 		$this->form = $form;
 		$this->name = $name;
-		$this->value = $value;
-		$this->default = $default_value;
-		$this->keys = array();
-		if (is_array($default_value)) {
-			$this->keys = $this->merge($this->keys, $default_value);
-		}
-		if (is_array($value)) {
-			$this->keys = $this->merge($this->keys, $value);
-		}
-		$this->keys = array_keys($this->keys);
+		$this->set_value($value);
+		$this->set_default($default_value);
 	}
 
 	/**
@@ -167,15 +165,12 @@ class Form_Element extends Form_Container {
 	 * @return string
 	 */
 	public function hidden() {
-		$value = $this->get_value();
-		if (is_null($value)) {
-			return '';
-		}
-		if (!is_array($value)) {
-			return '<input type="hidden"'.$this->name().$this->value().'>';
-		}
 		$fields = array();
-		foreach (array_keys($value) as $name) {
+		$value = $this->get_value();
+		if (!is_null($value) && !is_array($value)) {
+			$fields[] = '<input type="hidden"'.$this->name().$this->value().'>';
+		}
+		foreach ($this->keys as $name) {
 			$fields[] = $this->__get($name)->hidden();
 		}
 		return join("\n", $fields);
@@ -186,7 +181,7 @@ class Form_Element extends Form_Container {
 	 * @return string
 	 */
 	public function query() {
-		return http_build_query(array($this->name => $this->value));
+		return http_build_query(array($this->name => $this->get_value()));
 	}
 
 	/**
