@@ -46,7 +46,15 @@
 					<li>Method <code><a href="../form_container.html">Form_Container</a>-&gt;valid()</code></li>
 				</ul>
 
-				<h3>Under construction</h3>
+				<p>The <code><a href="http://php.net/manual/en/class.iterator.php">Iterator</a></code> interface allows to use a
+					<code><a href="../form_container.html">Form_Container</a></code> in a <code>foreach</code> loop.</p>
+
+				<pre><code>$form = Form::from_array(array('bar' => 1, 'baz' => 2), 'foo');
+foreach ($form as $key => $element) {
+	print($key.": ".$element->name()."\n");
+}
+<em>// bar:  name="foo[bar]"
+// baz:  name="foo[baz]"</em></code></pre>
 
 				<div>
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
