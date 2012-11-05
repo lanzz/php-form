@@ -51,11 +51,11 @@
 
 				<pre><code>$form = Form::from_array(array('bar' => 1, 'baz' => 2), 'foo');
 foreach ($form as $key => $element) {
-	print($key.": ".$element->name()."\n");
+	print($key.": ".$element->get_name()."\n");
 }
 
-<em>// bar:  name="foo[bar]"
-// baz:  name="foo[baz]"</em></code></pre>
+<em>// bar: foo[bar]
+// baz: foo[baz]</em></code></pre>
 
 				<div>
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
