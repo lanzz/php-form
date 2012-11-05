@@ -45,7 +45,21 @@
 					<li>Method <code><a href="../form_container.html">Form_Container</a>-&gt;offsetExists()</code></li>
 				</ul>
 
-				<h3>Under construction</h3>
+				<p>The <code><a href="http://php.net/manual/en/class.arrayaccess.php">ArrayAccess</a></code> interface allows
+					referencing children elements by name or by index.</p>
+
+				<pre><code>$form = Form::from_array(array('foo' => 1, 'bar' => array(3, 4, 5)));
+print($form['foo']->get_value()."\n");
+print($form['bar'][2]->get_value()."\n");
+print_r($form['bar']->get_value());
+<em>// 1
+// 5
+// Array
+// (
+//     [0] => 3
+//     [1] => 4
+//     [2] => 5
+// )</em></code></pre>
 
 				<div>
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
