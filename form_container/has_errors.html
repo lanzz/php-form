@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" type="text/css" media="screen" href="/php-form/stylesheets/stylesheet.css">
 
-		<title>Form_Container-&gt;clear_errors() method :: PHP-Form</title>
+		<title>Form_Container-&gt;has_errors() method :: PHP-Form</title>
 	</head>
 
 	<body>
@@ -36,7 +36,7 @@
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
 				</div>
 
-				<h2>Method <code><a href="../form_container.html">Form_Container</a>-&gt;clear_errors</code></h2>
+				<h2>Method <code><a href="../form_container.html">Form_Container</a>-&gt;has_errors</code></h2>
 
 				<h3>Parameters:</h3>
 
@@ -44,42 +44,30 @@
 					<li><em>string</em> <strong>$code</strong> = null</li>
 				</ul>
 
-				<h3>Returns: <a href="../form_container.html"><em>Form_Container</em></a></h3>
+				<h3>Returns: <em>boolean</em></h3>
 
-				<p>Clears error messages previously added for the container.</p>
+				<p>Test if any error messages have been added for the container.</p>
 
-				<p>If you pass <code>$code</code>, then only messages specific to that error code are cleared.</p>
+				<p>If you pass <code>$code</code>, then <code>has_errors()</code> will only return <code>true</code>
+					if errors with that specific error code have been added.</p>
 
-				<p>Note that if you call <code>clear_errors()</code> with no <code>$code</code>, then <em>all</em>
-					error messages for all error codes will be cleared. If you want to clear only the messages for
-					the default error code, you must invoke <code>$form-&gt;clear_errors(':default')</code> explicitly.</p>
+				<p>Note that if you call <code>has_errors()</code> with no <code>$code</code>, then it will return <code>true</code>
+					if <em>any</em> errors have been added for the container. If you want to test only for errors with the
+					default error code, you must invoke <code>$form->has_errors(':default')</code> explicitly.</p>
 
 				<pre><code>$form-&gt;example-&gt;add_error('Lorem', 'foo');
 $form-&gt;example-&gt;add_error('Ipsum', 'foo');
 $form-&gt;example-&gt;add_error('Dolor', 'bar');
 $form-&gt;example-&gt;add_error('Sit Amet', 'bar');
-print_r($form-&gt;example-&gt;get_errors());
-<em>// Array
-// (
-//     [0] =&gt; Lorem
-//     [1] =&gt; Ipsum
-//     [2] =&gt; Dolor
-//     [3] =&gt; Sit Amet
-// )</em>
 
-$form-&gt;example-&gt;clear_errors('foo');
-print_r($form-&gt;example-&gt;get_errors());
-<em>// Array
-// (
-//     [0] =&gt; Dolor
-//     [1] =&gt; Sit Amet
-// )</em>
+print($form-&gt;example-&gt;has_errors()? 'true': 'false');
+<em>// prints "true"</em>
 
-$form-&gt;example-&gt;clear_errors();
-print_r($form-&gt;example-&gt;get_errors());
-<em>// all errors are cleared: Array
-// (
-// )</em></code></pre>
+print($form-&gt;example-&gt;has_errors('foo')? 'true': 'false');
+<em>// prints "true"</em>
+
+print($form-&gt;example-&gt;has_errors('xyzzy')? 'true': 'false');
+<em>// prints "false"</em></code></pre>
 
 				<div>
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>

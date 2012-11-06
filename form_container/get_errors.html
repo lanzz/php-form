@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" type="text/css" media="screen" href="/php-form/stylesheets/stylesheet.css">
 
-		<title>PHP-Form</title>
+		<title>Form_Container-&gt;get_errors() method :: PHP-Form</title>
 	</head>
 
 	<body>
@@ -36,7 +36,52 @@
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
 				</div>
 
-				<h1>Under Construction</h1>
+				<h2>Method <code><a href="../form_container.html">Form_Container</a>-&gt;get_errors</code></h2>
+
+				<h3>Parameters:</h3>
+
+				<ul>
+					<li><em>string</em> <strong>$code</strong> = null</li>
+				</ul>
+
+				<h3>Returns: <em>array</em></h3>
+
+				<p>Returns error messages previously added for the container.</p>
+
+				<p>If you pass <code>$code</code>, then only messages specific to that error code are returned.</p>
+
+				<p>Note that if you call <code>get_errors()</code> with no <code>$code</code>, then <em>all</em>
+					error messages for all error codes will be returned in a flat array. If you want to retrieve
+					only the messages for the default error code, you must invoke <code>$form->get_errors(':default')</code>
+					explicitly.</p>
+
+				<pre><code>$form-&gt;example-&gt;add_error('Lorem', 'foo');
+$form-&gt;example-&gt;add_error('Ipsum', 'foo');
+$form-&gt;example-&gt;add_error('Dolor', 'bar');
+$form-&gt;example-&gt;add_error('Sit Amet', 'bar');
+
+print_r($form-&gt;example-&gt;get_errors());
+<em>// Array
+// (
+//     [0] =&gt; Lorem
+//     [1] =&gt; Ipsum
+//     [2] =&gt; Dolor
+//     [3] =&gt; Sit Amet
+// )</em>
+
+print_r($form-&gt;example-&gt;get_errors('foo'));
+<em>// Array
+// (
+//     [0] =&gt; Lorem
+//     [1] =&gt; Ipsum
+// )</em>
+
+print_r($form-&gt;example-&gt;get_errors('bar'));
+<em>// Array
+// (
+//     [0] =&gt; Dolor
+//     [1] =&gt; Sit Amet
+// )</em></code></pre>
 
 				<div>
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>

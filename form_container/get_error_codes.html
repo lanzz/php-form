@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" type="text/css" media="screen" href="/php-form/stylesheets/stylesheet.css">
 
-		<title>PHP-Form</title>
+		<title>Form_Container-&gt;get_error_codes() method :: PHP-Form</title>
 	</head>
 
 	<body>
@@ -36,7 +36,25 @@
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
 				</div>
 
-				<h1>Under Construction</h1>
+				<h2>Method <code><a href="../form_container.html">Form_Container</a>-&gt;get_error_codes</code></h2>
+
+				<h3>Parameters: <em>none</em></h3>
+
+				<h3>Returns: <em>array</em></h3>
+
+				<p>Returns all error codes for the messages added for the container.</p>
+
+				<pre><code>$form-&gt;example-&gt;add_error('Lorem', 'foo');
+$form-&gt;example-&gt;add_error('Ipsum', 'foo');
+$form-&gt;example-&gt;add_error('Dolor', 'bar');
+$form-&gt;example-&gt;add_error('Sit Amet', 'bar');
+
+print_r($form-&gt;example-&gt;get_error_codes());
+<em>// Array
+// (
+//     [0] =&gt; foo
+//     [1] =&gt; bar
+// )</em></code></pre>
 
 				<div>
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
