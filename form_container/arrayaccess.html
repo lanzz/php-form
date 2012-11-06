@@ -49,6 +49,7 @@
 					referencing child elements by name or by index.</p>
 
 				<pre><code>$form = Form::from_array(array('foo' => 1, 'bar' => array(3, 4, 5)));
+
 print($form['foo']->get_value()."\n");
 <em>// prints "1"</em>
 
@@ -66,6 +67,7 @@ print_r($form['bar']->get_value());
 				<p>You can also update the <em>submitted</em> value for child elements:</p>
 
 				<pre><code>$form = Form::from_array(array('foo' => 1));
+
 print($form['foo']->get_value()."\n");
 <em>// 1</em>
 
@@ -76,6 +78,7 @@ print($form['foo']->get_value()."\n");
 				<p>Note that updating the submitted value of a parent will not have effect on already initialized child elements:</p>
 
 				<pre><code>$form = Form::from_array(array('foo' => array('bar' => 1, 'baz' => 2)));
+
 print($form['foo']['bar']->get_value()."\n");
 <em>// prints "1"</em>
 
