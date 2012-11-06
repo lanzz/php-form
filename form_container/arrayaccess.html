@@ -50,10 +50,10 @@
 
 				<pre><code>$form = Form::from_array(array('foo' => 1, 'bar' => array(3, 4, 5)));
 print($form['foo']->get_value()."\n");
-<em>// 1</em>
+<em>// prints "1"</em>
 
 print($form['bar'][2]->get_value()."\n");
-<em>// 5</em>
+<em>// prints "5"</em>
 
 print_r($form['bar']->get_value());
 <em>// Array
