@@ -87,7 +87,8 @@ print($form['foo']['bar']->get_value()."\n");
 <em>// still prints the old value "1"</em>
 
 print($form['foo']['baz']->get_value()."\n");
-<em>// prints the new value "4", because $form['foo']['baz'] was first accessed after the value of $form['foo'] was changed</em></code></pre>
+<em>// prints the new value "4", because $form['foo']['baz'] was
+// first accessed after the value of $form['foo'] was changed</em></code></pre>
 
 				<p>Unsetting an index deletes the value, and destroys the child element, if it was already initialized:</p>
 
