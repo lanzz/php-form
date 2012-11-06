@@ -50,12 +50,13 @@
 
 				<pre><code>$form = Form::from_array(array('foo' => 1, 'bar' => array(3, 4, 5)));
 print($form['foo']->get_value()."\n");
-print($form['bar'][2]->get_value()."\n");
-print_r($form['bar']->get_value());
+<em>// 1</em>
 
-<em>// 1
-// 5
-// Array
+print($form['bar'][2]->get_value()."\n");
+<em>// 5</em>
+
+print_r($form['bar']->get_value());
+<em>// Array
 // (
 //     [0] => 3
 //     [1] => 4
@@ -66,11 +67,11 @@ print_r($form['bar']->get_value());
 
 				<pre><code>$form = Form::from_array(array('foo' => 1));
 print($form['foo']->get_value()."\n");
+<em>// 1</em>
+
 $form['foo'] = 2;
 print($form['foo']->get_value()."\n");
-
-// 1
-// 2</code></pre>
+<em>// 2</em></code></pre>
 
 				<p>Note that updating the submitted value of a parent will not have effect on already initialized child elements:</p>
 
