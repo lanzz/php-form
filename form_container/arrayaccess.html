@@ -110,7 +110,7 @@ print($form['foo']['bar']-&gt;get_type()."\n");
 <em>// prints "NULL"</em></code></pre>
 
 				<p>Testing if a child element is set returns <code>true</code> <em>only</em> if the element has been
-					<em>submitted</em>; an element might have a default value, but still will test as unset if no
+					<em>submitted</em>; an element might have a default value, but will still test as unset if no
 					value has been submitted for it.</p>
 
 				<pre><code>$form = Form::from_post();
