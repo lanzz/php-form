@@ -85,6 +85,29 @@ print($form['foo']['bar']->get_value()."\n");
 print($form['foo']['baz']->get_value()."\n");
 <em>// prints the new value "4", because $form['foo']['baz'] was first accessed after the value of $form['foo'] was changed</em></code></pre>
 
+				<p>Unsetting an index deletes the value, and destroys the child element, if it was already initialized:</p>
+
+				<pre><code>$form = Form::from_array(array('foo' => array('bar' => 1, 'baz' => 2)));
+print_r($form['foo']->get_value());
+<em>// Array
+// (
+//     [bar] => 1
+//     [baz] => 2
+// )</em>
+
+print($form['foo']['bar']->get_type()."\n");
+<em>// prints "integer"</em>
+
+unset($form['foo']['bar']);
+print_r($form['foo']->get_value());
+<em>// Array
+// (
+//     [baz] => 2
+// )</em>
+
+print($form['foo']['bar']->get_type()."\n");
+<em>// prints "NULL"</em></code></pre>
+
 				<div>
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
 				</div>
