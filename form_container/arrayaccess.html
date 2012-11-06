@@ -46,7 +46,7 @@
 				</ul>
 
 				<p>The <code><a href="http://php.net/manual/en/class.arrayaccess.php">ArrayAccess</a></code> interface allows
-					referencing children elements by name or by index.</p>
+					referencing child elements by name or by index.</p>
 
 				<pre><code>$form = Form::from_array(array('foo' => 1, 'bar' => array(3, 4, 5)));
 print($form['foo']->get_value()."\n");
@@ -61,6 +61,29 @@ print_r($form['bar']->get_value());
 //     [1] => 4
 //     [2] => 5
 // )</em></code></pre>
+
+				<p>You can also update the <em>submitted</em> value for child elements:</p>
+
+				<pre><code>$form = Form::from_array(array('foo' => 1));
+print($form['foo']->get_value()."\n");
+$form['foo'] = 2;
+print($form['foo']->get_value()."\n");
+
+// 1
+// 2</code></pre>
+
+				<p>Note that updating the submitted value of a parent will not have effect on already initialized child elements:</p>
+
+				<pre><code>$form = Form::from_array(array('foo' => array('bar' => 1, 'baz' => 2)));
+print($form['foo']['bar']->get_value()."\n");
+<em>// prints "1"</em>
+
+$form['foo'] = array('bar' => '3', 'baz' => 4);
+print($form['foo']['bar']->get_value()."\n");
+<em>// still prints the old value "1"</em>
+
+print($form['foo']['baz']->get_value()."\n");
+<em>// prints the new value "4", because $form['foo']['baz'] was first accessed after the value of $form['foo'] was changed</em></code></pre>
 
 				<div>
 					<a href="/php-form">Home</a> | <a href="/php-form/reference.html">Reference</a> | <a href="/php-form/tutorial.html">Tutorial</a>
