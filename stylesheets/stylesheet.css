@@ -191,6 +191,10 @@ pre code {
   border-radius: 0;
 }
 
+code em {
+  color: #777;
+}
+
 blockquote {
   color: #666;
   margin-bottom: 20px;
