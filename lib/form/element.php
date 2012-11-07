@@ -29,6 +29,11 @@ class Form_Element extends Form_Container {
 		$this->name = $name;
 		$this->set_value($value);
 		$this->set_default($default_value);
+
+		// pre-instantiate all children
+		foreach ($this->keys as $name) {
+			$this->create_child($name);
+		}
 	}
 
 	/**

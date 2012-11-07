@@ -162,8 +162,14 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 	 * @param mixed $default_value
 	 * @return FormElement
 	 */
-	protected function create_child(Form $form, $name, $value, $default_value) {
-		return new Form_Element($form, $name, $value, $default_value);
+	protected function create_child($name) {
+		if (isset($this->children[$name])) {
+			return $this->children[$name];
+		}
+		$value = isset($this->value[$name])? $this->value[$name]: null;
+		$default_value = isset($this->default[$name])? $this->default[$name]: null;
+		$this->children[$name] = new Form_Element($this->form, strlen($this->name)? $this->name.'['.$name.']': $name, $value, $default_value);
+		return $this->children[$name];
 	}
 
 	/**
@@ -180,13 +186,7 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 	 * @return FormElement
 	 */
 	public function __get($name) {
-		if (!isset($this->children[$name])) {
-			$value = isset($this->value[$name])? $this->value[$name]: null;
-			$default_value = isset($this->default[$name])? $this->default[$name]: null;
-			$child = $this->create_child($this->form, strlen($this->name)? $this->name.'['.$name.']': $name, $value, $default_value);
-			$this->children[$name] = $child;
-		}
-		return $this->children[$name];
+		return $this->create_child($name);
 	}
 
 	/**
@@ -217,30 +217,49 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 	}
 
 	/**
-	 * Ignore value setting
+	 * Set value for a child element by property
 	 * @param string $name
 	 * @param mixed $value
 	 */
-	public function __set($name, $value) {}
+	public function __set($name, $value) {
+		$this->value[$name] = $value;
+		if (isset($this->children[$name])) {
+			// update value in child element
+			$this->children[$name]->set_value($value);
+		} else {
+			// create new child element
+			$this->children[$name] = $this->create_child($name);
+		}
+	}
 
 	/**
-	 * Ignore value setting
+	 * Set value for a child element by index
 	 * @param mixed $index
 	 * @param mixed $value
 	 */
-	public function offsetSet($index, $value) {}
+	public function offsetSet($index, $value) {
+		$this->__set($index, $value);
+	}
 
 	/**
-	 * Ignore value unsetting
+	 * Unset a child element by property
 	 * @param string $name
 	 */
-	public function __unset($name) {}
+	public function __unset($name) {
+		unset($this->value[$name]);
+		if (isset($this->children[$name])) {
+			// drop child element
+			unset($this->children[$name]);
+		}
+	}
 
 	/**
-	 * Ignore value unsetting
+	 * Unset a child element by property
 	 * @param mixed $index
 	 */
-	public function offsetUnset($index) {}
+	public function offsetUnset($index) {
+		$this->__unset($index);
+	}
 
 	/**
 	 * Clear errors for the container or just a single code
@@ -263,7 +282,7 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 	 * @return Form_Container $this
 	 */
 	public function set_error($error, $code = null) {
-		$this->clear_errors();
+		$this->clear_errors($code);
 		$this->add_error($error, $code);
 		return $this;
 	}
@@ -287,7 +306,7 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 	 * @param string|null $code
 	 * @return bool
 	 */
-	public function has_error($code = null) {
+	public function has_errors($code = null) {
 		if (is_null($code)) {
 			return (bool)count($this->errors);
 		} else {
@@ -312,15 +331,23 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 	}
 
 	/**
+	 * Get error codes added for the element
+	 * @return array
+	 */
+	public function get_error_codes() {
+		return array_keys($this->errors);
+	}
+
+	/**
 	 * Return a string based on error condition
-	 * @param string $return
+	 * @param string $string
 	 * @param string $error_code
 	 * @return string
 	 *
-	 * Useful as <input <?php echo $form->field->if_error('class="error"') ?> ...>
+	 * Useful as <input <?php echo $form->field->if_errors('class="error"') ?> ...>
 	 */
-	public function if_error($return, $code = null) {
-		return $this->has_error($code)? $return: '';
+	public function if_errors($string, $code = null) {
+		return $this->has_errors($code)? $string: '';
 	}
 
 }
