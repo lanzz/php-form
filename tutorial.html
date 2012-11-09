@@ -37,16 +37,16 @@
 				</div>
 
 				<pre><code>&lt;?php
-<span class="popup" data-popup="require">require('./lib/form.php');</span>
+<div class="popup" data-popup="require">require('./lib/form.php');</div>
 
-<span class="popup" data-popup="init">$form = Form::from_request('foo[bar][baz]');</span>
-<span class="popup" data-popup="defaults">$form-&gt;set_defaults(array(
+<div class="popup" data-popup="init">$form = Form::from_request('foo[bar][baz]');</div>
+<div class="popup" data-popup="defaults">$form-&gt;set_defaults(array(
     'subs' =&gt; array(),
     'multi' =&gt; array(),
     'remember' =&gt; 0,
-));</span>
+));</div>
 
-<span class="popup" data-popup="inspect">function inspect(Form_Container $form) {
+<div class="popup" data-popup="inspect">function inspect(Form_Container $form) {
     if (!count($form)) {
         return;
     }
@@ -63,7 +63,7 @@
         }
     }
     print('&lt;/ul&gt;');
-}</span>
+}</div>
 
 ?&gt;
 &lt;!DOCTYPE html&gt;
