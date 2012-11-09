@@ -79,9 +79,19 @@ function inspect(Form_Container $form) {
             Sub-Username: &lt;?php echo $form-&gt;sub-&gt;username-&gt;input() ?&gt;&lt;br&gt;
             Sub-Password: &lt;?php echo $form-&gt;sub-&gt;password-&gt;password() ?&gt;&lt;br&gt;
             &lt;hr&gt;
-            Choose one: &lt;?php echo $form-&gt;choice-&gt;select(array('' =&gt; 'Nothing', 1 =&gt; 'Choose foo (1)', 2 =&gt; 'Choose bar (2)', 3 =&gt; 'Choose baz (3)')) ?&gt;
+            Choose one: &lt;?php echo $form-&gt;choice-&gt;select(array(
+                '' =&gt; 'Nothing',
+                1 =&gt; 'Choose foo (1)',
+                2 =&gt; 'Choose bar (2)',
+                3 =&gt; 'Choose baz (3)'
+            )) ?&gt;
             &lt;hr&gt;
-            Choose several: &lt;?php echo $form-&gt;multi-&gt;select(array('' =&gt; 'Nothing', 1 =&gt; 'Choose foo (1)', 2 =&gt; 'Choose bar (2)', 3 =&gt; 'Choose baz (3)'), 'multiple') ?&gt;
+            Choose several: &lt;?php echo $form-&gt;multi-&gt;select(array(
+                '' =&gt; 'Nothing',
+                1 =&gt; 'Choose foo (1)',
+                2 =&gt; 'Choose bar (2)',
+                3 =&gt; 'Choose baz (3)'
+            ), 'multiple') ?&gt;
             &lt;hr&gt;
             &lt;?php echo $form-&gt;remember-&gt;checkbox('1') ?&gt; Remember me
             &lt;hr&gt;
@@ -104,7 +114,9 @@ function inspect(Form_Container $form) {
         &lt;?php inspect($form) ?&gt;
         &lt;hr&gt;
         &lt;h3&gt;Build query string from form data&lt;/h3&gt;
-        &lt;pre&gt;&lt;a href="?&lt;?php echo htmlspecialchars($form-&gt;query()) ?&gt;"&gt;&lt;?php echo htmlspecialchars(urldecode($form-&gt;query())) ?&gt;&lt;/a&gt;&lt;/pre&gt;
+        &lt;pre&gt;&lt;a href="?&lt;?php echo htmlspecialchars($form-&gt;query()) ?&gt;"&gt;
+            &lt;?php echo htmlspecialchars(urldecode($form-&gt;query())) ?&gt;
+        &lt;/a&gt;&lt;/pre&gt;
         &lt;hr&gt;
         &lt;h3&gt;Build hidden fields from form data&lt;/h3&gt;
         &lt;pre&gt;&lt;?php echo htmlspecialchars($form-&gt;hidden()) ?&gt;&lt;/pre&gt;
