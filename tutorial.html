@@ -54,15 +54,13 @@
     foreach ($form as $name =&gt; $input) {
         print('&lt;li&gt;&lt;b&gt;'.htmlspecialchars($name).'&lt;/b&gt; ');
         print('&lt;small&gt;('.htmlspecialchars($input-&gt;get_name()).')&lt;/small&gt;: ');
-<div class="popup" data-popup="popup-count">
-        if (count($input)) {
+<div class="popup" data-popup="popup-count">        if (count($input)) {
             // complex input
             inspect($input);
         } else {
             // single value
             print($input-&gt;as_string());
-        }
-</div>
+        }</div>
     }
     print('&lt;/ul&gt;');
 }</div>
