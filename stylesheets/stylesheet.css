@@ -448,13 +448,13 @@ li.toc:before {
 /* Tutorial popup styles */
 .popup {
   border-radius: 5px;
+  border: 1px dotted #DDD;
 }
 div.popup {
   clear: both;
   float: left;
   padding: 2px;
   margin: 2px;
-  border: 1px dotted #EEE;
 }
 div.clear {
   clear: both;
@@ -465,12 +465,27 @@ div.clear {
   background: #EEE;
   cursor: pointer;
 }
+.popup:hover .popup {
+  border-color: #CCC;
+}
+.popup:hover .popup {
+  border-color: #CCC;
+}
 .popup:hover .popup:hover {
   background: #DDD;
+}
+.popup:hover .popup:hover .popup {
+  border-color: #BBB;
 }
 .popup:hover .popup:hover .popup:hover {
   background: #CCC;
 }
+.popup:hover .popup:hover .popup:hover .popup {
+  border-color: #AAA;
+}
 .popup:hover .popup:hover .popup:hover .popup:hover {
   background: #BBB;
+}
+.popup:hover .popup:hover .popup:hover .popup:hover .popup {
+  border-color: #999;
 }
