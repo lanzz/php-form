@@ -449,7 +449,10 @@ li.toc:before {
 div.popup {
   float: left;
 }
+div.clear {
+  clear: both;
+}
 .popup:hover {
-  background: #AAA;
+  background: #DDD;
   border-radius: 5px;
 }
