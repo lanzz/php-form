@@ -445,7 +445,7 @@ li.toc:before {
     counter-increment: item
 }
 
-/* Tutorial popup styles */
+/* Tutorial styles */
 .popup {
   border-radius: 5px;
   border: 1px dotted #DDD;
