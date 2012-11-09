@@ -446,6 +446,9 @@ li.toc:before {
 }
 
 /* Tutorial popup styles */
+div.popup {
+  float: left;
+}
 .popup:hover {
   background: #AAA;
   border-radius: 5px;
