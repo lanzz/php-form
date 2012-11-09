@@ -41,9 +41,9 @@
 
 <div class="popup" data-popup="init">$form = Form::from_request('foo[bar][baz]');</div>
 <div class="popup" data-popup="defaults">$form-&gt;set_defaults(array(
-    'subs' =&gt; array(),
+    <span class="popup" data-popup="default-array">'subs' =&gt; array()</span>,
     'multi' =&gt; array(),
-    'remember' =&gt; 0,
+    <span class="popup" data-popup="default-checkbox">'remember' =&gt; 0</span>,
 ));</div>
 
 <div class="popup" data-popup="inspect">function inspect(Form_Container $form) {
@@ -73,10 +73,10 @@
     &lt;/head&gt;
     &lt;body&gt;
         &lt;form method="post" action="demo.php"&gt;
-            Username: &lt;?php echo <span class="popup" data-popup="popup-input">$form-&gt;username-&gt;input()</span> ?&gt;&lt;br&gt;
-            Password: &lt;?php echo <span class="popup" data-popup="popup-password">$form-&gt;password-&gt;password()</span> ?&gt;&lt;br&gt;
+            Username: &lt;?php echo <span class="popup" data-popup="input">$form-&gt;username-&gt;input()</span> ?&gt;&lt;br&gt;
+            Password: &lt;?php echo <span class="popup" data-popup="password">$form-&gt;password-&gt;password()</span> ?&gt;&lt;br&gt;
             &lt;hr&gt;
-            Country: &lt;?php echo <span class="popup" data-popup="popup-subfield">$form-&gt;address-&gt;country-&gt;input()</span> ?&gt;&lt;br&gt;
+            Country: &lt;?php echo <span class="popup" data-popup="subfield">$form-&gt;address-&gt;country-&gt;input()</span> ?&gt;&lt;br&gt;
             City: &lt;?php echo $form-&gt;address-&gt;city-&gt;input() ?&gt;&lt;br&gt;
             &lt;hr&gt;
             Choose one: &lt;?php echo $form-&gt;choice-&gt;select(array(
