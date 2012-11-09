@@ -451,8 +451,7 @@ li.toc:before {
   border: 1px dotted #DDD;
 }
 div.popup {
-  clear: both;
-  float: left;
+  display: inline-block;
   padding: 2px;
   margin: 2px;
 }
