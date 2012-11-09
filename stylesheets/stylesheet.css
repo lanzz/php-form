@@ -448,11 +448,12 @@ li.toc:before {
 /* Tutorial popup styles */
 div.popup {
   float: left;
-  margin: -2px;
   padding: 2px;
+  border: 1px dotted #EEE;
 }
 div.clear {
   clear: both;
+  padding: 2px;
 }
 .popup:hover {
   background: #EEE;
