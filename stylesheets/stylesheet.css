@@ -457,6 +457,7 @@ div.clear {
 .popup:hover {
   background: #EEE;
   border-radius: 5px;
+  cursor: pointer;
 }
 .popup:hover .popup:hover {
   background: #DDD;
