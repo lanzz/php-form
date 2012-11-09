@@ -73,11 +73,11 @@
     &lt;/head&gt;
     &lt;body&gt;
         &lt;form method="post" action="demo.php"&gt;
-            Username: &lt;?php echo $form-&gt;username-&gt;input() ?&gt;&lt;br&gt;
-            Password: &lt;?php echo $form-&gt;password-&gt;password() ?&gt;&lt;br&gt;
+            Username: &lt;?php echo <span class="popup" data-popup="popup-input">$form-&gt;username-&gt;input()</span> ?&gt;&lt;br&gt;
+            Password: &lt;?php echo <span class="popup" data-popup="popup-password">$form-&gt;password-&gt;password()</span> ?&gt;&lt;br&gt;
             &lt;hr&gt;
-            Sub-Username: &lt;?php echo $form-&gt;sub-&gt;username-&gt;input() ?&gt;&lt;br&gt;
-            Sub-Password: &lt;?php echo $form-&gt;sub-&gt;password-&gt;password() ?&gt;&lt;br&gt;
+            Country: &lt;?php echo <span class="popup" data-popup="popup-subfield">$form-&gt;address-&gt;country-&gt;input()</span> ?&gt;&lt;br&gt;
+            City: &lt;?php echo $form-&gt;address-&gt;city-&gt;input() ?&gt;&lt;br&gt;
             &lt;hr&gt;
             Choose one: &lt;?php echo $form-&gt;choice-&gt;select(array(
                 '' =&gt; 'Nothing',
