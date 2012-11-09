@@ -458,12 +458,12 @@ div.clear {
   background: #EEE;
   border-radius: 5px;
 }
-.popup:hover .popup.hover {
+.popup:hover .popup:hover {
   background: #DDD;
 }
-.popup:hover .popup.hover {
+.popup:hover .popup:hover .popup:hover {
   background: #CCC;
 }
-.popup:hover .popup.hover {
+.popup:hover .popup:hover .popup:hover .popup:hover {
   background: #BBB;
 }
