@@ -448,11 +448,22 @@ li.toc:before {
 /* Tutorial popup styles */
 div.popup {
   float: left;
+  margin: -2px;
+  padding: 2px;
 }
 div.clear {
   clear: both;
 }
 .popup:hover {
-  background: #DDD;
+  background: #EEE;
   border-radius: 5px;
+}
+.popup:hover .popup.hover {
+  background: #DDD;
+}
+.popup:hover .popup.hover {
+  background: #CCC;
+}
+.popup:hover .popup.hover {
+  background: #BBB;
 }
