@@ -47,13 +47,13 @@
 ));</div>
 
 <div class="popup" data-popup="inspect">function inspect(Form_Container $form) {
-    if (!count($form)) {
+<div class="clear">    if (!count($form)) {
         return;
     }
     print('&lt;ul&gt;');
     foreach ($form as $name =&gt; $input) {
         print('&lt;li&gt;&lt;b&gt;'.htmlspecialchars($name).'&lt;/b&gt; ');
-        print('&lt;small&gt;('.htmlspecialchars($input-&gt;get_name()).')&lt;/small&gt;: ');
+        print('&lt;small&gt;('.htmlspecialchars($input-&gt;get_name()).')&lt;/small&gt;: ');</div>
 <div class="popup" data-popup="popup-count">        if (count($input)) {
             // complex input
             inspect($input);
@@ -61,9 +61,9 @@
             // single value
             print($input-&gt;as_string());
         }</div>
-    }
+<div class="clear">    }
     print('&lt;/ul&gt;');
-}</div>
+}</div></div>
 
 <div class="clear">?&gt;
 &lt;!DOCTYPE html&gt;
