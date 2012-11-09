@@ -444,3 +444,11 @@ li.toc:before {
     content: counters(item, ".") ". ";
     counter-increment: item
 }
+
+/* Tutorial popup styles */
+.popup {
+  border-bottom: 1px dotted #AAA;
+}
+.popup:hover {
+  border-bottom-color: #000;
+}
