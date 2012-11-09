@@ -446,9 +446,13 @@ li.toc:before {
 }
 
 /* Tutorial popup styles */
+.popup {
+  border-radius: 5px;
+}
 div.popup {
   float: left;
   padding: 2px;
+  margin: 2px;
   border: 1px dotted #EEE;
 }
 div.clear {
@@ -457,7 +461,6 @@ div.clear {
 }
 .popup:hover {
   background: #EEE;
-  border-radius: 5px;
   cursor: pointer;
 }
 .popup:hover .popup:hover {
