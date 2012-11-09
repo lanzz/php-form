@@ -446,9 +446,7 @@ li.toc:before {
 }
 
 /* Tutorial popup styles */
-.popup {
-  border-bottom: 1px dotted #AAA;
-}
 .popup:hover {
-  border-bottom-color: #000;
+  background: #AAA;
+  border-radius: 5px;
 }
