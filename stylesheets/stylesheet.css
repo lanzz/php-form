@@ -450,6 +450,7 @@ li.toc:before {
   border-radius: 5px;
 }
 div.popup {
+  clear: both;
   float: left;
   padding: 2px;
   margin: 2px;
