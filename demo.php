@@ -4,11 +4,8 @@ error_reporting(E_ALL | E_STRICT);
 
 require('./lib/form.php');
 
-$form = Form::from_request('foo[bar][baz]');
+$form = Form::from_request('registration');
 $form->set_defaults(array(
-	'subs' => array(),
-	'multi' => array(),
-	'remember' => 0,
 ));
 
 function inspect(Form_Container $form) {
@@ -33,32 +30,77 @@ function inspect(Form_Container $form) {
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Form test</title>
+		<title>PHP Form :: Demonstration</title>
+		<style>
+
+		div.input > label:first-child {
+			width: 200px;
+			display: inline-block;
+		}
+
+		</style>
 	</head>
 	<body>
-		<form method="post" action="demo.php">
-			Username: <?php echo $form->username->input() ?><br>
-			Password: <?php echo $form->password->password() ?><br>
-			<hr>
-			Sub-Username: <?php echo $form->sub->username->input() ?><br>
-			Sub-Password: <?php echo $form->sub->password->password() ?><br>
-			<hr>
-			Choose one: <?php echo $form->choice->select(array('' => 'Nothing', 1 => 'Choose foo (1)', 2 => 'Choose bar (2)', 3 => 'Choose baz (3)')) ?>
-			<hr>
-			Choose several: <?php echo $form->multi->select(array('' => 'Nothing', 1 => 'Choose foo (1)', 2 => 'Choose bar (2)', 3 => 'Choose baz (3)'), 'multiple') ?>
-			<hr>
-			<?php echo $form->remember->checkbox('1') ?> Remember me
-			<hr>
-			Proceed to:<br>
-			<?php echo $form->redirect->radio('profile') ?> Profile
-			<?php echo $form->redirect->radio('checkout') ?> Checkout
-			<hr>
-			Subscribe to:<br>
-			<?php echo $form->subs->checkbox('list1') ?> Newsletter 1<br>
-			<?php echo $form->subs->checkbox('list2') ?> Newsletter 2<br>
-			<?php echo $form->subs->checkbox('list3') ?> Newsletter 3<br>
-			<?php echo $form->subs->checkbox('list4') ?> Newsletter 4<br>
-			<?php echo $form->subs->checkbox('list5') ?> Newsletter 5<br>
+		<form method="post">
+			<fieldset>
+				<legend>Account</legend>
+				<div class="input <?php echo $form->username->if_errors('error') ?>">
+					<?php echo $form->username->label('Username:') ?>
+					<?php echo $form->username->input() ?>
+				</div>
+				<div class="input <?php echo $form->password->if_errors('error') ?>">
+					<?php echo $form->password->label('Password:') ?>
+					<?php echo $form->password->password() ?>
+				</div>
+				<div class="input <?php echo $form->confirm_password->if_errors('error') ?>">
+					<?php echo $form->confirm_password->label('Confirm Password:') ?>
+					<?php echo $form->confirm_password->password() ?>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Address</legend>
+				<div class="input <?php echo $form->address->country->if_errors('error') ?>">
+					<?php echo $form->address->country->label('Country:') ?>
+					<?php echo $form->address->country->select(array(
+						'' => 'Please choose...',
+						'er' => 'Eriador',
+						'gd' => 'Gondor',
+						'md' => 'Mordor',
+						'rh' => 'Rhovanion',
+						'ro' => 'Rohan',
+					)) ?>
+				</div>
+				<div class="input <?php echo $form->address->city->if_errors('error') ?>">
+					<?php echo $form->address->city->label('City:') ?>
+					<?php echo $form->address->city->input() ?>
+				</div>
+				<div class="input <?php echo $form->address->street->if_errors('error') ?>">
+					<?php echo $form->address->street->label('Street Address:') ?>
+					<?php echo $form->address->street->input() ?>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Demographic</legend>
+				<div class="input <?php echo $form->demo->gender->if_errors('error') ?>">
+					<?php echo $form->demo->gender->label('Gender:') ?>
+					<select <?php echo $form->demo->gender->id_name() ?>>
+						<?php echo $form->demo->gender->option('', 'Please choose...') ?>
+						<?php echo $form->demo->gender->option('m', 'Male') ?>
+						<?php echo $form->demo->gender->option('f', 'Female') ?>
+						<?php echo $form->demo->gender->option('-', 'Won\'t say') ?>
+					</select>
+				</div>
+				<div class="input <?php echo $form->demo->age->if_errors('error') ?>">
+					<label>Age Group:</label>
+					<div class="radio-group">
+						<?php echo $form->demo->age->radio('0-17') ?><?php echo $form->demo->age->label('Under 18', '0-17') ?><br>
+						<?php echo $form->demo->age->radio('18-21') ?><?php echo $form->demo->age->label('18 to 21', '18-21') ?><br>
+						<?php echo $form->demo->age->radio('22-40') ?><?php echo $form->demo->age->label('22 to 40', '22-40') ?><br>
+						<?php echo $form->demo->age->radio('40+') ?><?php echo $form->demo->age->label('Over 40', '40+') ?><br>
+						<?php echo $form->demo->age->radio('-')?><?php echo $form->demo->age->label('Won\'t say', '-') ?>
+					</div>
+				</div>
+			</fieldset>
 			<hr>
 			<?php echo $form->submit->submit('Submit') ?>
 		</form>

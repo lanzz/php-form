@@ -118,6 +118,16 @@ class Form_Element extends Form_Container {
 	}
 
 	/**
+	 * Return an id="..." attribute, with optional prefix and suffix
+	 * @param string|null $prefix
+	 * @param string|null $suffix
+	 * @return string
+	 */
+	public function id($prefix = null, $suffix = null) {
+		return ' id="'.htmlspecialchars($this->get_id($prefix, $suffix)).'" ';
+	}
+
+	/**
 	 * Return a name="..." attribute
 	 * @return string
 	 */
@@ -126,21 +136,21 @@ class Form_Element extends Form_Container {
 	}
 
 	/**
+	 * Return both id="..." and name="..." attributes, with optional prefix and suffix for the id
+	 * @param string|null $prefix
+	 * @param string|null $suffix
+	 * @return string
+	 */
+	public function id_name($prefix = null, $suffix = null) {
+		return $this->id($prefix, $suffix).$this->name();
+	}
+
+	/**
 	 * Return a value="..." attribute
 	 * @return string
 	 */
 	public function value() {
 		return ' value="'.$this->as_html().'" ';
-	}
-
-	/**
-	 * Return an id="..." attribute, with optional prefix and suffix
-	 * @param string|null $prefix
-	 * @param string|null $suffix
-	 * @return string
-	 */
-	public function id($prefix = null, $suffix = null) {
-		return ' id="'.htmlspecialchars($this->get_id($prefix, $suffix)).'" ';
 	}
 
 	/**
@@ -187,6 +197,21 @@ class Form_Element extends Form_Container {
 	 */
 	public function query() {
 		return http_build_query(array($this->name => $this->get_value()));
+	}
+
+	/**
+	 * Return a label tag, with optional prefix and suffix for the id
+	 * @param string $label
+	 * @param string|null $value
+	 * @param string|null $prefix
+	 * @param string|null $suffix
+	 * @return string
+	 */
+	public function label($label, $value = null, $prefix = null, $suffix = null) {
+		if (isset($value)) {
+			$suffix .= '-'.$value;
+		}
+		return '<label for="'.htmlspecialchars($this->get_id($prefix, $suffix)).'">'.htmlspecialchars($label).'</label>';
 	}
 
 	/**
@@ -245,9 +270,20 @@ class Form_Element extends Form_Container {
 	public function select(array $values, $attributes = null) {
 		$options = array();
 		foreach ($values as $value => $label) {
-			$options[] = '<option '.$this->id(null, '-'.$value).' value="'.htmlspecialchars($value).'" '.$this->selected($value).'>'.htmlspecialchars($label).'</option>';
+			$options[] = $this->option($value, $label);
 		}
 		return '<select '.$this->id().$this->name().' '.$attributes.'>'.join("\n", $options).'</select>';
+	}
+
+	/**
+	 * Render a single option for select box
+	 * @param string $value
+	 * @param string $label
+	 * @param string|null $attributes
+	 * @return string
+	 */
+	public function option($value, $label, $attributes = null) {
+		return '<option '.$this->id(null, '-'.$value).' value="'.htmlspecialchars($value).'" '.$this->selected($value).'>'.htmlspecialchars($label).'</option>';
 	}
 
 	/**
