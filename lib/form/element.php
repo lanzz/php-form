@@ -200,18 +200,13 @@ class Form_Element extends Form_Container {
 	}
 
 	/**
-	 * Return a label tag, with optional prefix and suffix for the id
+	 * Return a label tag, with optional value to append to the element id
 	 * @param string $label
 	 * @param string|null $value
-	 * @param string|null $prefix
-	 * @param string|null $suffix
 	 * @return string
 	 */
-	public function label($label, $value = null, $prefix = null, $suffix = null) {
-		if (isset($value)) {
-			$suffix .= '-'.$value;
-		}
-		return '<label for="'.htmlspecialchars($this->get_id($prefix, $suffix)).'">'.htmlspecialchars($label).'</label>';
+	public function label($label, $value = null) {
+		return '<label for="'.htmlspecialchars($this->get_id(null, isset($value)? '-'.$value: '')).'">'.htmlspecialchars($label).'</label>';
 	}
 
 	/**
@@ -220,7 +215,7 @@ class Form_Element extends Form_Container {
 	 * @return string
 	 */
 	public function input($attributes = null) {
-		return '<input type="text" '.$this->id().$this->name().$this->value().' '.$attributes.'>';
+		return '<input type="text" '.$this->id_name().$this->value().' '.$attributes.'>';
 	}
 
 	/**
@@ -229,7 +224,7 @@ class Form_Element extends Form_Container {
 	 * @return string
 	 */
 	public function password($attributes = null) {
-		return '<input type="password" '.$this->id().$this->name().' '.$attributes.'>';
+		return '<input type="password" '.$this->id_name().' '.$attributes.'>';
 	}
 
 	/**
@@ -238,7 +233,7 @@ class Form_Element extends Form_Container {
 	 * @return string
 	 */
 	public function textarea($attributes = null) {
-		return '<textarea '.$this->id().$this->name().' '.$attributes.'>'.$this->as_html().'</textarea>';
+		return '<textarea '.$this->id_name().' '.$attributes.'>'.$this->as_html().'</textarea>';
 	}
 
 	/**
@@ -272,7 +267,7 @@ class Form_Element extends Form_Container {
 		foreach ($values as $value => $label) {
 			$options[] = $this->option($value, $label);
 		}
-		return '<select '.$this->id().$this->name().' '.$attributes.'>'.join("\n", $options).'</select>';
+		return '<select '.$this->id_name().' '.$attributes.'>'.join("\n", $options).'</select>';
 	}
 
 	/**
@@ -293,7 +288,7 @@ class Form_Element extends Form_Container {
 	 * @return string
 	 */
 	public function submit($label, $attributes = null) {
-		return '<input type="submit" '.$this->id().$this->name().' value="'.htmlspecialchars($label).'" '.$attributes.'>';
+		return '<input type="submit" '.$this->id_name().' value="'.htmlspecialchars($label).'" '.$attributes.'>';
 	}
 
 

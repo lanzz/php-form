@@ -276,12 +276,25 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 	}
 
 	/**
+	 * Clear errors for the container and all its child elements
+	 * @param string|null $code
+	 * @return Form_Container $this
+	 */
+	public function clear_all_errors($code = null) {
+		$this->clear_errors($code);
+		foreach ($this->children as $element) {
+			$element->clear_all_errors($code);
+		}
+		return $this;
+	}
+
+	/**
 	 * Set error for the container
 	 * @param string $error
 	 * @param string|null $code
 	 * @return Form_Container $this
 	 */
-	public function set_error($error, $code = null) {
+	public function set_error($error = null, $code = null) {
 		$this->clear_errors($code);
 		$this->add_error($error, $code);
 		return $this;
@@ -289,20 +302,25 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 
 	/**
 	 * Add an error for the container
-	 * @param string $error
+	 * @param string|null $error
 	 * @param string|null $code
 	 * @return Form_Container $this
 	 */
-	public function add_error($error, $code = null) {
+	public function add_error($error = null, $code = null) {
 		if (is_null($code)) {
 			$code = ':default';
 		}
-		$this->errors[$code][] = $error;
+		if (!isset($this->errors[$code])) {
+			$this->errors[$code] = array();
+		}
+		if (!is_null($error)) {
+			$this->errors[$code][] = $error;
+		}
 		return $this;
 	}
 
 	/**
-	 * Check if error condition exists
+	 * Check if error code is set for the container
 	 * @param string|null $code
 	 * @return bool
 	 */
@@ -312,6 +330,23 @@ abstract class Form_Container implements ArrayAccess, Countable, Iterator {
 		} else {
 			return isset($this->errors[$code]);
 		}
+	}
+
+	/**
+	 * Check if error code is set for the container or for any child element
+	 * @param string|null $code
+	 * @return bool
+	 */
+	public function contains_errors($code = null) {
+		if ($this->has_errors($code)) {
+			return true;
+		}
+		foreach ($this->children as $element) {
+			if ($element->contains_errors($code)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**

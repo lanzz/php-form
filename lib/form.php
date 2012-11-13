@@ -15,7 +15,7 @@ require_once(__DIR__.'/form/container.php');
 require_once(__DIR__.'/form/element.php');
 
 /**
- * Form helper class
+ * Form class
  * @package form
  */
 class Form extends Form_Container {
@@ -35,20 +35,27 @@ class Form extends Form_Container {
 	/**
 	 * Construct a new Form
 	 * @param array $submission		Submitted values
-	 * @param string|null $name		Root name of the form data
+	 * @param string $name			Root name of the form data
+	 * @param bool|null $submitted	Is the form to be considered "submitted"
+	 *
+	 * If $submitted is null, the form will be considered submitted only if $submission has
+	 * any values.
 	 */
-	protected function __construct(array $submission, $name = null) {
+	protected function __construct(array $submission, $name, $submitted = null) {
 		$this->form = $this;
 		$this->name = strlen($name)? $name: '';
 		$this->set_value($submission);
 		$this->merged = $this->value;
-		$this->submitted = (bool)count($this->keys);
+		$this->submitted = is_null($submitted)? (bool)count($this->value): $submitted;
 	}
 
 	/**
 	 * Resolve data context within an array of submitted data
 	 * @param array $vars
 	 * @param string $context
+	 *
+	 * $form->resolve_context(array('foo' => array('bar' => 'baz')), 'foo[bar]')
+	 * 	=> 'baz'
 	 */
 	static protected function resolve_context(array $submission, $context) {
 		if (!strlen($context)) {
@@ -76,9 +83,14 @@ class Form extends Form_Container {
 	 * Instantiate a Form from custom submitted data
 	 * @param array $vars
 	 * @param string|null $root
+	 * @param bool|null $submitted	Is the form to be considered "submitted"
+	 *
+	 * Since a form instantiated from an array is not necessarily in "submitted" state,
+	 * you can override the default behavior of checking if any value has been assigned
+	 * by passing the $submitted override parameter.
 	 */
-	static public function from_array(array $submission, $name = null) {
-		return new Form($submission, $name);
+	static public function from_array(array $submission, $name = null, $submitted = null) {
+		return new Form($submission, $name, $submitted);
 	}
 
 	/**
@@ -102,6 +114,8 @@ class Form extends Form_Container {
 	/**
 	 * Instantiate a Form from both GET and POST data
 	 * @param string|null $context
+	 *
+	 * POST data has precedence over GET data
 	 */
 	static public function from_request($context = null) {
 		$submission = self::merge($_GET, $_POST);
