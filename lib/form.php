@@ -1,61 +1,54 @@
 <?php
 /**
+ * Library to deal with processing and building HTML forms.
  * @copyright Copyright (c) 2012, Idea 112 Ltd., All rights reserved.
  * @author Mihail Milushev <lanzz@idea112.com>
  * @package form
- *
- * Library to deal with processing and building HTML forms
  */
 
 /**
- * Pull in subclass definitions
+ * Pull in subclass definitions.
  */
 require_once(__DIR__.'/form/exception.php');
 require_once(__DIR__.'/form/container.php');
 require_once(__DIR__.'/form/element.php');
 
 /**
- * Form class
+ * Class representing the entire form.
  * @package form
  */
 class Form extends Form_Container {
 
 	/**
-	 * Flag indicating if form data has been received
+	 * Flag indicating if form data has been received.
 	 * @var bool
 	 */
 	protected $submitted = false;
 
 	/**
-	 * Store the merged submitted + default values
+	 * Store the merged submitted + default values.
 	 * @var array
 	 */
 	protected $merged = array();
 
 	/**
-	 * Construct a new Form
-	 * @param array $submission		Submitted values
-	 * @param string $name			Root name of the form data
-	 * @param bool|null $submitted	Is the form to be considered "submitted"
-	 *
-	 * If $submitted is null, the form will be considered submitted only if $submission has
-	 * any values.
+	 * Construct a new Form.
+	 * @param array $submission		The submitted values
+	 * @param string $name			Form name (prefix for element names)
 	 */
-	protected function __construct(array $submission, $name, $submitted = null) {
+	protected function __construct(array $submission, $name) {
 		$this->form = $this;
 		$this->name = strlen($name)? $name: '';
 		$this->set_value($submission);
 		$this->merged = $this->value;
-		$this->submitted = is_null($submitted)? (bool)count($this->value): $submitted;
+		$this->submitted = (bool)count($this->value);
 	}
 
 	/**
-	 * Resolve data context within an array of submitted data
-	 * @param array $vars
-	 * @param string $context
-	 *
-	 * $form->resolve_context(array('foo' => array('bar' => 'baz')), 'foo[bar]')
-	 * 	=> 'baz'
+	 * Resolve data context within an array of submitted data.
+	 * @param array $vars			Array of variables
+	 * @param string $context		PHP-style lookup key (e.g. "foo[bar][baz]"")
+	 * @return mixed				The resolved context
 	 */
 	static protected function resolve_context(array $submission, $context) {
 		if (!strlen($context)) {
@@ -80,61 +73,76 @@ class Form extends Form_Container {
 	}
 
 	/**
-	 * Instantiate a Form from custom submitted data
-	 * @param array $vars
-	 * @param string|null $root
-	 * @param bool|null $submitted	Is the form to be considered "submitted"
-	 *
-	 * Since a form instantiated from an array is not necessarily in "submitted" state,
-	 * you can override the default behavior of checking if any value has been assigned
-	 * by passing the $submitted override parameter.
+	 * Instantiate a Form from custom submitted data.
+	 * @param array $submission		The submitted values
+	 * @param string|null $name		Form name (prefix for element names)
+	 * @return self					A new Form instance
 	 */
-	static public function from_array(array $submission, $name = null, $submitted = null) {
-		return new Form($submission, $name, $submitted);
+	static public function from_array(array $submission, $name = null) {
+		return new Form($submission, $name);
 	}
 
 	/**
-	 * Instantiate a Form from GET data
-	 * @param string|null $context
+	 * Instantiate a Form from GET data.
+	 * @param string|null $context	PHP-style lookup key (e.g. "foo[bar][baz]")
+	 * @return self					A new Form instance
+	 *
+	 * The $context parameter has two purposes:
+	 * 1. Determines the sub-element of the $_GET array to use as submitted values;
+	 * 2. Sets the Form name, which is used as prefix for the element names.
 	 */
 	static public function from_get($context = null) {
-		$submission = self::resolve_context($_GET, $context);
-		return self::from_array($submission, $context);
+		$submission = Form::resolve_context($_GET, $context);
+		return Form::from_array($submission, $context);
 	}
 
 	/**
-	 * Instantiate a Form from POST data
-	 * @param string|null $context
+	 * Instantiate a Form from POST data.
+	 * @param string|null $context	PHP-style lookup key (e.g. "foo[bar][baz]")
+	 * @return self					A new Form instance
+	 *
+	 * The $context parameter has two purposes:
+	 * 1. Determines the sub-element of the $_POST array to use as submitted values;
+	 * 2. Sets the Form name, which is used as prefix for the element names.
 	 */
 	static public function from_post($context = null) {
-		$submission = self::resolve_context($_POST, $context);
-		return self::from_array($submission, $context);
+		$submission = Form::resolve_context($_POST, $context);
+		return Form::from_array($submission, $context);
 	}
 
 	/**
-	 * Instantiate a Form from both GET and POST data
-	 * @param string|null $context
+	 * Instantiate a Form from both GET and POST data.
+	 * @param string|null $context	PHP-style lookup key (e.g. "foo[bar][baz]")
+	 * @return self					A new Form instance
 	 *
-	 * POST data has precedence over GET data
+	 * The $context parameter has two purposes:
+	 * 1. Determines the sub-elements of the $_GET and $_POST arrays to use as submitted values;
+	 * 2. Sets the Form name, which is used as prefix for the element names.
+	 *
+	 * POST values take precedence over GET values.
 	 */
 	static public function from_request($context = null) {
-		$submission = self::merge($_GET, $_POST);
-		$submission = self::resolve_context($submission, $context);
-		return self::from_array($submission, $context);
+		$submission = Form::merge($_GET, $_POST);
+		$submission = Form::resolve_context($submission, $context);
+		return Form::from_array($submission, $context);
 	}
 
 	/**
-	 * Return true if form has been submitted
-	 * @return bool
+	 * Test if the form has been submitted.
+	 * @return bool					True if form has been submitted, false otherwise
 	 */
 	public function is_submitted() {
 		return $this->submitted;
 	}
 
 	/**
-	 * Set default values for the form
-	 * @param array $defaults
-	 * @return Form $this
+	 * Set default values for form elements that has not been submitted.
+	 * @param array $defaults		The default values
+	 * @return self					The form instance, for call chaining
+	 *
+	 * The defaults are used for elements that weren't submitted with the form
+	 * (e.g. checkboxes that weren't checked) and for default values before the form
+	 * is initially submitted.
 	 */
 	public function set_defaults(array $defaults) {
 		$this->set_default($defaults);
@@ -143,16 +151,16 @@ class Form extends Form_Container {
 	}
 
 	/**
-	 * Get all form values as an array
-	 * @return array
+	 * Get all form values as an array.
+	 * @return array				The merged set of submitted and default values
 	 */
 	public function get_values() {
 		return $this->merged;
 	}
 
 	/**
-	 * Render the entire form as hidden fields
-	 * @return string
+	 * Return `<input type="hidden">` HTML tags for all form elements.
+	 * @return string				The generated HTML
 	 */
 	public function hidden() {
 		$fields = array();
@@ -163,11 +171,15 @@ class Form extends Form_Container {
 	}
 
 	/**
-	 * Render the entire form as a query string
-	 * @return string
+	 * Return a query string containing all form elements' values.
+	 * @return string				The generated query string
 	 */
 	public function query() {
-		return http_build_query(strlen($this->name)? array($this->name => $this->merged): $this->merged);
+		$values = $this->merged;
+		if (strlen($this->name)) {
+			$values = array($this->name => $values);
+		}
+		return http_build_query($values);
 	}
 
 }

@@ -70,7 +70,9 @@ function render_errors(array $errors) {
 		}
 		div.input.error {
 			background: #FDD;
-			margin-bottom: 0.25em;
+			margin: 0 -5px 0.25em -5px;
+			padding: 0 5px;
+			border-radius: 5px;
 		}
 		div.input ul.errors {
 			margin: 0;
