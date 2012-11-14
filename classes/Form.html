@@ -1,0 +1,856 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \Form</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/form.html"><i class="icon-folder-open"></i> form</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">0</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list"><li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public inherited"><a href="#method___get" title="__get :: Return a child element instance."><span class="description">Return a child element instance.</span><pre>__get()</pre></a></li>
+<li class="method public inherited"><a href="#method___isset" title="__isset :: Test if a child value exists."><span class="description">Test if a child value exists.</span><pre>__isset()</pre></a></li>
+<li class="method public inherited"><a href="#method___set" title="__set :: Set a new value for a child element."><span class="description">Set a new value for a child element.</span><pre>__set()</pre></a></li>
+<li class="method public inherited"><a href="#method___unset" title="__unset :: Delete a child value."><span class="description">Delete a child value.</span><pre>__unset()</pre></a></li>
+<li class="method public inherited"><a href="#method_add_error" title="add_error :: Add an error for the container."><span class="description">Add an error for the container.</span><pre>add_error()</pre></a></li>
+<li class="method public inherited"><a href="#method_children" title="children :: Return the names of all child elements."><span class="description">Return the names of all child elements.</span><pre>children()</pre></a></li>
+<li class="method public inherited"><a href="#method_clear_all_errors" title="clear_all_errors :: Clear errors for the container and all its child elements."><span class="description">Clear errors for the container and all its child elements.</span><pre>clear_all_errors()</pre></a></li>
+<li class="method public inherited"><a href="#method_clear_errors" title="clear_errors :: Clear errors for the container."><span class="description">Clear errors for the container.</span><pre>clear_errors()</pre></a></li>
+<li class="method public inherited"><a href="#method_contains_errors" title="contains_errors :: Check if an error condition is raised for the container or any of its children."><span class="description">Check if an error condition is raised for the container or any of its children.</span><pre>contains_errors()</pre></a></li>
+<li class="method public inherited"><a href="#method_count" title="count :: Implement `Countable::count`."><span class="description">Implement `Countable::count`.</span><pre>count()</pre></a></li>
+<li class="method public inherited"><a href="#method_current" title="current :: Implement `Iterator::current`."><span class="description">Implement `Iterator::current`.</span><pre>current()</pre></a></li>
+<li class="method public "><a href="#method_from_array" title="from_array :: Instantiate a Form from custom submitted data."><span class="description">Instantiate a Form from custom submitted data.</span><pre>from_array()</pre></a></li>
+<li class="method public "><a href="#method_from_get" title="from_get :: Instantiate a Form from GET data."><span class="description">Instantiate a Form from GET data.</span><pre>from_get()</pre></a></li>
+<li class="method public "><a href="#method_from_post" title="from_post :: Instantiate a Form from POST data."><span class="description">Instantiate a Form from POST data.</span><pre>from_post()</pre></a></li>
+<li class="method public "><a href="#method_from_request" title="from_request :: Instantiate a Form from both GET and POST data."><span class="description">Instantiate a Form from both GET and POST data.</span><pre>from_request()</pre></a></li>
+<li class="method public inherited"><a href="#method_get_error_codes" title="get_error_codes :: Get error codes raised for the element."><span class="description">Get error codes raised for the element.</span><pre>get_error_codes()</pre></a></li>
+<li class="method public inherited"><a href="#method_get_errors" title="get_errors :: Get error messages for the container."><span class="description">Get error messages for the container.</span><pre>get_errors()</pre></a></li>
+<li class="method public "><a href="#method_get_values" title="get_values :: Get the form elements' values."><span class="description">Get the form elements' values.</span><pre>get_values()</pre></a></li>
+<li class="method public inherited"><a href="#method_has_errors" title="has_errors :: Check if an error condition is raised for the container."><span class="description">Check if an error condition is raised for the container.</span><pre>has_errors()</pre></a></li>
+<li class="method public "><a href="#method_hidden" title='hidden :: Return `&lt;input type="hidden"&gt;` HTML tags for all form elements.'><span class="description">Return `&lt;input type="hidden"&gt;` HTML tags for all form elements.</span><pre>hidden()</pre></a></li>
+<li class="method public inherited"><a href="#method_if_errors" title="if_errors :: Return a string if an error condition is raised for the container."><span class="description">Return a string if an error condition is raised for the container.</span><pre>if_errors()</pre></a></li>
+<li class="method public inherited"><a href="#method_is_array" title="is_array :: Test if the element has an array value."><span class="description">Test if the element has an array value.</span><pre>is_array()</pre></a></li>
+<li class="method public inherited"><a href="#method_is_scalar" title="is_scalar :: Test if the element has a scalar value."><span class="description">Test if the element has a scalar value.</span><pre>is_scalar()</pre></a></li>
+<li class="method public "><a href="#method_is_submitted" title="is_submitted :: Test if the form has been submitted."><span class="description">Test if the form has been submitted.</span><pre>is_submitted()</pre></a></li>
+<li class="method public inherited"><a href="#method_key" title="key :: Implement `Iterator::key`."><span class="description">Implement `Iterator::key`.</span><pre>key()</pre></a></li>
+<li class="method public inherited"><a href="#method_next" title="next :: Implement `Iterator::next`."><span class="description">Implement `Iterator::next`.</span><pre>next()</pre></a></li>
+<li class="method public inherited"><a href="#method_offsetExists" title="offsetExists :: Implement `ArrayAccess::offsetExists`."><span class="description">Implement `ArrayAccess::offsetExists`.</span><pre>offsetExists()</pre></a></li>
+<li class="method public inherited"><a href="#method_offsetGet" title="offsetGet :: Implement `ArrayAccess::offsetGet`."><span class="description">Implement `ArrayAccess::offsetGet`.</span><pre>offsetGet()</pre></a></li>
+<li class="method public inherited"><a href="#method_offsetSet" title="offsetSet :: Implement `ArrayAccess::offsetSet`."><span class="description">Implement `ArrayAccess::offsetSet`.</span><pre>offsetSet()</pre></a></li>
+<li class="method public inherited"><a href="#method_offsetUnset" title="offsetUnset :: Implement `ArrayAccess::offsetUnset`."><span class="description">Implement `ArrayAccess::offsetUnset`.</span><pre>offsetUnset()</pre></a></li>
+<li class="method public "><a href="#method_query" title="query :: Return a query string containing all form elements' values."><span class="description">Return a query string containing all form elements' values.</span><pre>query()</pre></a></li>
+<li class="method public inherited"><a href="#method_rewind" title="rewind :: Implement `Iterator::rewind`."><span class="description">Implement `Iterator::rewind`.</span><pre>rewind()</pre></a></li>
+<li class="method public "><a href="#method_set_defaults" title="set_defaults :: Set default values for form elements that has not been submitted."><span class="description">Set default values for form elements that has not been submitted.</span><pre>set_defaults()</pre></a></li>
+<li class="method public inherited"><a href="#method_set_error" title="set_error :: Set an error for the container, clearing previous errors."><span class="description">Set an error for the container, clearing previous errors.</span><pre>set_error()</pre></a></li>
+<li class="method public inherited"><a href="#method_valid" title="valid :: Implement `Iterator::valid`."><span class="description">Implement `Iterator::valid`.</span><pre>valid()</pre></a></li>
+</ul>
+</li></ul>
+</div>
+<div class="span8">
+<a id="\Form"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Form.html">Form</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">Class representing the entire form.</p>
+<div class="details">
+<div class="long_description"><p>A container might be an entire form (the Form class is an instance of Form_Container),
+or it could be a form element containing child elements.</p></div>
+<table class="table table-bordered"><tr>
+<th>package</th>
+<td><a href="../packages/form.html">form</a></td>
+</tr></table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___get"></a><div class="element clickable method public method___get" data-toggle="collapse" data-target=".method___get .collapse">
+<h2>Return a child element instance.</h2>
+<pre>__get(string $name) : <a href="../classes/Form_Element.html">\Form_Element</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Form_Container::__get()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>Name of the child element</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Form_Element.html">\Form_Element</a></code>New Form_Element instance</div>
+</div></div>
+</div>
+<a id="method___isset"></a><div class="element clickable method public method___isset" data-toggle="collapse" data-target=".method___isset .collapse">
+<h2>Test if a child value exists.</h2>
+<pre>__isset(string $name) : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Form_Container::__isset()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>Name of the child element</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a id="method___set"></a><div class="element clickable method public method___set" data-toggle="collapse" data-target=".method___set .collapse">
+<h2>Set a new value for a child element.</h2>
+<pre>__set(string $name, mixed $value) : void</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Form_Container::__set()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>Name of the child element</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>New value for the element</p></div>
+</div></div>
+</div>
+<a id="method___unset"></a><div class="element clickable method public method___unset" data-toggle="collapse" data-target=".method___unset .collapse">
+<h2>Delete a child value.</h2>
+<pre>__unset(string $name) : void</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Form_Container::__unset()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>Name of the child element</p></div>
+</div></div>
+</div>
+<a id="method_add_error"></a><div class="element clickable method public method_add_error" data-toggle="collapse" data-target=".method_add_error .collapse">
+<h2>Add an error for the container.</h2>
+<pre>add_error(string | null $error, string | null $code) : <a href="../classes/Form.html">\Form</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>The default error code is <code>:default</code> — if $code is omitted,
+the message will be added with a <code>:default</code> error code.</p>
+
+<p>If the <code>$error</code> parameter is <code>null</code>, only an error condition
+is raised for the specified error code, but no message is added.</p></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Form_Container::add_error()</td>
+</tr>
+<tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$error</h4>
+<code>string</code><code>null</code><p>Error message</p></div>
+<div class="subelement argument">
+<h4>$code</h4>
+<code>string</code><code>null</code><p>Error code</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Form.html">\Form</a></code>The Form_Container instance, for call chaining</div>
+</div></div>
+</div>
+<a id="method_children"></a><div class="element clickable method public method_children" data-toggle="collapse" data-target=".method_children .collapse">
+<h2>Return the names of all child elements.</h2>
+<pre>children() : string[]</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Form_Container::children()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string[]</code>Keys of all child values</div>
+</div></div>
+</div>
+<a id="method_clear_all_errors"></a><div class="element clickable method public method_clear_all_errors" data-toggle="collapse" data-target=".method_clear_all_errors .collapse">
+<h2>Clear errors for the container and all its child elements.</h2>
+<pre>clear_all_errors(string | null $code) : <a href="../classes/Form.html">\Form</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Form_Container::clear_all_errors()</td>
+</tr>
+<tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$code</h4>
+<code>string</code><code>null</code><p>Error code to clear, or all errors if null</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Form.html">\Form</a></code>The Form_Container instance, for call chaining</div>
+</div></div>
+</div>
+<a id="method_clear_errors"></a><div class="element clickable method public method_clear_errors" data-toggle="collapse" data-target=".method_clear_errors .collapse">
+<h2>Clear errors for the container.</h2>
+<pre>clear_errors(string | null $code) : <a href="../classes/Form.html">\Form</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Form_Container::clear_errors()</td>
+</tr>
+<tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$code</h4>
+<code>string</code><code>null</code><p>Error code to clear, or all errors if null</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Form.html">\Form</a></code>The Form_Container instance, for call chaining</div>
+</div></div>
+</div>
+<a id="method_contains_errors"></a><div class="element clickable method public method_contains_errors" data-toggle="collapse" data-target=".method_contains_errors .collapse">
+<h2>Check if an error condition is raised for the container or any of its children.</h2>
+<pre>contains_errors(string | null $code) : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>If $code is omitted, <code>contains_errors</code> will return <code>true</code> if <em>any</em>
+error code has been raised for the container. If you want to check
+specifically for an error condition on the <code>:default</code> error code,
+you need to call <code>contains_errors(':default')</code> explicitly.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Form_Container::contains_errors()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$code</h4>
+<code>string</code><code>null</code><p>Error code</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>True if there are errors raised</div>
+</div></div>
+</div>
+<a id="method_count"></a><div class="element clickable method public method_count" data-toggle="collapse" data-target=".method_count .collapse">
+<h2>Implement `Countable::count`.</h2>
+<pre>count() : int</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>see</th>
+<td><a href="">\global\http://php.net/manual/en/class.countable.php</a></td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Form_Container::count()</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>int</code>Number of child values (both submitted and default)</div>
+</div></div>
+</div>
+<a id="method_current"></a><div class="element clickable method public method_current" data-toggle="collapse" data-target=".method_current .collapse">
+<h2>Implement `Iterator::current`.</h2>
+<pre>current() : <a href="../classes/Form_Element.html">\Form_Element</a> | null</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>see</th>
+<td><a href="">\global\http://php.net/manual/en/class.iterator.php</a></td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="">\global\Form_Container::__get()</a></td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Form_Container::current()</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Form_Element.html">\Form_Element</a></code><code>null</code>The current element</div>
+</div></div>
+</div>
+<a id="method_from_array"></a><div class="element clickable method public method_from_array" data-toggle="collapse" data-target=".method_from_array .collapse">
+<h2>Instantiate a Form from custom submitted data.</h2>
+<pre>from_array(array $submission, string | null $name) : <a href="../classes/Form.html">\Form</a></pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$submission</h4>
+<code>array</code><p>The submitted values</p></div>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><code>null</code><p>Form name (prefix for element names)</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Form.html">\Form</a></code>A new Form instance</div>
+</div></div>
+</div>
+<a id="method_from_get"></a><div class="element clickable method public method_from_get" data-toggle="collapse" data-target=".method_from_get .collapse">
+<h2>Instantiate a Form from GET data.</h2>
+<pre>from_get(string | null $context) : <a href="../classes/Form.html">\Form</a></pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>The $context parameter has two purposes:
+1. Determines the sub-element of the $_GET array to use as submitted values;
+2. Sets the Form name, which is used as prefix for the element names.</p></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$context</h4>
+<code>string</code><code>null</code><p>PHP-style lookup key (e.g. "foo[bar][baz]")</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Form.html">\Form</a></code>A new Form instance</div>
+</div></div>
+</div>
+<a id="method_from_post"></a><div class="element clickable method public method_from_post" data-toggle="collapse" data-target=".method_from_post .collapse">
+<h2>Instantiate a Form from POST data.</h2>
+<pre>from_post(string | null $context) : <a href="../classes/Form.html">\Form</a></pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>The $context parameter has two purposes:
+1. Determines the sub-element of the $_POST array to use as submitted values;
+2. Sets the Form name, which is used as prefix for the element names.</p></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$context</h4>
+<code>string</code><code>null</code><p>PHP-style lookup key (e.g. "foo[bar][baz]")</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Form.html">\Form</a></code>A new Form instance</div>
+</div></div>
+</div>
+<a id="method_from_request"></a><div class="element clickable method public method_from_request" data-toggle="collapse" data-target=".method_from_request .collapse">
+<h2>Instantiate a Form from both GET and POST data.</h2>
+<pre>from_request(string | null $context) : <a href="../classes/Form.html">\Form</a></pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>The $context parameter has two purposes:
+1. Determines the sub-elements of the $_GET and $_POST arrays to use as submitted values;
+2. Sets the Form name, which is used as prefix for the element names.</p>
+
+<p>POST values take precedence over GET values.</p></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$context</h4>
+<code>string</code><code>null</code><p>PHP-style lookup key (e.g. "foo[bar][baz]")</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Form.html">\Form</a></code>A new Form instance</div>
+</div></div>
+</div>
+<a id="method_get_error_codes"></a><div class="element clickable method public method_get_error_codes" data-toggle="collapse" data-target=".method_get_error_codes .collapse">
+<h2>Get error codes raised for the element.</h2>
+<pre>get_error_codes() : string[]</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Form_Container::get_error_codes()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string[]</code>A list of error codes</div>
+</div></div>
+</div>
+<a id="method_get_errors"></a><div class="element clickable method public method_get_errors" data-toggle="collapse" data-target=".method_get_errors .collapse">
+<h2>Get error messages for the container.</h2>
+<pre>get_errors(string | null $code) : string[]</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>If $code is omitted, <code>get_errors</code> will return <em>all</em> error messages
+for <em>all</em> error codes raised for the container. If you want to get
+error messages specifically for the <code>:default</code> error code, you need
+to call <code>get_errors(':default')</code> explicitly.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Form_Container::get_errors()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$code</h4>
+<code>string</code><code>null</code><p>Error code</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string[]</code>A list of error messages</div>
+</div></div>
+</div>
+<a id="method_get_values"></a><div class="element clickable method public method_get_values" data-toggle="collapse" data-target=".method_get_values .collapse">
+<h2>Get the form elements' values.</h2>
+<pre>get_values() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>The elements' values</div>
+</div></div>
+</div>
+<a id="method_has_errors"></a><div class="element clickable method public method_has_errors" data-toggle="collapse" data-target=".method_has_errors .collapse">
+<h2>Check if an error condition is raised for the container.</h2>
+<pre>has_errors(string | null $code) : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>If $code is omitted, <code>has_errors</code> will return <code>true</code> if <em>any</em>
+error code has been raised for the container. If you want to check
+specifically for an error condition on the <code>:default</code> error code,
+you need to call <code>has_errors(':default')</code> explicitly.</p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Form_Container::has_errors()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$code</h4>
+<code>string</code><code>null</code><p>Error code</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>True if there are errors raised</div>
+</div></div>
+</div>
+<a id="method_hidden"></a><div class="element clickable method public method_hidden" data-toggle="collapse" data-target=".method_hidden .collapse">
+<h2>Return `&lt;input type="hidden"&gt;` HTML tags for all form elements.</h2>
+<pre>hidden() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The generated HTML</div>
+</div></div>
+</div>
+<a id="method_if_errors"></a><div class="element clickable method public method_if_errors" data-toggle="collapse" data-target=".method_if_errors .collapse">
+<h2>Return a string if an error condition is raised for the container.</h2>
+<pre>if_errors(string $string, string $code) : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>Intended usage: <code>&lt;input &lt;?php echo $form-&gt;field-&gt;if_errors('class="error"') ?&gt; ...&gt;</code></p></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Form_Container::if_errors()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$string</h4>
+<code>string</code><p>String to return if condition is raised</p></div>
+<div class="subelement argument">
+<h4>$code</h4>
+<code>string</code><p>Error code</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>$string or an empty string</div>
+</div></div>
+</div>
+<a id="method_is_array"></a><div class="element clickable method public method_is_array" data-toggle="collapse" data-target=".method_is_array .collapse">
+<h2>Test if the element has an array value.</h2>
+<pre>is_array() : boolean | null</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Form_Container::is_array()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code><code>null</code>`true` if the element has an array value, `null` if the element is still undefined</div>
+</div></div>
+</div>
+<a id="method_is_scalar"></a><div class="element clickable method public method_is_scalar" data-toggle="collapse" data-target=".method_is_scalar .collapse">
+<h2>Test if the element has a scalar value.</h2>
+<pre>is_scalar() : boolean | null</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Form_Container::is_scalar()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>boolean</code><code>null</code>`true` if the element has a scalar value, `null` if the element is still undefined</div>
+</div></div>
+</div>
+<a id="method_is_submitted"></a><div class="element clickable method public method_is_submitted" data-toggle="collapse" data-target=".method_is_submitted .collapse">
+<h2>Test if the form has been submitted.</h2>
+<pre>is_submitted() : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>True if form has been submitted, false otherwise</div>
+</div></div>
+</div>
+<a id="method_key"></a><div class="element clickable method public method_key" data-toggle="collapse" data-target=".method_key .collapse">
+<h2>Implement `Iterator::key`.</h2>
+<pre>key() : string | null</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>see</th>
+<td><a href="">\global\http://php.net/manual/en/class.iterator.php</a></td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Form_Container::key()</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code><code>null</code>The current key</div>
+</div></div>
+</div>
+<a id="method_next"></a><div class="element clickable method public method_next" data-toggle="collapse" data-target=".method_next .collapse">
+<h2>Implement `Iterator::next`.</h2>
+<pre>next() : void</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>see</th>
+<td><a href="">\global\http://php.net/manual/en/class.iterator.php</a></td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Form_Container::next()</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="method_offsetExists"></a><div class="element clickable method public method_offsetExists" data-toggle="collapse" data-target=".method_offsetExists .collapse">
+<h2>Implement `ArrayAccess::offsetExists`.</h2>
+<pre>offsetExists(mixed $name) : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>see</th>
+<td><a href="">\global\http://php.net/manual/en/class.arrayaccess.php</a></td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="">\global\Form_Container::__isset</a></td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Form_Container::offsetExists()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>mixed</code><p>Name of the child element</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>True if value exists for the child element</div>
+</div></div>
+</div>
+<a id="method_offsetGet"></a><div class="element clickable method public method_offsetGet" data-toggle="collapse" data-target=".method_offsetGet .collapse">
+<h2>Implement `ArrayAccess::offsetGet`.</h2>
+<pre>offsetGet(mixed $name) : <a href="../classes/Form_Element.html">\Form_Element</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>see</th>
+<td><a href="">\global\http://php.net/manual/en/class.arrayaccess.php</a></td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="">\global\Form_Container::__get</a></td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Form_Container::offsetGet()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>mixed</code><p>Name of the child element</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Form_Element.html">\Form_Element</a></code>Child element instance</div>
+</div></div>
+</div>
+<a id="method_offsetSet"></a><div class="element clickable method public method_offsetSet" data-toggle="collapse" data-target=".method_offsetSet .collapse">
+<h2>Implement `ArrayAccess::offsetSet`.</h2>
+<pre>offsetSet(mixed $name, mixed $value) : void</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>see</th>
+<td><a href="">\global\http://php.net/manual/en/class.arrayaccess.php</a></td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="">\global\Form_Container::__set</a></td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Form_Container::offsetSet()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>mixed</code><p>Name of the child element</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>mixed</code><p>New value for the child element</p></div>
+</div></div>
+</div>
+<a id="method_offsetUnset"></a><div class="element clickable method public method_offsetUnset" data-toggle="collapse" data-target=".method_offsetUnset .collapse">
+<h2>Implement `ArrayAccess::offsetUnset`.</h2>
+<pre>offsetUnset(mixed $name) : void</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>see</th>
+<td><a href="">\global\http://php.net/manual/en/class.arrayaccess.php</a></td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="">\global\Form_Container::__unset</a></td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Form_Container::offsetUnset()</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>mixed</code><p>Name of the child element</p></div>
+</div></div>
+</div>
+<a id="method_query"></a><div class="element clickable method public method_query" data-toggle="collapse" data-target=".method_query .collapse">
+<h2>Return a query string containing all form elements' values.</h2>
+<pre>query() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The generated query string</div>
+</div></div>
+</div>
+<a id="method_rewind"></a><div class="element clickable method public method_rewind" data-toggle="collapse" data-target=".method_rewind .collapse">
+<h2>Implement `Iterator::rewind`.</h2>
+<pre>rewind() : void</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>see</th>
+<td><a href="">\global\http://php.net/manual/en/class.iterator.php</a></td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Form_Container::rewind()</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="method_set_defaults"></a><div class="element clickable method public method_set_defaults" data-toggle="collapse" data-target=".method_set_defaults .collapse">
+<h2>Set default values for form elements that has not been submitted.</h2>
+<pre>set_defaults(array $defaults) : <a href="../classes/Form.html">\Form</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>The defaults are used for elements that weren't submitted with the form
+(e.g. checkboxes that weren't checked) and for default values before the form
+is initially submitted.</p></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$defaults</h4>
+<code>array</code><p>The default values</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Form.html">\Form</a></code>The form instance, for call chaining</div>
+</div></div>
+</div>
+<a id="method_set_error"></a><div class="element clickable method public method_set_error" data-toggle="collapse" data-target=".method_set_error .collapse">
+<h2>Set an error for the container, clearing previous errors.</h2>
+<pre>set_error(string | null $error, string | null $code) : <a href="../classes/Form.html">\Form</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>All previous errors with the same <code>$code</code> will be cleared.
+The default error code is <code>:default</code> — if <code>$code</code> is omitted,
+only the messages for error code <code>:default</code> will be cleared
+and the new error will be added with a <code>:default</code> error code.</p>
+
+<p>If the <code>$error</code> parameter is <code>null</code>, only an error condition
+is raised for the specified error code, but no message is added.</p></div>
+<table class="table table-bordered">
+<tr>
+<th>inherited_from</th>
+<td>\Form_Container::set_error()</td>
+</tr>
+<tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$error</h4>
+<code>string</code><code>null</code><p>Error message</p></div>
+<div class="subelement argument">
+<h4>$code</h4>
+<code>string</code><code>null</code><p>Error code</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Form.html">\Form</a></code>The Form_Container instance, for call chaining</div>
+</div></div>
+</div>
+<a id="method_valid"></a><div class="element clickable method public method_valid" data-toggle="collapse" data-target=".method_valid .collapse">
+<h2>Implement `Iterator::valid`.</h2>
+<pre>valid() : bool</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>see</th>
+<td><a href="">\global\http://php.net/manual/en/class.iterator.php</a></td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\Form_Container::valid()</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code>True if the current element is valid</div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a11</a> and<br>
+            generated on 2012-11-14T14:52:03+02:00.<br></footer></div>
+</div>
+</body>
+</html>
