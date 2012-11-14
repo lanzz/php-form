@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project version="2.0.0a11" title="">
+<project version="2.0.0a11" title="PHP-Form">
   <file path="form/container.php" hash="baee8c27db746a807aa01119ebb4e169" package="form">
     <docblock line="2">
       <description>Library to deal with processing and building HTML forms.</description>
-      <long-description></long-description>
+      <long-description/>
       <tag line="2" name="copyright" description="Copyright (c) 2012, Idea 112 Ltd., All rights reserved."/>
       <tag line="2" name="author" description="Mihail Milushev &lt;lanzz@idea112.com&gt;"/>
       <tag line="2" name="package" description="form"/>
@@ -26,7 +26,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         <full_name>is_scalar</full_name>
         <docblock line="198">
           <description>Test if the element has a scalar value.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="198" name="return" description="`true` if the element has a scalar value, `null` if the element is still undefined" type="boolean|null">
             <type by_reference="false">boolean</type>
             <type by_reference="false">null</type>
@@ -38,7 +38,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         <full_name>is_array</full_name>
         <docblock line="207">
           <description>Test if the element has an array value.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="207" name="return" description="`true` if the element has an array value, `null` if the element is still undefined" type="boolean|null">
             <type by_reference="false">boolean</type>
             <type by_reference="false">null</type>
@@ -50,7 +50,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         <full_name>count</full_name>
         <docblock line="216">
           <description>Implement `Countable::count`.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="216" name="return" description="Number of child values (both submitted and default)" type="int">
             <type by_reference="false">int</type>
           </tag>
@@ -62,7 +62,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         <full_name>current</full_name>
         <docblock line="226">
           <description>Implement `Iterator::current`.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="226" name="return" description="The current element" type="\Form_Element|null">
             <type by_reference="false">\Form_Element</type>
             <type by_reference="false">null</type>
@@ -76,7 +76,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         <full_name>key</full_name>
         <docblock line="238">
           <description>Implement `Iterator::key`.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="238" name="return" description="The current key" type="string|null">
             <type by_reference="false">string</type>
             <type by_reference="false">null</type>
@@ -89,7 +89,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         <full_name>next</full_name>
         <docblock line="248">
           <description>Implement `Iterator::next`.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="248" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
@@ -101,7 +101,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         <full_name>rewind</full_name>
         <docblock line="260">
           <description>Implement `Iterator::rewind`.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="260" name="return" description="" type="void">
             <type by_reference="false">void</type>
           </tag>
@@ -113,7 +113,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         <full_name>valid</full_name>
         <docblock line="270">
           <description>Implement `Iterator::valid`.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="270" name="return" description="True if the current element is valid" type="bool">
             <type by_reference="false">bool</type>
           </tag>
@@ -125,7 +125,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         <full_name>offsetGet</full_name>
         <docblock line="280">
           <description>Implement `ArrayAccess::offsetGet`.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="280" name="param" description="Name of the child element" type="mixed" variable="$name">
             <type by_reference="false">mixed</type>
           </tag>
@@ -137,7 +137,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         </docblock>
         <argument line="288">
           <name>$name</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -146,7 +146,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         <full_name>offsetExists</full_name>
         <docblock line="292">
           <description>Implement `ArrayAccess::offsetExists`.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="292" name="param" description="Name of the child element" type="mixed" variable="$name">
             <type by_reference="false">mixed</type>
           </tag>
@@ -158,7 +158,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         </docblock>
         <argument line="300">
           <name>$name</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -167,7 +167,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         <full_name>offsetSet</full_name>
         <docblock line="304">
           <description>Implement `ArrayAccess::offsetSet`.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="304" name="param" description="Name of the child element" type="mixed" variable="$name">
             <type by_reference="false">mixed</type>
           </tag>
@@ -182,12 +182,12 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         </docblock>
         <argument line="313">
           <name>$name</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="313">
           <name>$value</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -196,7 +196,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         <full_name>offsetUnset</full_name>
         <docblock line="317">
           <description>Implement `ArrayAccess::offsetUnset`.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="317" name="param" description="Name of the child element" type="mixed" variable="$name">
             <type by_reference="false">mixed</type>
           </tag>
@@ -208,7 +208,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         </docblock>
         <argument line="325">
           <name>$name</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -217,7 +217,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         <full_name>children</full_name>
         <docblock line="348">
           <description>Return the names of all child elements.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="348" name="return" description="Keys of all child values" type="string[]">
             <type by_reference="false">string[]</type>
           </tag>
@@ -228,7 +228,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         <full_name>__get</full_name>
         <docblock line="357">
           <description>Return a child element instance.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="357" name="param" description="Name of the child element" type="string" variable="$name">
             <type by_reference="false">string</type>
           </tag>
@@ -238,7 +238,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         </docblock>
         <argument line="363">
           <name>$name</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -247,7 +247,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         <full_name>__isset</full_name>
         <docblock line="367">
           <description>Test if a child value exists.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="367" name="param" description="Name of the child element" type="string" variable="$name">
             <type by_reference="false">string</type>
           </tag>
@@ -257,7 +257,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         </docblock>
         <argument line="373">
           <name>$name</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -266,7 +266,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         <full_name>__set</full_name>
         <docblock line="377">
           <description>Set a new value for a child element.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="377" name="param" description="Name of the child element" type="string" variable="$name">
             <type by_reference="false">string</type>
           </tag>
@@ -279,12 +279,12 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         </docblock>
         <argument line="384">
           <name>$name</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="384">
           <name>$value</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -293,7 +293,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         <full_name>__unset</full_name>
         <docblock line="393">
           <description>Delete a child value.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="393" name="param" description="Name of the child element" type="string" variable="$name">
             <type by_reference="false">string</type>
           </tag>
@@ -303,7 +303,7 @@ or it could be a form element containing child elements.&lt;/p&gt;</long-descrip
         </docblock>
         <argument line="399">
           <name>$name</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -449,7 +449,7 @@ to call &lt;code&gt;get_errors(':default')&lt;/code&gt; explicitly.&lt;/p&gt;</l
         <full_name>get_error_codes</full_name>
         <docblock line="516">
           <description>Get error codes raised for the element.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="516" name="return" description="A list of error codes" type="string[]">
             <type by_reference="false">string[]</type>
           </tag>
@@ -473,7 +473,7 @@ to call &lt;code&gt;get_errors(':default')&lt;/code&gt; explicitly.&lt;/p&gt;</l
         </docblock>
         <argument line="534">
           <name>$string</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="534">
@@ -487,7 +487,7 @@ to call &lt;code&gt;get_errors(':default')&lt;/code&gt; explicitly.&lt;/p&gt;</l
         <full_name>clear_errors</full_name>
         <docblock line="538">
           <description>Clear errors for the container.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="538" name="param" description="Error code to clear, or all errors if null" type="string|null" variable="$code">
             <type by_reference="false">string</type>
             <type by_reference="false">null</type>
@@ -507,7 +507,7 @@ to call &lt;code&gt;get_errors(':default')&lt;/code&gt; explicitly.&lt;/p&gt;</l
         <full_name>clear_all_errors</full_name>
         <docblock line="553">
           <description>Clear errors for the container and all its child elements.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="553" name="param" description="Error code to clear, or all errors if null" type="string|null" variable="$code">
             <type by_reference="false">string</type>
             <type by_reference="false">null</type>
@@ -528,7 +528,7 @@ to call &lt;code&gt;get_errors(':default')&lt;/code&gt; explicitly.&lt;/p&gt;</l
   <file path="form/element.php" hash="dca08581cf440a3a84a22b721f458650" package="form">
     <docblock line="2">
       <description>Library to deal with processing and building HTML forms.</description>
-      <long-description></long-description>
+      <long-description/>
       <tag line="2" name="copyright" description="Copyright (c) 2012, Idea 112 Ltd., All rights reserved."/>
       <tag line="2" name="author" description="Mihail Milushev &lt;lanzz@idea112.com&gt;"/>
       <tag line="2" name="package" description="form"/>
@@ -539,7 +539,7 @@ to call &lt;code&gt;get_errors(':default')&lt;/code&gt; explicitly.&lt;/p&gt;</l
       <full_name>\Form_Element</full_name>
       <docblock line="10">
         <description>Class representing a form element.</description>
-        <long-description></long-description>
+        <long-description/>
         <tag line="10" name="package" description="form"/>
       </docblock>
       <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="23" package="form">
@@ -547,7 +547,7 @@ to call &lt;code&gt;get_errors(':default')&lt;/code&gt; explicitly.&lt;/p&gt;</l
         <full_name>__construct</full_name>
         <docblock line="17">
           <description>Construct a form element.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="17" name="param" description="Form instance the element belongs to" type="\Form" variable="$form">
             <type by_reference="false">\Form</type>
           </tag>
@@ -557,12 +557,12 @@ to call &lt;code&gt;get_errors(':default')&lt;/code&gt; explicitly.&lt;/p&gt;</l
         </docblock>
         <argument line="23">
           <name>$form</name>
-          <default></default>
+          <default/>
           <type>\Form</type>
         </argument>
         <argument line="23">
           <name>$name</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -571,7 +571,7 @@ to call &lt;code&gt;get_errors(':default')&lt;/code&gt; explicitly.&lt;/p&gt;</l
         <full_name>get_name</full_name>
         <docblock line="28">
           <description>Get the element's name.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="28" name="return" description="Name of the element" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -582,7 +582,7 @@ to call &lt;code&gt;get_errors(':default')&lt;/code&gt; explicitly.&lt;/p&gt;</l
         <full_name>get_default</full_name>
         <docblock line="37">
           <description>Get the element's default value.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="37" name="return" description="The default value" type="mixed">
             <type by_reference="false">mixed</type>
           </tag>
@@ -593,7 +593,7 @@ to call &lt;code&gt;get_errors(':default')&lt;/code&gt; explicitly.&lt;/p&gt;</l
         <full_name>get_submitted</full_name>
         <docblock line="53">
           <description>Get the element's submitted value.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="53" name="return" description="The submitted value" type="mixed">
             <type by_reference="false">mixed</type>
           </tag>
@@ -604,7 +604,7 @@ to call &lt;code&gt;get_errors(':default')&lt;/code&gt; explicitly.&lt;/p&gt;</l
         <full_name>get_value</full_name>
         <docblock line="69">
           <description>Get the element's value (the submitted value or the default value if not submitted).</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="69" name="return" description="The element's value" type="mixed">
             <type by_reference="false">mixed</type>
           </tag>
@@ -615,7 +615,7 @@ to call &lt;code&gt;get_errors(':default')&lt;/code&gt; explicitly.&lt;/p&gt;</l
         <full_name>get_type</full_name>
         <docblock line="85">
           <description>Get the type of the element's value.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="85" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -626,7 +626,7 @@ to call &lt;code&gt;get_errors(':default')&lt;/code&gt; explicitly.&lt;/p&gt;</l
         <full_name>get_id</full_name>
         <docblock line="94">
           <description>Return the element's name mangled into an identifier.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="94" name="param" description="Prefix to prepend to the identifier" type="string|null" variable="$prefix">
             <type by_reference="false">string</type>
             <type by_reference="false">null</type>
@@ -678,7 +678,7 @@ to call &lt;code&gt;get_errors(':default')&lt;/code&gt; explicitly.&lt;/p&gt;</l
         <full_name>as_html</full_name>
         <docblock line="136">
           <description>Get the value of the element as a HTML-safe string.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="136" name="return" description="The value with HTML special chars escaped" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -689,7 +689,7 @@ to call &lt;code&gt;get_errors(':default')&lt;/code&gt; explicitly.&lt;/p&gt;</l
         <full_name>as_url</full_name>
         <docblock line="145">
           <description>Get the value of the element as a URL-safe string.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="145" name="return" description="The value with URL special chars escaped" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -822,7 +822,7 @@ using the $value parameter.&lt;/p&gt;</long-description>
         <full_name>checked</full_name>
         <docblock line="217">
           <description>Return a `checked` HTML attribute if the value matches.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="217" name="param" description="Value to compare agains the element's value" type="string" variable="$value">
             <type by_reference="false">string</type>
           </tag>
@@ -832,7 +832,7 @@ using the $value parameter.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="223">
           <name>$value</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -841,7 +841,7 @@ using the $value parameter.&lt;/p&gt;</long-description>
         <full_name>selected</full_name>
         <docblock line="233">
           <description>Return a `selected` HTML attribute if the value matches.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="233" name="param" description="Value to compare agains the element's value" type="string" variable="$value">
             <type by_reference="false">string</type>
           </tag>
@@ -851,7 +851,7 @@ using the $value parameter.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="239">
           <name>$value</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -860,7 +860,7 @@ using the $value parameter.&lt;/p&gt;</long-description>
         <full_name>hidden</full_name>
         <docblock line="249">
           <description>Return `&lt;input type="hidden"&gt;` HTML tags for the element and all its children.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="249" name="return" description="The rendered HTML tags" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -871,7 +871,7 @@ using the $value parameter.&lt;/p&gt;</long-description>
         <full_name>query</full_name>
         <docblock line="266">
           <description>Return a query string containing the value of the element and all its children.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="266" name="return" description="The rendered query string" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -900,7 +900,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="288">
           <name>$label</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="288">
@@ -914,7 +914,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
         <full_name>input</full_name>
         <docblock line="297">
           <description>Render an `&lt;input type="text"&gt;` HTML tag for the element.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="297" name="param" description="Custom attributes to add to the tag" type="string|null" variable="$attr">
             <type by_reference="false">string</type>
             <type by_reference="false">null</type>
@@ -934,7 +934,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
         <full_name>password</full_name>
         <docblock line="309">
           <description>Render an `&lt;input type="password"&gt;` HTML tag for the element.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="309" name="param" description="Custom attributes to add to the tag" type="string|null" variable="$attr">
             <type by_reference="false">string</type>
             <type by_reference="false">null</type>
@@ -954,7 +954,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
         <full_name>textarea</full_name>
         <docblock line="321">
           <description>Render a `&lt;textarea&gt;` HTML tag for the element.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="321" name="param" description="Custom attributes to add to the tag" type="string|null" variable="$attr">
             <type by_reference="false">string</type>
             <type by_reference="false">null</type>
@@ -974,7 +974,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
         <full_name>checkbox</full_name>
         <docblock line="335">
           <description>Render an `&lt;input type="checkbox"&gt;` HTML tag for the element.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="335" name="param" description="Value for the checkbox" type="string" variable="$value">
             <type by_reference="false">string</type>
           </tag>
@@ -988,7 +988,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="342">
           <name>$value</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="342">
@@ -1002,7 +1002,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
         <full_name>radio</full_name>
         <docblock line="349">
           <description>Render an `&lt;input type="radio"&gt;` HTML tag for the element.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="349" name="param" description="Value for the radio button" type="string" variable="$value">
             <type by_reference="false">string</type>
           </tag>
@@ -1016,7 +1016,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="356">
           <name>$value</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="356">
@@ -1030,7 +1030,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
         <full_name>option</full_name>
         <docblock line="363">
           <description>Render a single `&lt;option&gt;` HTML tag for the element.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="363" name="param" description="Value for the option" type="string" variable="$value">
             <type by_reference="false">string</type>
           </tag>
@@ -1047,12 +1047,12 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="371">
           <name>$value</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="371">
           <name>$label</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="371">
@@ -1066,7 +1066,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
         <full_name>select</full_name>
         <docblock line="381">
           <description>Render a `&lt;select&gt;` HTML tag containing a list of options.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="381" name="param" description="Values for the options" type="string[]" variable="$values">
             <type by_reference="false">string[]</type>
           </tag>
@@ -1080,7 +1080,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="388">
           <name>$values</name>
-          <default></default>
+          <default/>
           <type>array</type>
         </argument>
         <argument line="388">
@@ -1094,7 +1094,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
         <full_name>submit</full_name>
         <docblock line="400">
           <description>Render a `&lt;input type="submit"&gt;` HTML tag for the element.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="400" name="param" description="Label for the submit button" type="string" variable="$label">
             <type by_reference="false">string</type>
           </tag>
@@ -1108,7 +1108,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="407">
           <name>$label</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="407">
@@ -1123,7 +1123,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
   <file path="form/exceptions.php" hash="cad2d51693d2d948fc59eec0618b1e77" package="form\exceptions">
     <docblock line="2">
       <description>Library to deal with processing and building HTML forms.</description>
-      <long-description></long-description>
+      <long-description/>
       <tag line="2" name="copyright" description="Copyright (c) 2012, Idea 112 Ltd., All rights reserved."/>
       <tag line="2" name="author" description="Mihail Milushev &lt;lanzz@idea112.com&gt;"/>
       <tag line="2" name="package" description="form\exceptions"/>
@@ -1134,7 +1134,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
       <full_name>\Form_Exception</full_name>
       <docblock line="10">
         <description>Base form exception class.</description>
-        <long-description></long-description>
+        <long-description/>
         <tag line="10" name="package" description="form\exceptions"/>
       </docblock>
     </class>
@@ -1153,7 +1153,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
   <file path="form.php" hash="730c1bc066c975545d7e26eef2dd00a3" package="form">
     <docblock line="2">
       <description>Library to deal with processing and building HTML forms.</description>
-      <long-description></long-description>
+      <long-description/>
       <tag line="2" name="copyright" description="Copyright (c) 2012, Idea 112 Ltd., All rights reserved."/>
       <tag line="2" name="author" description="Mihail Milushev &lt;lanzz@idea112.com&gt;"/>
       <tag line="2" name="package" description="form"/>
@@ -1162,7 +1162,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
       <name/>
       <docblock line="10">
         <description>Pull in subclass definitions.</description>
-        <long-description></long-description>
+        <long-description/>
       </docblock>
     </include>
     <include line="14" type="Require Once" package="Default">
@@ -1177,7 +1177,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
       <full_name>\Form</full_name>
       <docblock line="17">
         <description>Class representing the entire form.</description>
-        <long-description></long-description>
+        <long-description/>
         <tag line="17" name="package" description="form"/>
       </docblock>
       <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="80" package="form">
@@ -1185,7 +1185,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
         <full_name>from_array</full_name>
         <docblock line="73">
           <description>Instantiate a Form from custom submitted data.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="73" name="param" description="The submitted values" type="array" variable="$submission">
             <type by_reference="false">array</type>
           </tag>
@@ -1199,7 +1199,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="80">
           <name>$submission</name>
-          <default></default>
+          <default/>
           <type>array</type>
         </argument>
         <argument line="80">
@@ -1281,7 +1281,7 @@ as a suffix to the element's ID.&lt;/p&gt;</long-description>
         <full_name>is_submitted</full_name>
         <docblock line="132">
           <description>Test if the form has been submitted.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="132" name="return" description="True if form has been submitted, false otherwise" type="bool">
             <type by_reference="false">bool</type>
           </tag>
@@ -1304,7 +1304,7 @@ is initially submitted.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="151">
           <name>$defaults</name>
-          <default></default>
+          <default/>
           <type>array</type>
         </argument>
       </method>
@@ -1313,7 +1313,7 @@ is initially submitted.&lt;/p&gt;</long-description>
         <full_name>get_values</full_name>
         <docblock line="156">
           <description>Get the form elements' values.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="156" name="return" description="The elements' values" type="array">
             <type by_reference="false">array</type>
           </tag>
@@ -1324,7 +1324,7 @@ is initially submitted.&lt;/p&gt;</long-description>
         <full_name>hidden</full_name>
         <docblock line="169">
           <description>Return `&lt;input type="hidden"&gt;` HTML tags for all form elements.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="169" name="return" description="The generated HTML" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -1335,7 +1335,7 @@ is initially submitted.&lt;/p&gt;</long-description>
         <full_name>query</full_name>
         <docblock line="182">
           <description>Return a query string containing all form elements' values.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="182" name="return" description="The generated query string" type="string">
             <type by_reference="false">string</type>
           </tag>
