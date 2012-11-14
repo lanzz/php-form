@@ -1,6 +1,7 @@
 <?php
 /**
  * Library to deal with processing and building HTML forms.
+ *
  * @copyright Copyright (c) 2012, Idea 112 Ltd., All rights reserved.
  * @author Mihail Milushev <lanzz@idea112.com>
  * @package form
@@ -9,30 +10,27 @@
 /**
  * Pull in subclass definitions.
  */
-require_once(__DIR__.'/form/exception.php');
+require_once(__DIR__.'/form/exceptions.php');
 require_once(__DIR__.'/form/container.php');
 require_once(__DIR__.'/form/element.php');
 
 /**
  * Class representing the entire form.
+ *
  * @package form
  */
 class Form extends Form_Container {
 
 	/**
 	 * Flag indicating if form data has been received.
+	 *
 	 * @var bool
 	 */
 	protected $submitted = false;
 
 	/**
-	 * Store the merged submitted + default values.
-	 * @var array
-	 */
-	protected $merged = array();
-
-	/**
 	 * Construct a new Form.
+	 *
 	 * @param array $submission		The submitted values
 	 * @param string $name			Form name (prefix for element names)
 	 */
@@ -40,19 +38,19 @@ class Form extends Form_Container {
 		$this->form = $this;
 		$this->name = strlen($name)? $name: '';
 		$this->set_value($submission);
-		$this->merged = $this->value;
-		$this->submitted = (bool)count($this->value);
+		$this->submitted = (bool)count($submission);
 	}
 
 	/**
 	 * Resolve data context within an array of submitted data.
+	 *
 	 * @param array $vars			Array of variables
 	 * @param string $context		PHP-style lookup key (e.g. "foo[bar][baz]"")
 	 * @return mixed				The resolved context
 	 */
-	static protected function resolve_context(array $submission, $context) {
+	static protected function resolve_context(array $vars, $context) {
 		if (!strlen($context)) {
-			return $submission;
+			return $vars;
 		}
 		parse_str($context.'=1', $path);
 		$keys = array();
@@ -62,18 +60,19 @@ class Form extends Form_Container {
 			$path = $path[$key];
 		}
 		foreach ($keys as $key) {
-			if (array_key_exists($key, $submission)) {
-				$submission = $submission[$key];
+			if (array_key_exists($key, $vars)) {
+				$vars = $vars[$key];
 			} else {
-				$submission = array();
+				$vars = array();
 				break;
 			}
 		}
-		return $submission;
+		return $vars;
 	}
 
 	/**
 	 * Instantiate a Form from custom submitted data.
+	 *
 	 * @param array $submission		The submitted values
 	 * @param string|null $name		Form name (prefix for element names)
 	 * @return self					A new Form instance
@@ -84,12 +83,13 @@ class Form extends Form_Container {
 
 	/**
 	 * Instantiate a Form from GET data.
-	 * @param string|null $context	PHP-style lookup key (e.g. "foo[bar][baz]")
-	 * @return self					A new Form instance
 	 *
 	 * The $context parameter has two purposes:
 	 * 1. Determines the sub-element of the $_GET array to use as submitted values;
 	 * 2. Sets the Form name, which is used as prefix for the element names.
+	 *
+	 * @param string|null $context	PHP-style lookup key (e.g. "foo[bar][baz]")
+	 * @return self					A new Form instance
 	 */
 	static public function from_get($context = null) {
 		$submission = Form::resolve_context($_GET, $context);
@@ -98,12 +98,13 @@ class Form extends Form_Container {
 
 	/**
 	 * Instantiate a Form from POST data.
-	 * @param string|null $context	PHP-style lookup key (e.g. "foo[bar][baz]")
-	 * @return self					A new Form instance
 	 *
 	 * The $context parameter has two purposes:
 	 * 1. Determines the sub-element of the $_POST array to use as submitted values;
 	 * 2. Sets the Form name, which is used as prefix for the element names.
+	 *
+	 * @param string|null $context	PHP-style lookup key (e.g. "foo[bar][baz]")
+	 * @return self					A new Form instance
 	 */
 	static public function from_post($context = null) {
 		$submission = Form::resolve_context($_POST, $context);
@@ -112,14 +113,15 @@ class Form extends Form_Container {
 
 	/**
 	 * Instantiate a Form from both GET and POST data.
-	 * @param string|null $context	PHP-style lookup key (e.g. "foo[bar][baz]")
-	 * @return self					A new Form instance
 	 *
 	 * The $context parameter has two purposes:
 	 * 1. Determines the sub-elements of the $_GET and $_POST arrays to use as submitted values;
 	 * 2. Sets the Form name, which is used as prefix for the element names.
 	 *
 	 * POST values take precedence over GET values.
+	 *
+	 * @param string|null $context	PHP-style lookup key (e.g. "foo[bar][baz]")
+	 * @return self					A new Form instance
 	 */
 	static public function from_request($context = null) {
 		$submission = Form::merge($_GET, $_POST);
@@ -129,6 +131,7 @@ class Form extends Form_Container {
 
 	/**
 	 * Test if the form has been submitted.
+	 *
 	 * @return bool					True if form has been submitted, false otherwise
 	 */
 	public function is_submitted() {
@@ -137,29 +140,35 @@ class Form extends Form_Container {
 
 	/**
 	 * Set default values for form elements that has not been submitted.
-	 * @param array $defaults		The default values
-	 * @return self					The form instance, for call chaining
 	 *
 	 * The defaults are used for elements that weren't submitted with the form
 	 * (e.g. checkboxes that weren't checked) and for default values before the form
 	 * is initially submitted.
+	 *
+	 * @param array $defaults		The default values
+	 * @return self					The form instance, for call chaining
 	 */
 	public function set_defaults(array $defaults) {
 		$this->set_default($defaults);
-		$this->merged = Form_Container::merge($this->default, $this->value);
 		return $this;
 	}
 
 	/**
-	 * Get all form values as an array.
-	 * @return array				The merged set of submitted and default values
+	 * Get the form elements' values.
+	 *
+	 * @return array				The elements' values
 	 */
 	public function get_values() {
-		return $this->merged;
+		$values = array();
+		foreach ($this->children as $name => $element) {
+			$values[$name] = $element->get_value();
+		}
+		return $values;
 	}
 
 	/**
 	 * Return `<input type="hidden">` HTML tags for all form elements.
+	 *
 	 * @return string				The generated HTML
 	 */
 	public function hidden() {
@@ -172,10 +181,14 @@ class Form extends Form_Container {
 
 	/**
 	 * Return a query string containing all form elements' values.
+	 *
 	 * @return string				The generated query string
 	 */
 	public function query() {
-		$values = $this->merged;
+		$values = array();
+		foreach ($this->children as $name => $element) {
+			$values[$name] = $element->get_value();
+		}
 		if (strlen($this->name)) {
 			$values = array($this->name => $values);
 		}

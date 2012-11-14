@@ -157,11 +157,11 @@ function render_errors(array $errors) {
 					<label>Age Group:</label>
 					<select <?php echo $form->demo->age->id_name() ?>>
 						<option value="">Please choose...</option>
-						<option value="0-17" <?php echo $form->demo->age->checked('0-17') ?>>Under 18</option>
-						<option value="18-21" <?php echo $form->demo->age->checked('18-21') ?>>18 to 21</option>
-						<option value="22-40" <?php echo $form->demo->age->checked('22-40') ?>>21 to 40</option>
-						<option value="40+" <?php echo $form->demo->age->checked('40+') ?>>Over 40</option>
-						<option value="-" <?php echo $form->demo->age->checked('-') ?>>Won't say</option>
+						<option value="0-17" <?php echo $form->demo->age->selected('0-17') ?>>Under 18</option>
+						<option value="18-21" <?php echo $form->demo->age->selected('18-21') ?>>18 to 21</option>
+						<option value="22-40" <?php echo $form->demo->age->selected('22-40') ?>>21 to 40</option>
+						<option value="40+" <?php echo $form->demo->age->selected('40+') ?>>Over 40</option>
+						<option value="-" <?php echo $form->demo->age->selected('-') ?>>Won't say</option>
 					</select>
 					<?php echo render_errors($form->demo->age->get_errors()) ?>
 				</div>

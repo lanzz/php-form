@@ -1,6 +1,7 @@
 <?php
 /**
  * Library to deal with processing and building HTML forms.
+ *
  * @copyright Copyright (c) 2012, Idea 112 Ltd., All rights reserved.
  * @author Mihail Milushev <lanzz@idea112.com>
  * @package form
@@ -8,37 +9,25 @@
 
 /**
  * Class representing a form element.
+ *
  * @package form
  */
 class Form_Element extends Form_Container {
 
 	/**
-	 * Parent form.
-	 * @var Form
-	 */
-	protected $form;
-
-	/**
 	 * Construct a form element.
+	 *
 	 * @param Form $form			Form instance the element belongs to
 	 * @param string $name			Name of the element
-	 * @param mixed $value			Submitted value for the element
-	 * @param mixed $default_value	Default value for the element
 	 */
-	public function __construct(Form $form, $name, $value, $default_value) {
+	public function __construct(Form $form, $name) {
 		$this->form = $form;
 		$this->name = $name;
-		$this->set_value($value);
-		$this->set_default($default_value);
-
-		// pre-instantiate all children
-		foreach ($this->keys as $name) {
-			$this->create_child($name);
-		}
 	}
 
 	/**
 	 * Get the element's name.
+	 *
 	 * @return string				Name of the element
 	 */
 	public function get_name() {
@@ -47,30 +36,55 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Get the element's default value.
+	 *
 	 * @return mixed				The default value
 	 */
 	public function get_default() {
+		if ($this->is_array()) {
+			$values = array();
+			foreach ($this->children as $name => $element) {
+				$values[$name] = $element->get_default();
+			}
+			return $values;
+		}
 		return $this->default;
 	}
 
 	/**
 	 * Get the element's submitted value.
+	 *
 	 * @return mixed				The submitted value
 	 */
 	public function get_submitted() {
+		if ($this->is_array()) {
+			$values = array();
+			foreach ($this->children as $name => $element) {
+				$values[$name] = $element->get_submitted();
+			}
+			return $values;
+		}
 		return $this->value;
 	}
 
 	/**
 	 * Get the element's value (the submitted value or the default value if not submitted).
+	 *
 	 * @return mixed				The element's value
 	 */
 	public function get_value() {
-		return is_null($this->value)? $this->default: $this->value;
+		if ($this->is_array()) {
+			$values = array();
+			foreach ($this->children as $name => $element) {
+				$values[$name] = $element->get_value();
+			}
+			return $values;
+		}
+		return isset($this->value)? $this->value: $this->default;
 	}
 
 	/**
 	 * Get the type of the element's value.
+	 *
 	 * @return string
 	 */
 	public function get_type() {
@@ -79,47 +93,67 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Return the element's name mangled into an identifier.
+	 *
 	 * @param string|null $prefix	Prefix to prepend to the identifier
 	 * @param string|null $suffix	Suffix to append to the identifier
 	 * @return string				The identifier for the element
 	 */
 	public function get_id($prefix = null, $suffix = null) {
-		$id = $prefix.$this->name.$suffix;
-		$id = preg_replace('/[^a-zA-Z0-9]+/', '-', $id);
-		return trim($id, '-');
+		$prefix = preg_replace('/[^a-zA-Z0-9-]+/', '-', $prefix);
+		$suffix = preg_replace('/[^a-zA-Z0-9-]+/', '-', $suffix);
+		$id = trim(preg_replace('/[^a-zA-Z0-9]+/', '-', $this->name), '-');
+		return $prefix.$id.$suffix;
 	}
 
 	/**
-	 * Get the value of the element as a string.
-	 * @return string				The value of the element
-	 * @throws Form_Exception		Thrown if the value is not scalar
+	 * Get the value of the element as a scalar.
+	 *
+	 * If the value is an array, `as_scalar` will return `null`.
+	 *
+	 * @return scalar|null			The value of the element
 	 */
-	public function as_string() {
-		$value = $this->get_value();
-		if (is_null($value) || is_scalar($value)) {
-			return (string)$value;
+	public function as_scalar() {
+		if ($this->is_array()) {
+			return null;
 		}
-		throw new Form_Exception('Non-scalar form element value encountered');
+		return $this->get_value();
+	}
+
+	/**
+	 * Get the value of the element as an array.
+	 *
+	 * If the value is a scalar, `as_array` will return it wrapped in an array.
+	 *
+	 * @return array				The value of the element
+	 */
+	public function as_array() {
+		if ($this->is_scalar()) {
+			return array($this->value);
+		}
+		return $this->get_value();
 	}
 
 	/**
 	 * Get the value of the element as a HTML-safe string.
+	 *
 	 * @return string				The value with HTML special chars escaped
 	 */
 	public function as_html() {
-		return htmlspecialchars($this->as_string());
+		return htmlspecialchars($this->as_scalar());
 	}
 
 	/**
 	 * Get the value of the element as a URL-safe string.
+	 *
 	 * @return string				The value with URL special chars escaped
 	 */
 	public function as_url() {
-		return rawurlencode($this->as_string());
+		return rawurlencode($this->as_scalar());
 	}
 
 	/**
 	 * Return an `id="..."` HTML attribute for the element.
+	 *
 	 * @param string|null $prefix	Prefix to prepend to the identifier
 	 * @param string|null $suffix	Suffix to append to the identifier
 	 * @return string				The rendered attribute
@@ -130,6 +164,7 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Return a `name="..."` HTML attribute for the element.
+	 *
 	 * @return string				The rendered attribute
 	 */
 	public function name() {
@@ -142,12 +177,13 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Return a `value="..."` HTML attribute.
-	 * @param string|null $value	Override the value to render
-	 * @return string				The rendered attribute
 	 *
 	 * Some elements need to render a value different from their
 	 * submitted value, so the actual value to render can be overridden
 	 * using the $value parameter.
+	 *
+	 * @param string|null $value	Override the value to render
+	 * @return string				The rendered attribute
 	 */
 	public function value($value = null) {
 		if (is_null($value)) {
@@ -158,6 +194,7 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Return an `id="..."` and a `name="..."` HTML attributes for the element.
+	 *
 	 * @param string|null $prefix	Prefix to prepend to the identifier
 	 * @param string|null $suffix	Suffix to append to the identifier
 	 * @return string				The rendered attributes
@@ -168,6 +205,7 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Return an `id="..."`, a `name="..."` and a `value="..."` HTML attributes.
+	 *
 	 * @param string|null $prefix	Prefix to prepend to the identifier
 	 * @param string|null $suffix	Suffix to append to the identifier
 	 * @return string				The rendered attributes
@@ -178,6 +216,7 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Return a `checked` HTML attribute if the value matches.
+	 *
 	 * @param string $value			Value to compare agains the element's value
 	 * @return string				` checked ` or an empty string
 	 */
@@ -193,6 +232,7 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Return a `selected` HTML attribute if the value matches.
+	 *
 	 * @param string $value			Value to compare agains the element's value
 	 * @return string				` selected ` or an empty string
 	 */
@@ -208,6 +248,7 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Return `<input type="hidden">` HTML tags for the element and all its children.
+	 *
 	 * @return string				The rendered HTML tags
 	 */
 	public function hidden() {
@@ -224,6 +265,7 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Return a query string containing the value of the element and all its children.
+	 *
 	 * @return string				The rendered query string
 	 */
 	public function query() {
@@ -232,15 +274,16 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Return a `<label>` HTML tag for the element.
-	 * @param string $label			Label text
-	 * @param string|null $value	Value of the element
-	 * @return string				The rendered HTML tag
 	 *
 	 * Since some elements have multiple tags with different values in an
 	 * HTML form (e.g., radio buttons with the same name but different
 	 * values), they need to have different IDs based on their values; if
 	 * you provide a `$value` parameter, it will be appended as `-$value`
 	 * as a suffix to the element's ID.
+	 *
+	 * @param string $label			Label text
+	 * @param string|null $value	Value of the element
+	 * @return string				The rendered HTML tag
 	 */
 	public function label($label, $value = null) {
 		$id = $this->get_id(null, isset($value)? '-'.$value: '');
@@ -253,6 +296,7 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Render an `<input type="text">` HTML tag for the element.
+	 *
 	 * @param string|null $attr		Custom attributes to add to the tag
 	 * @return string				The rendered HTML tag
 	 */
@@ -264,6 +308,7 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Render an `<input type="password">` HTML tag for the element.
+	 *
 	 * @param string|null $attr		Custom attributes to add to the tag
 	 * @return string				The rendered HTML tag
 	 */
@@ -275,6 +320,7 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Render a `<textarea>` HTML tag for the element.
+	 *
 	 * @param string|null $attr		Custom attributes to add to the tag
 	 * @return string				The rendered HTML tag
 	 */
@@ -288,6 +334,7 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Render an `<input type="checkbox">` HTML tag for the element.
+	 *
 	 * @param string $value			Value for the checkbox
 	 * @param string|null $attr		Custom attributes to add to the tag
 	 * @return string				The rendered HTML tag
@@ -301,6 +348,7 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Render an `<input type="radio">` HTML tag for the element.
+	 *
 	 * @param string $value			Value for the radio button
 	 * @param string|null $attr		Custom attributes to add to the tag
 	 * @return string				The rendered HTML tag
@@ -314,6 +362,7 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Render a single `<option>` HTML tag for the element.
+	 *
 	 * @param string $value			Value for the option
 	 * @param string $label			Label for the option
 	 * @param string|null $attr		Custom attributes to add to the tag
@@ -331,6 +380,7 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Render a `<select>` HTML tag containing a list of options.
+	 *
 	 * @param string[] $values		Values for the options
 	 * @param string|null $attr		Custom attributes to add to the tag
 	 * @return string				The rendered HTML
@@ -349,6 +399,7 @@ class Form_Element extends Form_Container {
 
 	/**
 	 * Render a `<input type="submit">` HTML tag for the element.
+	 *
 	 * @param string $label			Label for the submit button
 	 * @param string|null $attr		Custom attributes to add to the tag
 	 * @return string				The rendered HTML tag
